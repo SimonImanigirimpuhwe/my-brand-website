@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ca61573632.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/helper.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>simon's website</title>
+</head>
+
+<body>
+    <header class="sticky light-mode">
+        <div id="logo"><img src="./assets/images/logo.jpg" alt="logo"></div>
+        <nav class="navbar">
+            <ul>
+                <li id="current-nav"><a href="#">Home</a></li>
+                <li><a href="./about/index.html">About</a></li>
+                <li><a href="./blog/index.html">Blog</a></li>
+                <li><a href="./contact/index.html">Contact</a></li>
+                <li><a href="./signup/index.html">Signup</a></li>
+                <li><a href="./login/index.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="toggle-switch">
+        <button><i class="fas fa-moon"></i></button>
+    </div>
+    <main>
+        <div id="welcome-section">
+            <img src="./assets/images/simon-profile.jpg" alt="profile image">
+            <div id="text-wrapper">
+                <p>I am <span id="name-highlight">Imanigirimpuhwe</span> , a freelancing full-stack developer<br>who
+                    loves solving complex challenges through tech.
+                <p>I have been longing for something that can be done with more fun while solving problems and I here
+                    found software Engineering is the only way to go.</p>
+                <p>I am zest to give out help to my fellow newbie coders.</p>
+            </div>
+        </div>
+        <div id="featured-posts-wrapper">
+            <h3>Featured blog posts</h3>
+            <div id="featured-posts">
+                <div id="card">
+                    <h4>Lorem ipsum dolor sit amet.</h4>
+                    <span class="iconify post-image" data-inline="false"
+                        data-icon="vscode-icons:file-type-js-official"></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, animi.
+                    </p>
+                </div>
+                <div id="card">
+                    <h4>Lorem ipsum dolor sit amet.</h4>
+                    <span class="iconify post-image" data-inline="false"
+                        data-icon="emojione-monotone:desktop-computer"></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, animi.
+                    </p>
+                </div>
+            </div>
+            <button id="more-posts"><a href="./blog/index.html">More posts<i
+                        class="far fa-arrow-alt-circle-right"></i></a></button>
+        </div>
+    </main>
+    <footer class="light-mode">
+        <div id="follow">
+            <h5>Follow me</h5>
+            <div id="links">
+                <a id="social-media-link" href="https://github.com/simonImanigirimpuhwe" target="_blank"
+                    rel="noopener"><i class="fab fa-github"></i></a>
+                <a id="social-media-link" href="https://twitter.com/simonImanigiri1" target="_blank"><span
+                        class="iconify twitter-icon" data-inline="false"
+                        data-icon="entypo-social:twitter-with-circle"></span></a>
+                <a id="social-media-link" href="https://web.facebook.com/simon.imanigirimpuhwe" target="_blank"
+                    rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a id="social-media-link" href="https://www.instagram.com/imanigirimpuhwe/" target="_blank"
+                    rel="noopener"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div id="float-container">
+            <form id="float-left">
+                <h5>Subscribe on my blog</h5>
+                <input type="email" placeholder="newsletter@gmail.com" required>
+                <button for="subscribe">Subscribe<i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div id="float-right">
+                <div id="privacy">
+                    <a href="#">Privacy</a>
+                    <a href="#">Term</a>
+                    <a id='contact' href="./contact/index.html">Contact</a>
+                </div>
+                <div id="copyright">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>, Simon. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
