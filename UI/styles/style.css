@@ -1,0 +1,152 @@
+/*.............................................
+Header and footer styles are found in helper.css
+*/
+body{
+    position: relative;
+    background: #FFFFFF;
+}
+
+main{
+    display: flex;
+    margin-top: 15vh;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+#welcome-section{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    height: 90vh;
+}
+#welcome-section img{
+    width: 450px;
+    height: 450px;
+    margin-left: 56px;
+    margin-top: 50px;
+    border-radius: 100%;
+    opacity: 0.9;
+    filter: drop-shadow(0px 12px 10px rgba(51, 51, 51, 0.6));
+}
+#name-highlight{
+    text-transform: uppercase;
+    color: #008B8B;
+}
+#text-wrapper{
+    padding-left: 50px;
+    margin-top: 30vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+}
+#text-wrapper p{
+    padding-top: 10px;
+}
+#featured-posts-wrapper{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+#featured-posts-wrapper h3{
+    align-self: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+#featured-posts{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+#card{
+    width: 344px;
+    height: 329px;
+    margin-top: 20px;
+    background: #FFFFFF;
+    opacity: 0.9;
+    box-shadow: 5px 5px 10px 5px #3C3535;
+    transition: ease-in-out 3s;
+}
+#card h4{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.post-image{
+    width: 170px;
+    height: 170px;
+    margin-left: 25%;
+}
+#card p{
+    font-family: 'Roboto', sans-serif;
+    padding-left: 10px;
+    font-size: 18px;
+}
+#more-posts{
+    align-self: center;
+    width: 227px;
+    height: 64px;
+    background: #333333;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+}
+#more-posts a{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #F5F5F5;
+}
+.fa-arrow-alt-circle-right{
+    margin-left: 5px;
+    color: #F5F5F5;
+    font-size: 23px;
+}
+#card:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+#more-posts:hover{
+    cursor: pointer;
+    background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
+}
+
+@media screen and (max-width:853px){
+    #welcome-section img{
+        width: 250px;
+        height: 250px;
+    }
+}
+@media screen and (max-width: 671px){
+    #welcome-section{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+    }
+    #welcome-section img{
+        width: 250px;
+        height: 250px;
+    }
+    #text-wrapper{
+        padding-left: 70px;
+        margin-top: 2vh;
+        width: 100%;
+        padding-left: 10px;
+    }
+    #featured-posts{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin: auto;
+    }
+    #featured-posts-wrapper{
+        margin-top: 60px;
+    }
+}
