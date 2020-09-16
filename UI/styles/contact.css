@@ -1,0 +1,139 @@
+/*.............................................
+Header and footer styles are found in helper.css
+*/
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    margin-top: 15vh;
+    justify-content: space-between;
+}
+#contacts-wrapper{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-left: 30px;
+}
+#contacts-wrapper h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #27447E;
+    padding-bottom: 30px;
+}
+#contacts-wrapper i{
+    padding-top:10px;
+    font-size: 20px;
+    color:  #27447E;
+}
+#contacts-wrapper span{
+    padding-left: 5px;
+    color: black;
+}
+#query-wrapper{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    width: 874px;
+    height: 656px;
+    margin-left: 50px;
+    margin-top: 50px;
+    background: #FEFEFE;
+    box-shadow: 5px 5px 15px 5px #333333;
+    border-radius: 15px;
+    height: 100vh;
+    margin-bottom: 20vh;
+}
+#query-wrapper > img{
+    width: 348px;
+    height: 324px;
+    margin-top: 20vh;
+}
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding-left: 20px;
+}
+#contact-form label{
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 29px;
+}
+#contact-form h3{
+    margin-left: -70%;
+    margin-top: 23px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+#email,
+#name{
+    width: 400px;
+    height: 40px;
+    background: #FFFDFD;
+    border: 2px solid  #27447e;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+#message-area{
+    width: 385px;
+    height: 100px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 3px solid #27447e;
+}
+#submit-form{
+    width: 278px;
+    height: 52px;
+    background: #333333;
+    border-radius: 5px;
+    color: #F5F5F5;
+    font-size: 20px;
+    border: none;
+    margin-top: 15vh;
+    margin-left: -20%;
+}
+#sumit-form button:focus,
+#email:focus,
+#name:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 761px){
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction:column;
+        padding-top: 25vh;
+        padding-bottom: 10vh;
+    }
+    #contacts-wrapper{
+       margin: auto;
+    }
+    #query-wrapper > img{
+        display: none;
+    }
+    #query-wrapper{
+       margin: auto;
+       width: 500px;
+       margin-top: 10vh;
+    }
+    #query-wrapper h3{
+        margin: auto;
+    }
+    #submit-form{
+        margin: auto;
+    }
+    #contact-form{
+        margin: auto;
+    }
+    #message-area{
+        margin-bottom: 20px;
+    }
+}
