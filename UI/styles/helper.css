@@ -49,7 +49,7 @@ header{
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 28px;
     color: #F5F5F5;
     text-decoration: none;
@@ -155,6 +155,9 @@ footer{
 #float-left i,
 .twitter-icon{
     padding-left: 10px;
+}
+.twitter-icon{
+    font-size: 42px;
 }
 #float-left > h5{
     color:  #07BEBE;
