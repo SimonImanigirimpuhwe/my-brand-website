@@ -1,0 +1,196 @@
+/*.........................................
+header and footer styles are found in helper.css
+*/
+body{
+    background:
+    radial-gradient(#27447E 15%, transparent 16%) 0 0,
+    radial-gradient(#27447E 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#f5f5ff;
+    background-size:16px 16px;
+}
+main{
+    height: 100vh;
+}
+.toggle-switch{
+    margin-top: -50px;
+}
+#signup-form-container{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: space-around;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 75%;
+    border-radius: 10px;
+    box-shadow: 7px 10px 15px #27447E;
+    margin-top:  30vh
+}
+#signup-form{
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+#signup-form p{
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    color:#27447e;
+}
+#signup-form i{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    top: 15px;
+    left: 0;
+    font-size: 20px;
+    color: #27447e;
+}
+#signup-form div{
+    position: relative;
+}
+#agreement-input span{
+    padding-left:10px ;
+    font-size: 17px;
+}
+#agreement-input{
+    font-size: 20px;
+}
+#signup-form input:not([type='checkbox']){
+    height: 30px;
+    width: 100%;
+    padding-left: 25px;  
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid #425B8E;;
+    margin: 10px 0;
+    font-size: 15px;
+}
+input:focus{
+    outline: none;
+}
+#signup-form button{
+    background: #27447E;
+    border-radius: 15px;
+    margin-top: 15%;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 40px;
+    font-size: 17px;
+    color: #F5F5F5;
+    border: none;
+}
+#signup-form button:hover,
+#signup-form button:focus{
+    cursor: pointer;
+    outline: none;
+    background-color: darkcyan;
+    border: 1px solid #f5f5ff;
+}
+#signup-form a{
+    text-decoration: none;
+    color: #27447e;
+}
+#signup-form a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#image-wrapper > img{
+    width: 350px;
+    height: 300px;
+    padding-left: 20px;
+}
+#image-wrapper >p{
+    font-size: 18px;
+    padding-bottom: 30px;
+    padding-right: 10px;
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+#image-wrapper a{
+    text-decoration: none;
+    color:#27447e;
+}
+#image-wrapper a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width:1024px){
+    #image-wrapper > img{
+        display: none;
+    }
+    #signup-form {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+    #signup-form button{
+        width: 350px;
+        height: 40px;
+    }
+    #image-wrapper >p{
+        margin-left: 25%;
+    }
+    #signup-form-container{
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 90%;
+    }
+    #image-wrapper >p{
+        padding-top: 5px;
+    }
+}
+
+@media screen and (max-width:853px){
+    #image-wrapper > img{
+        display: none;
+    }
+    #signup-form {
+        margin-right: 10%;
+        margin-left: 10px;
+    }
+    #signup-form button{
+        margin-top: 15%;
+        margin-bottom: 10px;
+        width: 250px;
+        height: 40px;
+    }
+    #signup-form-container{
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 90%;
+    }
+    #image-wrapper >p{
+        padding-top: 5px;
+        margin-left:30px;
+    }
+}
+
+@media screen and (max-width: 671px) and (max-width:853px){
+    #image-wrapper > img{
+        display: none;
+    }
+    #signup-form {
+        margin-right: 10%;
+        margin-left: 10px;
+    }
+    #signup-form-container{
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 90%;
+    }
+    #image-wrapper >p{
+        padding-top: 5px;
+    }
+}
