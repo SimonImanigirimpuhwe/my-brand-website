@@ -1,0 +1,187 @@
+/*............................................
+Header and footer styles are found in helper.css
+*/
+
+body{
+    background:
+    radial-gradient(#27447E 15%, transparent 16%) 0 0,
+    radial-gradient(#27447E 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#f5f5ff;
+    background-size:16px 16px;
+}
+main{
+    height: 100vh;
+}
+.toggle-switch{
+    margin-top: -50px;
+}
+#login-form-container{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: space-around;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 75%;
+    margin-top: 25vh;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px  #27447e;
+}
+#login-form{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+#login-form div{
+    position: relative;
+}
+#login-form i{
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    top: 15px;
+    color: #27447e;
+}
+#login-form p{
+    font-size: 20px;
+    text-transform: uppercase;
+    color:#27447e;
+    padding-bottom: 50px;
+}
+#password-reset{
+    padding-top: 50px;
+}
+#login-form input:not([type='checkbox']){
+    height: 30px;
+    width: 100%;
+    padding-left: 25px;  
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid #27447e;
+    margin: 10px 0;
+    font-size: 15px;
+}
+#login-form input:focus{
+    outline: none;
+}
+#password-reset a{
+    text-decoration: none;
+    color: #27447e;
+    padding-left: 50px;
+}
+#login-form button{
+    background: #27447E;
+    margin-top: 50px;
+    height: 40px;
+    font-size: 17px;
+    color: white;
+    border-radius:15px;
+    border: none;
+}
+#login-form button:hover,
+#login-form button:focus{
+    cursor: pointer;
+    outline: none;
+    background-color: darkcyan;
+    border: 1px solid #f5f5ff;
+}
+#imag-wrapper{
+    padding-top: 50px;
+}
+#imag-wrapper > img{
+    width: 200px;
+    padding-left: 20px;
+    margin-left: -30px;
+    margin-top: 35%;
+}
+#imag-wrapper p{
+    padding-top: 60px;
+    font-size: 20px;
+}
+#imag-wrapper a{
+    text-decoration: none;
+    color: #27447e;
+    padding-left: 5px;
+}
+#login-form a:hover,
+#imag-wrapper a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width:1024px){
+    #imag-wrapper > img{
+        display: none;
+    }
+    #login-form {
+        margin-right: 20%;
+        margin-left: 40px;
+    }
+    #login-form-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 20%;
+        margin-right: 20%;
+        height: 90%;
+
+    }
+    #imag-wrapper p{
+        padding-bottom: 70px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width:853px){
+    #imag-wrapper > img{
+        display: none;
+    }
+    #login-form {
+        margin-right: 20%;
+        margin-left: 40px;
+    }
+    #login-form-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 15%;
+        margin-right: 15%;
+        height: 90%;
+
+    }
+    #imag-wrapper p{
+        padding-bottom: 70px;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width:671px){
+    #imag-wrapper > img{
+        display: none;
+    }
+    #login-form {
+        margin-right: 10%;
+        margin-left: 20px;
+    }
+    #login-form-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 90%;
+
+    }
+    #login-form button{
+        margin-top: 70px;
+        height: 50px;
+    }
+    #imag-wrapper p{
+        padding-bottom: 70px;
+        margin-left: 10px;
+    }
+}
