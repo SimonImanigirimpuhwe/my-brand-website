@@ -14,9 +14,6 @@ body{
 main{
     height: 100vh;
 }
-.toggle-switch{
-    margin-top: -50px;
-}
 #login-form-container{
     background: white;
     display: flex;
@@ -26,7 +23,7 @@ main{
     margin-left: 20%;
     margin-right: 20%;
     height: 75%;
-    margin-top: 25vh;
+    margin-top: 5vh;
     border-radius: 10px;
     box-shadow: 5px 10px 10px  #27447e;
 }

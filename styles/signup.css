@@ -13,9 +13,6 @@ body{
 main{
     height: 100vh;
 }
-.toggle-switch{
-    margin-top: -50px;
-}
 #signup-form-container{
     background: white;
     display: flex;
@@ -27,7 +24,7 @@ main{
     height: 75%;
     border-radius: 10px;
     box-shadow: 7px 10px 15px #27447E;
-    margin-top:  30vh
+    margin-top: 5vh;
 }
 #signup-form{
     padding-top: 25px;
@@ -102,7 +99,7 @@ input:focus{
     cursor: pointer;
 }
 #image-wrapper > img{
-    width: 350px;
+    width: 200px;
     height: 300px;
     padding-left: 20px;
 }
@@ -175,7 +172,7 @@ input:focus{
     }
 }
 
-@media screen and (max-width: 671px) and (max-width:853px){
+@media screen and (max-width: 671px){
     #image-wrapper > img{
         display: none;
     }

@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    flex-direction: column;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -66,8 +70,8 @@ header{
     border-radius: 100%;
 }
 .toggle-switch{
-    margin-top: 10px;
-    float: right;
+    padding-top: 15vh;
+    margin-left:  auto;
     padding-right: 20px;
 }
 .toggle-switch button{
