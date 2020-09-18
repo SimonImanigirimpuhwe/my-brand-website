@@ -1,0 +1,133 @@
+/*..........................................
+header and footer styles are found in helper.css
+*/
+body{
+    background: #FFFFFF;
+}
+.content-container{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.welcome-section{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    margin-left: 15%;
+    margin-bottom: 8vh;
+}
+.welcome-section img{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    opacity: 0.9;
+    filter: drop-shadow(0px 12px 10px rgba(51, 51, 51, 0.6));
+}
+#name-highlight{
+    color: #008B8B;
+}
+#text-wrapper{
+    padding-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    margin-top: 8vh;
+}
+#text-wrapper p{
+    padding-top: 10px;
+}
+.wrapper{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid #D35232 ;
+}
+.content-container h2{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+#grid{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    padding: 10px;
+    margin-left: 50px;
+}
+#grid div{
+    width: 200px;
+}
+.git-icon{
+    color: #F56223;
+}
+.content-wrapper{
+    padding-top: 20px;
+}
+.content-wrapper p{
+    line-height: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+#hobbies-wrapper{
+    padding-bottom: 50px;
+}
+.content-container .iconify{
+    width: 100px;
+    height: 150px;
+}
+.mongodb-icon{
+    color: #0E600E;
+}
+.language-skills-wrapper{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+.content-span{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    padding-top: 5px;
+}
+.content-span p{
+    padding-left: 10px;
+}
+.skills-level p{
+    width: 200px;
+}
+.bullet{
+    background:transparent;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 1px 2px #E44F26;
+}
+.skills-level .level{
+    margin-left:  auto;
+}
+
+@media screen and (max-width: 671px){
+    .welcome-section{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin: auto;
+    }
+    .welcome-section img{
+     align-self: center;
+    }
+    .content-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .wrapper{
+        margin-left: 2%;
+        margin-right: 0;
+    }
+}

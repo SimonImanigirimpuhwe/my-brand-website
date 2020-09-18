@@ -5,11 +5,10 @@ Header and footer styles are found in helper.css
     display: flex;
     flex-direction: row;
     -ms-flex-direction: row;
-    margin-top: 15vh;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 #contacts-wrapper{
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -82,7 +81,7 @@ Header and footer styles are found in helper.css
     padding-left: 10px;
 }
 #message-area{
-    width: 385px;
+    width: 400px;
     height: 100px;
     padding-left: 10px;
     font-size: 15px;
@@ -110,7 +109,7 @@ Header and footer styles are found in helper.css
         display: flex;
         flex-direction: column;
         -ms-flex-direction:column;
-        padding-top: 25vh;
+        padding-top: 5vh;
         padding-bottom: 10vh;
     }
     #contacts-wrapper{
