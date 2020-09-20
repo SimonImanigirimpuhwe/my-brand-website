@@ -14,7 +14,7 @@ A self taught coder. I worked on different projects especially using JavaScript 
 The journey from zero to confident level has been tough and so long. I here thought about making this blog so as to reach out so many people so that we share about programming things. You can visit it [here](https://simon-tech.netlify.app/blog/index.html)
 
 ## Contact me
-To reach me out here is a shortcut:
+To reach out me here is a shortcut:
 **Email**:_softimag08@gmail.com_ 
 **Twitter**: [_SimonImanigiri1](https://twitter.com/simonImanigiri1) or use this [form](https://simon-tech.netlify.app/contact/index.html)
 

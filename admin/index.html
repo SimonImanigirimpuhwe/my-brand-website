@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ca61573632.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>admin dashboard</title>
+</head>
+
+<body>
+    <header class="light-mode">
+        <div class="view-article-btn">
+            <span class="iconify" data-inline="false" data-icon="ic:baseline-article"></span>
+            <p>Posts</p>
+        </div>
+        <div class="profile-status-wrapper">
+            <div id="queries-notification">
+                <i class="fas fa-comment-dots"></i><span id="message-notification">9</span>
+                <i class="fas fa-bell"></i><span id="notifications">7</span>
+                <i class="fas fa-envelope"></i><span id="email-notification">5</span>
+            </div>
+            <div id="admin-profile">
+                <div id="current-admin-profile">
+                    <img src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
+                    <p id="admin-name">Imanigirimpuhwe Simon</p>
+                </div>
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+    </header>
+    <main class="light-mode">
+        <div class="dashboard-menu-wrapper">
+            <div id="menu">
+                <div class="dashboard"><span class="iconify dashboard" data-inline="false"
+                        data-icon="ri:dashboard-fill"></span></div>
+                <p>Dashboard</p>
+            </div>
+            <div id="menu">
+                <div class="profile"><span class="iconify" data-inline="false" data-icon="gg:profile"></span></div>
+                <p>Profile</p>
+            </div>
+            <div id="menu">
+                <div class="add-post-btn"><span class="iconify" data-inline="false"
+                        data-icon="carbon:add-filled"></span></div>
+                <p>New article</p>
+            </div>
+            <div id="menu">
+                <div class="manage-users"><span class="iconify" data-inline="false" data-icon="fa-solid:users"></span>
+                </div>
+                <p>Users</p>
+            </div>
+            <div id="menu">
+                <div class="settings"><span class="iconify" data-inline="false"
+                        data-icon="ant-design:setting-filled"></span></div>
+                <p>Settings</p>
+            </div>
+            <div id="menu">
+                <i class="far fa-comments"></i>
+                <p>Comments</p>
+            </div>
+        </div>
+        <div class="dashboard-content">
+            <h2>Analysis</h2>
+            <div id="cards-container">
+                <div id="card">
+                    <h3 id="blog-visitor">Blog visitors</h3>
+                    <p id="visitor-number">Over 4K</p>
+                </div>
+                <div id="card">
+                    <h3 id="blog-view">Number of views</h3>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="far fa-star"></i>
+                    <p id="view-number">10K+</p>
+                </div>
+                <div id="card">
+                    <h3 id="blog-visitor">Subscription</h3>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <p id="subscribe-number">5K+</p>
+                </div>
+                <div id="card">
+                    <h3 id="blog-article">Articles</h3>
+                    <p id="article-number">5K</p>
+                </div>
+                <div id="card">
+                    <h3 id="blog-inquiry">Inquiries</h3>
+                    <p id="inquiry-number">Over 9K</p>
+                </div>
+                <div id="card">
+                    <h3 id="blog-comment">Comments</h3>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <i class="fas fa-star check"></i>
+                    <p id="comment-number">15K+</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="light-mode">
+        &copy;
+        <script>document.write(new Date().getFullYear())</script>, Simon. All rights reserved.
+    </footer>
+    <script src="../scripts/admin.js"></script>
+</body>
+
+</html>
