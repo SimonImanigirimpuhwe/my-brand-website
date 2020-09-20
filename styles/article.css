@@ -80,12 +80,12 @@ header and footer styles are found in helper.css
 .interaction-menu i:hover{
     cursor: pointer;
 }
-#reactions{
+.reactions{
     display: flex;
     flex-direction: row;
     -ms-flex-direction: row;
 }
-#reactions i{
+.reactions i{
     padding-left: 5px;
 }
 .fa-heart{
