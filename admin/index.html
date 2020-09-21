@@ -36,77 +36,130 @@
     </header>
     <main class="light-mode">
         <div class="dashboard-menu-wrapper">
-            <div id="menu">
+            <div class="menu">
                 <div class="dashboard"><span class="iconify dashboard" data-inline="false"
                         data-icon="ri:dashboard-fill"></span></div>
                 <p>Dashboard</p>
             </div>
-            <div id="menu">
+            <div class="menu">
                 <div class="profile"><span class="iconify" data-inline="false" data-icon="gg:profile"></span></div>
                 <p>Profile</p>
             </div>
-            <div id="menu">
+            <div class="menu">
                 <div class="add-post-btn"><span class="iconify" data-inline="false"
                         data-icon="carbon:add-filled"></span></div>
                 <p>New article</p>
             </div>
-            <div id="menu">
+            <div class="menu">
                 <div class="manage-users"><span class="iconify" data-inline="false" data-icon="fa-solid:users"></span>
                 </div>
                 <p>Users</p>
             </div>
-            <div id="menu">
+            <div class="menu">
                 <div class="settings"><span class="iconify" data-inline="false"
                         data-icon="ant-design:setting-filled"></span></div>
                 <p>Settings</p>
             </div>
-            <div id="menu">
+            <div class="menu">
                 <i class="far fa-comments"></i>
                 <p>Comments</p>
             </div>
         </div>
-        <div class="dashboard-content">
-            <h2>Analysis</h2>
-            <div id="cards-container">
-                <div id="card">
-                    <h3 id="blog-visitor">Blog visitors</h3>
-                    <p id="visitor-number">Over 4K</p>
+        <div class="main-content">
+            <div class="dashboard-more">
+                <div id="admin-profile-btn">
+                    <small class="profile display-user-infos"><span class="iconify" data-inline="false"
+                            data-icon="gg:profile"></span></small><label>Profile</label>
                 </div>
-                <div id="card">
-                    <h3 id="blog-view">Number of views</h3>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="far fa-star"></i>
-                    <p id="view-number">10K+</p>
+                <div class="toggle-switch">
+                    <button><i class="fas fa-moon"></i></button>
+                    <label>Change mode</label>
                 </div>
-                <div id="card">
-                    <h3 id="blog-visitor">Subscription</h3>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <p id="subscribe-number">5K+</p>
+                <div id="log-out">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <label>Logout</label>
                 </div>
-                <div id="card">
-                    <h3 id="blog-article">Articles</h3>
-                    <p id="article-number">5K</p>
+            </div>
+            <div class="profile-popup">
+                <img src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
+                <div id="infos-wrapper">
+                    <div id="admin-infos">
+                        <p id="admin-display-name">Imanigirimpuhwe Simon</p>
+                        <p id="admin-display-email">email@gmail.com</p>
+                    </div>
+                    <div id="upload-file">
+                        <button class="select-file">Choose file</button>
+                        <span>No file chosen</span>
+                    </div>
                 </div>
-                <div id="card">
-                    <h3 id="blog-inquiry">Inquiries</h3>
-                    <p id="inquiry-number">Over 9K</p>
+                <div id="right-wrapper">
+                    <h3>Bio</h3>
+                    <div id="biograph">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Tenetur, repellat tempore autem odit, corrupti nemo quod laborum ex obcaecati vero harum
+                            veniam!
+                        </p>
+                    </div>
+                    <button class="edit-profile"><i class="fas fa-user-edit"></i>Edit profile</button>
                 </div>
-                <div id="card">
-                    <h3 id="blog-comment">Comments</h3>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <i class="fas fa-star check"></i>
-                    <p id="comment-number">15K+</p>
+            </div>
+            <form class="edit-admin-profile">
+                <h3>Edit your profile</h3>
+                <div id="form-fields">
+                    <div id="inputs-wrapper">
+                        <label for="name">Name
+                            <input type="text" name="name" id="name">
+                        </label>
+                        <label for="bio" id="bio-wrapper">Bio
+                            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+                        </label>
+                    </div>
+                    <button type="submit" id="save-admin-profile">Save</button>
+                </div>
+            </form>
+            <div class="dashboard-content">
+                <h2>Analysis</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <h3 id="blog-visitor">Blog visitors</h3>
+                        <p id="visitor-number">Over 4K</p>
+                    </div>
+                    <div class="card">
+                        <h3 id="blog-view">Number of views</h3>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="far fa-star"></i>
+                        <p id="view-number">10K+</p>
+                    </div>
+                    <div class="card">
+                        <h3 id="blog-visitor">Subscription</h3>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <p id="subscribe-number">5K+</p>
+                    </div>
+                    <div class="card">
+                        <h3 id="blog-article">Articles</h3>
+                        <p id="article-number">5K</p>
+                    </div>
+                    <div class="card">
+                        <h3 id="blog-inquiry">Inquiries</h3>
+                        <p id="inquiry-number">Over 9K</p>
+                    </div>
+                    <div class="card">
+                        <h3 id="blog-comment">Comments</h3>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <i class="fas fa-star check"></i>
+                        <p id="comment-number">15K+</p>
+                    </div>
                 </div>
             </div>
         </div>
