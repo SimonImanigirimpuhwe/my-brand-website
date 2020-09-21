@@ -3,6 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -21,8 +26,7 @@ header{
     top: 0%;
     bottom: 0%;
     text-align: center;
-    background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
-    box-shadow: 2px 2px 5px 1px #FEFCFC;
+    box-shadow: 0px 0px 5px 0px #FEFCFC;
     border-radius: 5px;
 }
 .sticky{
@@ -66,8 +70,8 @@ header{
     border-radius: 100%;
 }
 .toggle-switch{
-    margin-top: 10px;
-    float: right;
+    padding-top: 15vh;
+    margin-left:  auto;
     padding-right: 20px;
 }
 .toggle-switch button{
