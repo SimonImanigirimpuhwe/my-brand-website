@@ -399,10 +399,11 @@ edit profile form
 }
 
 /*...........................
-form for adding new article
+form for adding new article and update existing article
 */
 
-.add-new-article{
+.add-new-article,
+.update-existing-article{
     background: #243447;
     display: flex;
     flex-direction: column;
@@ -415,7 +416,11 @@ form for adding new article
     padding: 20px 40px;
     display: none;
 }
-.add-new-article h3{
+.update-existing-article{
+    height: 600px;
+}
+.add-new-article h3,
+.update-existing-article h3{
     text-align: center;
     color: #FAF4F4;
     text-transform: uppercase;
@@ -424,7 +429,11 @@ form for adding new article
     padding-top: 20px;
     padding-bottom: 10px;
 }
-.add-new-article label{
+.update-existing-article h3{
+    padding-top: 10px;
+}
+.add-new-article label,
+.update-existing-article label{
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -434,12 +443,20 @@ form for adding new article
     padding-bottom: 20px;
     font-size: 18px;
 }
+#update-article-dspt,
+#update-title{
+    text-align: center;
+    padding-top: 30px;
+}
 #image-label,
-#image-label span{
+#image-label span,
+#update-image-label,
+#update-image-label span{
     font-weight: normal;
     font-size: 18px;
 }
-#save-article{
+#save-article,
+#save-updated-article{
     background: #8F8D8D;
     height: 40px;
     border-radius: 5px;
@@ -449,26 +466,32 @@ form for adding new article
     font-weight: bold; 
     margin-top: auto;
 }
-#save-article:hover{
+#save-article:hover,
+#save-updated-article:hover{
     color: #FAF4F4;
     cursor: pointer;
 }
-.add-new-article input{
+.add-new-article input,
+.update-existing-article input{
     height: 40px;
     font-size: 17px;
     padding-left: 10px;
 }
 .add-new-article input:focus,
-.add-new-article textarea:focus{
+.add-new-article textarea:focus,
+.update-existing-article input:focus,
+.update-existing-article textarea:focus{
     outline: none;
 }
-#upload-article-image{
+#upload-article-image,
+#update-article-image{
     padding-top: 20px;
     display: flex;
     flex-direction: row;
     -ms-flex-direction: row;
 }
-#upload-article-image button{
+#upload-article-image button,
+#update-article-image button{
     background: #8F8D8D;
     height: 30px;
     width: 130px;
@@ -481,7 +504,8 @@ form for adding new article
     margin-right: 5px;
     align-self: center;
 }
-#upload-article-image span{
+#upload-article-image span,
+#update-article-image span{
     align-self: center;
     color: #8F8D8D;
 }

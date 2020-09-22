@@ -10,6 +10,8 @@ const addArticleForm = document.querySelector('.add-new-article');
 const addArticleBtn = document.querySelector('.add-post-btn');
 const viewAllBtn = document.querySelector('.view-all-articles');
 const articlesList = document.querySelector('.articles-list');
+const editArticleForm = document.querySelector('.update-existing-article');
+const editArticleBtn = document.querySelectorAll('.fa-edit')
 
 
 
@@ -21,7 +23,8 @@ userProfile.forEach(icon => icon.addEventListener('click', showUserProfile));
 logOutBtn.addEventListener('click', logOutfn);
 editProfileBtn.addEventListener('click', editProfile);
 addArticleBtn.addEventListener('click', addArticle);
-viewAllBtn.addEventListener('click', viewAllArticles)
+viewAllBtn.addEventListener('click', viewAllArticles);
+editArticleBtn.forEach(btn => btn.addEventListener('click', updateArticle));
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -36,6 +39,7 @@ function showDashBoard() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
+  editArticleForm.style.display = 'none';
   dashBoardContent.classList.toggle('toggle-visibility')
 }
 
@@ -56,6 +60,7 @@ function showUserProfile() {
   }
   profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
+  editArticleForm.style.display = 'none';
 }
 
 function logOutfn() {
@@ -67,15 +72,23 @@ function editProfile() {
     profilePopup.classList.remove('display')
   }
   editForm.style.display = 'flex';
+  editArticleForm.style.display = 'none';
 }
 
 function addArticle() {
   clearBoard()
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
+  editArticleForm.style.display = 'none';
   addArticleForm.style.display = 'flex';
 }
 
 function viewAllArticles() {
   clearBoard()
+  if(addArticleForm.style.display = 'flex'){
+    addArticleForm.style.display = 'none';
+  }
   articlesList.classList.toggle('show')
   editForm.style.display = 'none';
 }
@@ -87,4 +100,11 @@ function clearBoard() {
   if(profilePopup.classList.contains('display')){
     profilePopup.classList.toggle('display')
   }
+}
+
+function updateArticle() {
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
+  editArticleForm.style.display = 'flex'
 }

@@ -135,6 +135,23 @@
                 </label>
                 <button id="save-article">Save</button>
             </form>
+            <form class="update-existing-article">
+                <h3>Edit article</h3>
+                <label for="title" id="update-title">Title
+                    <input type="text" name="title" id="update-title">
+                </label>
+                <label for="update-description" id="update-article-dspt">
+                    Description
+                    <textarea name="description" id="update-description" cols="30" rows="10"></textarea>
+                </label>
+                <label for="image" id="update-image-label">Add image
+                    <div id="update-article-image">
+                        <button class="select-new-image">Choose file</button>
+                        <span>No file chosen</span>
+                    </div>
+                </label>
+                <button id="save-updated-article">Save changes</button>
+            </form>
             <div class="articles-list">
                 <div class="article-card-content">
                     <div class="card-content">
