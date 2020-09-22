@@ -6,6 +6,8 @@ const userProfile = document.querySelectorAll('.profile');
 const logOutBtn = document.querySelector('.fa-sign-out-alt');
 const editProfileBtn = document.querySelector('.edit-profile');
 const editForm = document.querySelector('.edit-admin-profile');
+const addArticleForm = document.querySelector('.add-new-article');
+const addArticleBtn = document.querySelector('.add-post-btn')
 
 
 
@@ -16,6 +18,7 @@ ellipsisIcon.addEventListener('click', showProfile);
 userProfile.forEach(icon => icon.addEventListener('click', showUserProfile));
 logOutBtn.addEventListener('click', logOutfn);
 editProfileBtn.addEventListener('click', editProfile);
+addArticleBtn.addEventListener('click', addArticle)
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -23,6 +26,9 @@ function showDashBoard() {
   }
   if(profilePopup.classList.contains('display')){
     profilePopup.classList.remove('display')
+  }
+  if(addArticleForm.style.display = 'flex'){
+    addArticleForm.style.display = 'none';
   }
   dashBoardContent.classList.toggle('toggle-visibility')
 }
@@ -36,8 +42,11 @@ function showUserProfile() {
   if(dashBoardContent.classList.contains('toggle-visibility')){
     dashBoardContent.classList.remove('toggle-visibility')
   }
+  if(addArticleForm.style.display = 'flex'){
+    addArticleForm.style.display = 'none';
+  }profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
-  profilePopup.classList.toggle('display')
+  
 }
 
 function logOutfn() {
@@ -49,4 +58,15 @@ function editProfile() {
     profilePopup.classList.remove('display')
   }
   editForm.style.display = 'flex';
+}
+
+function addArticle() {
+  if(dashBoardContent.classList.contains('toggle-visibility')){
+    dashBoardContent.classList.remove('toggle-visibility')
+  }
+  if(profilePopup.classList.contains('display')){
+    profilePopup.classList.toggle('display')
+  }
+  addArticleForm.style.display = 'flex';
+  editForm.style.display = 'none';
 }

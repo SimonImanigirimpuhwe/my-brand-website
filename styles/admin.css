@@ -287,7 +287,8 @@ main{
 #right-wrapper button:focus,
 #form-fields input:focus,
 #form-fields textarea:focus,
-#form-fields button:focus{
+#form-fields button:focus,
+#save-article:focus{
     outline: none;
 }
 #upload-file button:hover,
@@ -324,7 +325,6 @@ main{
     flex-direction: column;
     -ms-flex-direction: column;
     width: 680px;
-    height: 300px;
     height: 300px;
     margin-top: 10%;
     align-self: center;
@@ -365,6 +365,9 @@ main{
     width: 450px;
     border: none;
 }
+.edit-admin-profile #form-fields input:focus{
+    outline: none;
+}
 .edit-admin-profile #form-fields button{
     background: #8F8D8D;
     margin-left: auto;
@@ -383,6 +386,89 @@ main{
 }
 #bio-wrapper{
     padding-top: 20px;
+}
+.add-new-article{
+    background: #243447;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    width: 680px;
+    height: 550px;
+    margin-top: 10%;
+    align-self: center;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+}
+.add-new-article h3{
+    text-align: center;
+    color: #FAF4F4;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.add-new-article label{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    color: #FAF4F4;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+#image-label,
+#image-label span{
+    font-weight: normal;
+    font-size: 18px;
+}
+#save-article{
+    background: #8F8D8D;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; 
+    margin-top: auto;
+}
+#save-article:hover{
+    color: #FAF4F4;
+    cursor: pointer;
+}
+.add-new-article input{
+    height: 40px;
+    font-size: 17px;
+    padding-left: 10px;
+}
+.add-new-article input:focus,
+.add-new-article textarea:focus{
+    outline: none;
+}
+#upload-article-image{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+#upload-article-image button{
+    background: #8F8D8D;
+    height: 30px;
+    width: 130px;
+    color: #0B0A0A;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-right: 5px;
+    align-self: center;
+}
+#upload-article-image span{
+    align-self: center;
+    color: #8F8D8D;
 }
 .dashboard-content{
     background: #C0C0C0;
