@@ -2,13 +2,7 @@
 header and footer styles are found in helper.css
 */
 body{
-    background:
-    radial-gradient(#27447E 15%, transparent 16%) 0 0,
-    radial-gradient(#27447E 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-    background-color:#f5f5ff;
-    background-size:16px 16px;
+    background: #FFFFFF;
 }
 main{
     height: 100vh;
@@ -22,8 +16,8 @@ main{
     margin-left: 20%;
     margin-right: 20%;
     height: 75%;
-    border-radius: 10px;
-    box-shadow: 7px 10px 15px #27447E;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px 5px #333333;
     margin-top: 5vh;
 }
 #signup-form{
