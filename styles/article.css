@@ -1,0 +1,247 @@
+/*............................
+header and footer styles are found in helper.css
+*/
+.article-container{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+.content-container{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+#back-btn{
+    margin-left: 20px;
+}
+#back-btn button{
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #27447E;
+}
+#back-btn a{
+    color: #FFFEFE;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: medium;
+}
+#back-btn i{
+    font-size: 20px;
+    margin-right: 5px;
+}
+#back-btn button:focus{
+    outline: none;
+}
+.article-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#article-image{
+    align-self: center;
+}
+#article-image img{
+    width: 450px;
+    height: 250px;
+}
+#article-description{
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 20px 0 20px;
+}
+#article-title{
+    align-self: center;
+}
+#author{
+    font-size: 15px;
+    padding-left: 20px;
+}
+#author span{
+    padding-left: 5px;
+    font-size: 18px;
+}
+#article-description p{
+    margin-top: 20px;
+}
+.interaction-menu{
+    background: #F5F5FF;
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 350px;
+    height: 200px;
+    margin:10% 1% 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+}
+.interaction-menu i:hover{
+    cursor: pointer;
+}
+.reactions{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+.reactions i{
+    padding-left: 5px;
+}
+.fa-heart{
+    color: red;
+}
+#published-time{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #27447E;
+    font-size: 20px;
+    padding-bottom: 10px;
+    align-self: center;
+}
+#published-time #article-out{
+    padding-left: 5px; 
+    font-size: 15px; 
+}
+#highlighted{
+    background: rgba(63, 61, 86, 0.83);
+    color: #F5F5F5;
+}
+.comment-form{
+    width: 550px;
+    height: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 20% ;
+    background: #F3F4F7;
+    box-shadow: 5px 5px 11px 5px #3B3C54;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    display: none;
+}
+.comment-form h3{
+    align-self: center;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+.comment-form label{
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 29px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+.comment-form input{
+    border: 1px solid #243447;
+    height: 40px;
+}
+.comment-form textarea{
+    border: 1px solid #243447;
+    height: 100px;
+}
+#submit-comment-form{
+    background: #243447;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    color:#FAFAFB;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    border: none;
+}
+.comment-wrapper{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.comment-wrapper h3{
+    margin-left:10% ;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+#comments-card{
+    width: 500px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    background: #243447;
+    border: 2px solid #605E73;
+    box-shadow: 5px 5px 10px #3F3D56;
+    margin-left: 10%;
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+#user-email{
+    color: #EFB3B9;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+#user-comment{
+    color: #F9F9FB;
+}
+#user-reaction{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    margin-top: auto;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+#user-reaction i{
+    color: #9D9CB5;
+}
+#user-reaction .fa-heart{
+    color: red;
+}
+#user-reaction-icon{
+    margin-left: 50px;
+}
+#user-reaction-icon i{
+    padding-right: 10px;
+}
+#user-reaction #reply{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    color: #C7C6D0;
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 671px){
+    .content-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+    }
+    .interaction-menu{
+    margin: auto;
+    margin-top: 20px;
+    }
+    .comment-form{
+   margin: auto;
+   margin-top: 30px;
+   width: 350px;
+    }
+    #comments-card{
+      margin: auto;
+      margin-top: 20px;
+      width: 450px;
+    }
+}

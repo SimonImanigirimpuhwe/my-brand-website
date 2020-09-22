@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ca61573632.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles/helper.css">
+    <link rel="stylesheet" href="../styles/article.css">
+    <title>article view page</title>
+</head>
+
+<body>
+    <header class=" sticky light-mode">
+        <div id="logo"><img src="../assets/images/log.jpg" alt="logo"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about/index.html">About</a></li>
+                <li id="current-nav"><a href="#">Blog</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+                <li><a href="../signup/index.html">Signup</a></li>
+                <li><a href="../login/index.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="toggle-switch">
+        <button><i class="fas fa-moon"></i></button>
+    </div>
+    <main class="article-container">
+        <div id="back-btn">
+            <button><a href="../blog/index.html"><i class="fas fa-arrow-circle-left"></i>Back</a></button>
+        </div>
+        <div class="content-container">
+            <div class="article-content-wrapper">
+                <h2 id="article-title">Lorem ipsum dolor sit amet.</h2>
+                <div id="published-time">
+                    <span class="iconify" data-inline="false" data-icon="uil:calender"></span>
+                    <p id="article-out">13th Sept, 2020</p>
+                    <p id="author">By<span class="author">Simon</span></p>
+                </div>
+                <div id="article-image">
+                    <img src="../assets/images/undraw_web_development_w2vv.jpg">
+                </div>
+                <div id="article-description">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+                    <p>Enim doloribus at magni praesentium minima aut blanditiis
+                        obcaecati, iure voluptates facilis nobis, est quae similique maiores molestias ratione illo
+                        eius pariatur reprehenderit.
+                    </p>
+                    <p>Eaque quas suscipit, adipisci delectus a nemo architecto aliquid tempora repudiandae dolores,
+                        quod accusantium hic nihil
+                        magnam animi temporibus tenetur ipsa doloremque.
+                    </p>
+                    <p id="highlighted">Veritatis odit dicta officiis dolore! Cumque quam delectus repellat
+                        modi porro possimus blanditiis cum. Esse ex numquam, a dolore quos recusandae corporis
+                        tenetur, molestias ipsum qui
+                        velit.
+                    </p>
+                    <p>Quaerat natus reiciendis eligendi! Maxime qui expedita, adipisci dolores vero magnam, minima
+                        quos porro velit,
+                        similique autem enim natus quaerat?
+                    </p>
+                    <p>Quaerat natus reiciendis eligendi! Maxime qui expedita, adipisci dolores vero magnam, minima
+                        quos porro velit,
+                        similique autem enim natus quaerat?
+                    </p>
+                    <p>Quaerat natus reiciendis eligendi! Maxime qui expedita, adipisci dolores vero magnam, minima
+                        quos porro velit,
+                        similique autem enim natus quaerat?
+                    </p>
+                    <p>Quaerat natus reiciendis eligendi! Maxime qui expedita, adipisci dolores vero magnam, minima
+                        quos porro velit,
+                        similique autem enim natus quaerat?
+                    </p>
+                    <p>Quaerat natus reiciendis eligendi! Maxime qui expedita, adipisci dolores vero magnam, minima
+                        quos porro velit,
+                        similique autem enim natus quaerat?
+                    </p>
+                </div>
+            </div>
+            <div class="interaction-menu">
+                <div class="reactions">
+                    <p class="nmbr-likes">10</p><i class="far fa-thumbs-up"></i>
+                </div>
+                <div class="reactions">
+                    <p class="nmbr-shares">5</p><i class="fas fa-share"></i>
+                </div>
+                <div class="reactions">
+                    <p class="nmbr-views">10</p><i class="fas fa-eye"></i>
+                </div>
+                <div class="reactions">
+                    <p class="nmbr-comments">8</p><i class="far fa-comments"></i>
+                </div>
+                <div class="reactions">
+                    <p class="nmbr-dislikes">0</p><i class="far fa-thumbs-down"></i>
+                </div>
+            </div>
+        </div>
+        <form class="comment-form">
+            <h3>Comment here</h3>
+            <label for="email">Email
+                <input type="email" name="email" id="email-field">
+            </label>
+            <label for="comment">Comment
+                <textarea name="comment" id="comment-area" cols="30" rows="10"></textarea>
+            </label>
+            <button type="submit" id="submit-comment-form">Submit</button>
+        </form>
+        <div class="comment-wrapper">
+            <h3>Comments</h3>
+            <div id="comments-card">
+                <div id="user-email">reply@gmail.com</div>
+                <div id="user-comment">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellat?</p>
+                </div>
+                <div id="user-reaction">
+                    <div id="user-reaction-icon">
+                        <i class="fas fa-heart"></i>
+                        <i class="far fa-thumbs-up"></i>
+                    </div>
+                    <div id="reply">
+                        <p>Reply</p>
+                        <i class="fas fa-reply"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="light-mode">
+        <div id="follow">
+            <h5>Follow me</h5>
+            <div id="links">
+                <a class="social-media-link" href="https://github.com/simonImanigirimpuhwe" target="_blank"
+                    rel="noopener"><i class="fab fa-github"></i></a>
+                <a class="social-media-link" href="https://twitter.com/simonImanigiri1" target="_blank"><span
+                        class="iconify twitter-icon" data-inline="false"
+                        data-icon="entypo-social:twitter-with-circle"></span></a>
+                <a class="social-media-link" href="https://web.facebook.com/simon.imanigirimpuhwe" target="_blank"
+                    rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a class="social-media-link" href="https://www.instagram.com/imanigirimpuhwe/" target="_blank"
+                    rel="noopener"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div id="float-container">
+            <form id="float-left">
+                <h5>Subscribe on my blog</h5>
+                <input type="email" placeholder="newsletter@gmail.com" required>
+                <button for="subscribe">Subscribe<i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div id="float-right">
+                <div id="privacy">
+                    <a href="#">Privacy</a>
+                    <a href="#">Term</a>
+                    <a id='contact' href="../contact/index.html">Contact</a>
+                </div>
+                <div id="copyright">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>, Simon. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/article.js"></script>
+</body>
+
+</html>
