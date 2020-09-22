@@ -7,7 +7,9 @@ const logOutBtn = document.querySelector('.fa-sign-out-alt');
 const editProfileBtn = document.querySelector('.edit-profile');
 const editForm = document.querySelector('.edit-admin-profile');
 const addArticleForm = document.querySelector('.add-new-article');
-const addArticleBtn = document.querySelector('.add-post-btn')
+const addArticleBtn = document.querySelector('.add-post-btn');
+const viewAllBtn = document.querySelector('.view-all-articles');
+const articlesList = document.querySelector('.articles-list');
 
 
 
@@ -18,7 +20,8 @@ ellipsisIcon.addEventListener('click', showProfile);
 userProfile.forEach(icon => icon.addEventListener('click', showUserProfile));
 logOutBtn.addEventListener('click', logOutfn);
 editProfileBtn.addEventListener('click', editProfile);
-addArticleBtn.addEventListener('click', addArticle)
+addArticleBtn.addEventListener('click', addArticle);
+viewAllBtn.addEventListener('click', viewAllArticles)
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -29,6 +32,9 @@ function showDashBoard() {
   }
   if(addArticleForm.style.display = 'flex'){
     addArticleForm.style.display = 'none';
+  }
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
   }
   dashBoardContent.classList.toggle('toggle-visibility')
 }
@@ -44,9 +50,12 @@ function showUserProfile() {
   }
   if(addArticleForm.style.display = 'flex'){
     addArticleForm.style.display = 'none';
-  }profilePopup.classList.toggle('display')
+  }
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
+  profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
-  
 }
 
 function logOutfn() {
@@ -61,12 +70,21 @@ function editProfile() {
 }
 
 function addArticle() {
+  clearBoard()
+  addArticleForm.style.display = 'flex';
+}
+
+function viewAllArticles() {
+  clearBoard()
+  articlesList.classList.toggle('show')
+  editForm.style.display = 'none';
+}
+
+function clearBoard() {
   if(dashBoardContent.classList.contains('toggle-visibility')){
     dashBoardContent.classList.remove('toggle-visibility')
   }
   if(profilePopup.classList.contains('display')){
     profilePopup.classList.toggle('display')
   }
-  addArticleForm.style.display = 'flex';
-  editForm.style.display = 'none';
 }

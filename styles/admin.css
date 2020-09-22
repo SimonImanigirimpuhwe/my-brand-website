@@ -202,6 +202,11 @@ main{
     flex-direction: row;
     -ms-flex-direction: row;
 }
+
+/*..........................
+profile container popup
+*/
+
 .profile-popup{
     background: #243447;
     display: flex;
@@ -319,6 +324,11 @@ main{
     align-self: center;
     padding: 60px 10px 0 10px;
 }
+
+/*...............................
+edit profile form
+*/
+
 .edit-admin-profile{
     background: #243447;
     display: flex;
@@ -387,6 +397,11 @@ main{
 #bio-wrapper{
     padding-top: 20px;
 }
+
+/*...........................
+form for adding new article
+*/
+
 .add-new-article{
     background: #243447;
     display: flex;
@@ -470,6 +485,72 @@ main{
     align-self: center;
     color: #8F8D8D;
 }
+
+/*.......
+styles for article list
+*/
+
+.articles-list{
+    margin: 10% 20% 0 25%;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.articles-list.show{
+    display: flex;
+}
+.article-card-content{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-bottom: 30px; 
+    font-family: 'Roboto', sans-serif; 
+}
+.card-content{
+    background: #FAF4F4;
+    height: 150px;
+    padding: 5px 5px;
+}
+.card-content h3{
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+.article-body{
+    padding-bottom: 5px;
+}
+.article-body p{
+    padding-bottom: 8px;
+}
+.actions{
+    background: #18161F;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.fa-trash-alt{
+    align-self: center;
+    font-size: 20px;
+    color: #E75050;
+}
+.actions .fa-edit,
+.fa-info-circle{
+    align-self: center;
+    font-size: 20px;
+    color: #FAF4F4;
+}
+.fa-trash-alt:hover,
+.fa-edit:hover,
+.fa-info-circle:hover{
+    cursor: pointer;
+}
+/*.......................
+styles of the dashboard access
+*/
+
 .dashboard-content{
     background: #C0C0C0;
     margin: 5% 0 0 20%;
@@ -569,6 +650,10 @@ footer{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
+
+/*....................
+customize responsiveness
+*/
 
 @media screen and (max-width: 671px){
     header{
