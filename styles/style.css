@@ -162,7 +162,7 @@ main{
         flex-direction: column;
         -ms-flex-direction: column;
         margin: auto;
-        margin-bottom: 10%;
+        margin-bottom: 20%;
     }
     #welcome-section img{
         width: 250px;

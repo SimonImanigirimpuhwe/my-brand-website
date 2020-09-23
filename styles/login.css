@@ -149,8 +149,9 @@ customize responsiveness
         margin-left: 40px;
     }
     #login-form button{
-        margin-top: 30px;
-        height: 30px;
+        margin-top: 20px;
+        height: 40px;
+        margin-bottom: 20px;
     }
     #login-form-container{
         display: flex;
@@ -163,7 +164,6 @@ customize responsiveness
     #imag-wrapper p{
         padding-bottom: 70px;
         margin-left: 40px;
-        margin-top: -15%;
     }
     #login-form p{
         padding-bottom: 10px;
@@ -189,7 +189,8 @@ customize responsiveness
         padding-bottom: 5px;
     }
     #login-form button{
-        margin-top: 70px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         height: 50px;
     }
     #imag-wrapper p{
