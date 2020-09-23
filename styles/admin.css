@@ -547,6 +547,77 @@ styles for article list
 .fa-info-circle:hover{
     cursor: pointer;
 }
+
+/*.......................
+warning card
+*/
+
+.warn-container{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    width: 680px;
+    height: 550px;
+    margin-top: 10%;
+    align-self: center;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+}
+.warn{
+    display: flex;
+    flex-direction:column;
+    -ms-flex-direction: column;
+    justify-content: space-between;
+    background: #D0546D;
+    width: 680px;
+    height: 300px;
+    align-self: center;
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+.fa-exclamation-triangle{
+    color:#243447;
+    align-self: center;
+    font-size: 40px;
+}
+.warn p{
+    color: #FAF4F4;
+    font-family: 'ROBOTO', sans-serif;
+    font-size: 20px;
+    padding: 10px 20px
+}
+#cfrm-btn{
+    display:flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+#cfrm-btn button:hover{
+    cursor: pointer;
+}
+#cfrm-btn button:focus{
+    outline: none;
+}
+#cancel,
+#confirm{
+    background: #243447;
+    margin-top: auto;
+    height: 40px;
+    width: 150px;
+    color: #FAF4F4;
+    font-family: 'ROBOTO', sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+}
+#confirm:visited,
+#confirm:focus,
+#confirm:hover{
+    color:#D0546D ;
+}
+
 /*.......................
 styles of the dashboard access
 */
