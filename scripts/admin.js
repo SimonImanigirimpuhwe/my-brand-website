@@ -40,6 +40,7 @@ function showDashBoard() {
     articlesList.classList.remove('show')
   }
   editArticleForm.style.display = 'none';
+  warnContiner.style.display = 'none';
   dashBoardContent.classList.toggle('toggle-visibility')
 }
 
@@ -61,6 +62,7 @@ function showUserProfile() {
   profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
   editArticleForm.style.display = 'none';
+  warnContiner.style.display = 'none';
 }
 
 function logOutfn() {
@@ -82,6 +84,7 @@ function addArticle() {
   }
   editArticleForm.style.display = 'none';
   addArticleForm.style.display = 'flex';
+  warnContiner.style.display = 'none';
 }
 
 function viewAllArticles() {
@@ -91,6 +94,8 @@ function viewAllArticles() {
   }
   articlesList.classList.toggle('show')
   editForm.style.display = 'none';
+  addArticleForm.style.display = 'none';
+
 }
 
 function clearBoard() {
@@ -107,4 +112,30 @@ function updateArticle() {
     articlesList.classList.remove('show')
   }
   editArticleForm.style.display = 'flex'
+}
+
+/*...........
+warning for delet an article
+*/
+
+const deleteBtn = document.querySelectorAll('.fa-trash-alt');
+const warnContiner = document.querySelector('.warn-container');
+
+deleteBtn.forEach(btn => btn.addEventListener('click', deleteArticle));
+
+function deleteArticle() {
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
+  warnContiner.style.display = 'flex';
+   warnContiner.innerHTML =
+  `<div class="warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>Be aware that the action you are going to take is irreversible once it’s done.</p>
+      <div id="cfrm-btn">
+        <button id="cancel">Cancel</button>
+        <button id="confirm">Delete</button>
+      </div>
+   </div>
+  `;
 }
