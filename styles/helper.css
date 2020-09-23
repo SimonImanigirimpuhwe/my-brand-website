@@ -211,4 +211,7 @@ customize responsiveness
     #float-right{
         margin: auto;
     }
+    .toggle-switch{
+        padding-top: 30vh;
+    }
 }

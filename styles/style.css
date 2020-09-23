@@ -122,8 +122,6 @@ main{
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
-        margin: auto;
-        height: 50vh;
     }
     #welcome-section img{
         width: 250px;
@@ -133,6 +131,8 @@ main{
     #text-wrapper{
         margin:auto;
         padding-top: 20px;
+        margin-bottom: 30px;
+        margin-top: 10px;
     }
 
 }
@@ -142,21 +142,18 @@ main{
         flex-direction: column;
         -ms-flex-direction: column;
         margin: auto;
-        height: 100vh;
+        margin-bottom: 10%;
     }
     #welcome-section img{
         width: 250px;
         height: 250px;
         align-self: center;
     }
-    #text-wrapper{
-        margin:auto;
-    }
     .card{
         width: 300px;
         height: 350px;
         margin: auto;
-        margin-top: 5vh;
+        margin-top: 50px;
     }
 }
 @media screen and (max-width: 671px){
@@ -165,7 +162,7 @@ main{
         flex-direction: column;
         -ms-flex-direction: column;
         margin: auto;
-        height: 100vh;
+        margin-bottom: 10%;
     }
     #welcome-section img{
         width: 250px;
@@ -189,6 +186,6 @@ main{
         width: 300px;
         height: 350px;
         margin: auto;
-        margin-top: 10vh;
+        margin-top: 50px;
     }
 }

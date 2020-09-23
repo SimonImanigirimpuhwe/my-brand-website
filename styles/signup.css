@@ -120,9 +120,12 @@ customize responsiveness
     #image-wrapper > img{
         display: none;
     }
+    main{
+        height: 110vh;
+    }
     #signup-form {
-        margin-right: 20%;
-        margin-left: 20%;
+        margin-right: 15%;
+        margin-left: 15%;
     }
     #signup-form button{
         width: 350px;
@@ -136,7 +139,7 @@ customize responsiveness
         -ms-flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        height: 40%;
+        height: 80%;
     }
     #image-wrapper >p{
         padding-top: 5px;
@@ -144,6 +147,16 @@ customize responsiveness
 }
 
 @media screen and (max-width:853px){
+    #signup-form-container{
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 90%;
+    }
+    main{
+        height: 200vh;
+    }
     #image-wrapper > img{
         display: none;
     }
@@ -152,17 +165,11 @@ customize responsiveness
         margin-left: 10px;
     }
     #signup-form button{
-        margin-top: 15%;
+        margin-top: 20%;
         margin-bottom: 10px;
         width: 250px;
         height: 40px;
-    }
-    #signup-form-container{
-        flex-direction: column;
-        -ms-flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        height: 90%;
+
     }
     #image-wrapper >p{
         padding-top: 5px;
@@ -188,7 +195,8 @@ customize responsiveness
         -ms-flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        height: 90%;
+        height: 500px;
+        margin-bottom: 50px;
     }
     #image-wrapper >p{
         padding-top: 5px;

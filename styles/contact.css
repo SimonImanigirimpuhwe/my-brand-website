@@ -105,8 +105,33 @@ Header and footer styles are found in helper.css
 }
 
 @media screen and (max-width: 854px){
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction:column;
+        padding-top: 5vh;
+        padding-bottom: 10vh;
+    }
     #query-wrapper{
-        height: 600px;
+        margin: auto;
+        width: 800px;
+        height: 656px;
+        margin-top: 10vh;
+     }
+     #query-wrapper > img{
+        display: none;
+    }
+    #submit-form{
+        width: 300px;
+        height: 40px;
+        margin: auto;
+        margin-left: 30%;
+    }
+    #contact-form h3{
+        margin: auto;
+        margin-top: 23px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
     }
 }
 @media screen and (max-width: 761px){
