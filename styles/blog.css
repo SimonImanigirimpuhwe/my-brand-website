@@ -98,6 +98,7 @@ Header and footer styles are found in helper.css
         flex-wrap: wrap;
         -ms-flex-wrap: wrap;
         margin: 0 5% 0 1%;
+        background-color: red;
     }
     .article-card{
         width: 100%;
@@ -110,10 +111,14 @@ Header and footer styles are found in helper.css
 @media screen and (max-width:853px){
     .articles-container{
         margin: 0 5% 0 -10%;
+        background-color: blue;
     }
 } 
 @media screen and (max-width: 671px){
     .articles-container{
-        margin: 0 5% 0 -15%;
+        margin: 0 5% 0 -25%;
+    }
+    .article-card{
+        height: 420px;
     }
 }  

@@ -112,6 +112,10 @@ input:focus{
     text-decoration: underline;
 }
 
+/*....................
+customize responsiveness
+*/
+
 @media screen and (max-width:1024px){
     #image-wrapper > img{
         display: none;
@@ -132,7 +136,7 @@ input:focus{
         -ms-flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        height: 90%;
+        height: 40%;
     }
     #image-wrapper >p{
         padding-top: 5px;
@@ -173,6 +177,11 @@ input:focus{
     #signup-form {
         margin-right: 10%;
         margin-left: 10px;
+    }
+    #signup-form button{
+        margin-top: 15%;
+        margin-bottom: 10px;
+        width: 200px;
     }
     #signup-form-container{
         flex-direction: column;

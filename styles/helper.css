@@ -64,7 +64,6 @@ header{
 }
 #logo > img{
     height: 70px;
-    margin-left: 10px;
 }
 .toggle-switch{
     padding-top: 15vh;
@@ -198,6 +197,10 @@ footer{
     padding-bottom: 20px;
 }
 
+
+/*.............
+customize responsiveness
+*/
 @media screen and (max-width: 671px){
     #float-container{
         flex-direction: column;

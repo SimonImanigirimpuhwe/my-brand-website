@@ -772,4 +772,7 @@ customize responsiveness
     footer{
         align-self: flex-end;
     }
+    .dashboard-menu-wrapper{
+        top: 100px; 
+    }
 }

@@ -117,10 +117,46 @@ main{
     background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
 }
 
-@media screen and (max-width:853px){
+@media screen and (max-width: 1054px){
+    #welcome-section{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin: auto;
+        height: 50vh;
+    }
     #welcome-section img{
         width: 250px;
         height: 250px;
+        align-self: center;
+    }
+    #text-wrapper{
+        margin:auto;
+        padding-top: 20px;
+    }
+
+}
+@media screen and (max-width:853px){
+     #welcome-section{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin: auto;
+        height: 100vh;
+    }
+    #welcome-section img{
+        width: 250px;
+        height: 250px;
+        align-self: center;
+    }
+    #text-wrapper{
+        margin:auto;
+    }
+    .card{
+        width: 300px;
+        height: 350px;
+        margin: auto;
+        margin-top: 5vh;
     }
 }
 @media screen and (max-width: 671px){
@@ -128,24 +164,31 @@ main{
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
+        margin: auto;
+        height: 100vh;
     }
     #welcome-section img{
         width: 250px;
         height: 250px;
+        margin: auto;
     }
     #text-wrapper{
-        padding-left: 70px;
-        margin-top: 2vh;
-        width: 100%;
-        padding-left: 10px;
+        margin: auto;
+        padding-top: 20px;
+        padding-right: 10px;
     }
     #featured-posts{
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
-        margin: auto;
     }
     #featured-posts-wrapper{
-        margin-top: 60px;
+        margin-top: 20vh;
+    }
+    .card{
+        width: 300px;
+        height: 350px;
+        margin: auto;
+        margin-top: 10vh;
     }
 }

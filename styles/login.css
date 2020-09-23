@@ -105,6 +105,10 @@ main{
     text-decoration: underline;
 }
 
+/*..........................
+customize responsiveness
+*/
+
 @media screen and (max-width:1024px){
     #imag-wrapper > img{
         display: none;
@@ -119,8 +123,7 @@ main{
         -ms-flex-direction: column;
         margin-left: 20%;
         margin-right: 20%;
-        height: 90%;
-
+        height: 50%;
     }
     #imag-wrapper p{
         padding-bottom: 70px;
@@ -165,7 +168,9 @@ main{
         margin-left: 5%;
         margin-right: 5%;
         height: 90%;
-
+    }
+    #login-form{
+        padding-bottom: 5px;
     }
     #login-form button{
         margin-top: 70px;
@@ -174,5 +179,8 @@ main{
     #imag-wrapper p{
         padding-bottom: 70px;
         margin-left: 10px;
+    }
+    #login-form p{
+        padding-bottom: 10px;
     }
 }

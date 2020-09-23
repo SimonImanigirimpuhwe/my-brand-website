@@ -111,7 +111,17 @@ body{
 .skills-level .level{
     margin-left:  auto;
 }
-
+@media screen and (max-width: 1054px){
+    .welcome-section{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        margin: auto;
+    }
+    .welcome-section img{
+        align-self: center;
+       }
+}
 @media screen and (max-width: 671px){
     .welcome-section{
         display: flex;

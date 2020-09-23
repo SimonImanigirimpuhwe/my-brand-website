@@ -231,17 +231,28 @@ header and footer styles are found in helper.css
         -ms-flex-direction: column;
     }
     .interaction-menu{
-    margin: auto;
-    margin-top: 20px;
+        width: 250px;
+        margin: auto;
+        margin-top: 20px;
     }
     .comment-form{
-   margin: auto;
-   margin-top: 30px;
-   width: 350px;
+        margin: auto;
+        margin-top: 30px;
+        width: 350px;
     }
     #comments-card{
-      margin: auto;
-      margin-top: 20px;
-      width: 450px;
+        margin: auto;
+        margin-top: 20px;
+        width: 280px;
+    }
+    .comment-wrapper{
+      margin-right: 30px;
+    }
+    #article-image img{
+        width: 300px;
+        height: 250px;
+    }
+    .toggle-switch{
+        padding-top: 16vh;
     }
 }
