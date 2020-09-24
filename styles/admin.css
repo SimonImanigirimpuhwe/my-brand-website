@@ -643,6 +643,39 @@ warning card
 }
 
 /*.......................
+queries view  page
+*/
+.queries-container-page{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin: 10% 10% 0 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+}
+.queries-page{
+    background: #FCFCFC;
+    width: 300px;
+    height: 200px;
+    margin: 30px 20px 30px 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0 0 0; 
+}
+#query-title{
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 20px;
+}
+#query-body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+/*.......................
 styles of the dashboard access
 */
 

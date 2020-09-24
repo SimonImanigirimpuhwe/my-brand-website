@@ -39,6 +39,9 @@ function showDashBoard() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
+  }
   editArticleForm.style.display = 'none';
   warnContiner.style.display = 'none';
   dashBoardContent.classList.toggle('toggle-visibility')
@@ -59,6 +62,9 @@ function showUserProfile() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
+  }
   profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
   editArticleForm.style.display = 'none';
@@ -73,6 +79,9 @@ function editProfile() {
   if(editForm.style.display = 'flex'){
     profilePopup.classList.remove('display')
   }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
+  }
   editForm.style.display = 'flex';
   editArticleForm.style.display = 'none';
 }
@@ -81,6 +90,9 @@ function addArticle() {
   clearBoard()
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
+  }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
   }
   editArticleForm.style.display = 'none';
   addArticleForm.style.display = 'flex';
@@ -91,6 +103,9 @@ function viewAllArticles() {
   clearBoard()
   if(addArticleForm.style.display = 'flex'){
     addArticleForm.style.display = 'none';
+  }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
   }
   articlesList.classList.toggle('show')
   editForm.style.display = 'none';
@@ -111,11 +126,14 @@ function updateArticle() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
+  }
   editArticleForm.style.display = 'flex'
 }
 
 /*...........
-warning for delet an article
+warning for delete an article
 */
 
 const deleteBtn = document.querySelectorAll('.fa-trash-alt');
@@ -126,6 +144,9 @@ deleteBtn.forEach(btn => btn.addEventListener('click', deleteArticle));
 function deleteArticle() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
+  }
+  if(queriesContainer.style.display ='flex') {
+    queriesContainer.style.display ='none';
   }
   warnContiner.style.display = 'flex';
    warnContiner.innerHTML =
@@ -138,4 +159,42 @@ function deleteArticle() {
       </div>
    </div>
   `;
+}
+
+/*...............
+display queries page
+*/
+
+const queriesBtn = document.querySelector('.fa-envelope-open-text');
+const queriesContainer = document.querySelector('.queries-container-page');
+
+queriesBtn.addEventListener('click', showQueries)
+
+function showQueries() {
+  if(dashBoardContent.classList.contains('toggle-visibility')){
+    dashBoardContent.classList.remove('toggle-visibility')
+  }
+  if(editForm.style.display = 'flex'){
+    editForm.style.display = 'none';
+  }
+  if(profilePopup.classList.contains('display')){
+    profilePopup.classList.remove('display')
+  }
+  if(addArticleForm.style.display = 'flex'){
+    addArticleForm.style.display = 'none';
+  }
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
+  queriesContainer.style.display ='flex';
+  queriesContainer.innerHTML = 
+  `
+  <div class="queries-page">
+      <h2 id="query-title">Hello</h2>
+      <p id="query-body">Lorem ipsum dolor, 
+      sit amet consectetur adipisicing elit. Esse ullam reiciendis explicabo 
+      laborum eius, nobis nihil ex omnis dolor nesciunt.
+      </p>
+  </div>
+  `
 }
