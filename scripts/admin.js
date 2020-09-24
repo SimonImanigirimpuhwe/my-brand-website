@@ -186,6 +186,7 @@ function showQueries() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
+  warnContiner.style.display = 'none';
   queriesContainer.style.display ='flex';
   queriesContainer.innerHTML = 
   `
@@ -197,4 +198,30 @@ function showQueries() {
       </p>
   </div>
   `
+}
+
+/*.........................
+customise dashboard reponsiveness
+*/
+const hambergIcon = document.querySelector('fa-bars');
+const menu = document.querySelector('.dashboard-menu-wrapper');
+const spanIcon = document.querySelector('.span');
+
+
+spanIcon.addEventListener('click', () => {
+    hambergIconDisplay = !hambergIconDisplay;
+    showNav()
+})
+
+let hambergIconDisplay = false;
+function showNav() {
+    if(hambergIconDisplay){
+        menu.classList.add('dashboard-menu-display');
+        menu.style.display = 'flex';
+        spanIcon.innerHTML = `<i class="fas fa-times"></i>`;
+    }else{
+        menu.classList.remove('dashboard-menu-display');
+        menu.style.display = 'none';
+        spanIcon.innerHTML = `<i class="fas fa-bars"></i>`;
+    }
 }

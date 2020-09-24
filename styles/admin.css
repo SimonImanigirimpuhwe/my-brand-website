@@ -660,7 +660,7 @@ queries view  page
     background: #FCFCFC;
     width: 300px;
     height: 200px;
-    margin: 30px 20px 30px 20px;
+    margin: auto;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
     border-radius: 5px;
     text-align: center;
@@ -782,8 +782,61 @@ footer{
 /*....................
 customize responsiveness
 */
-
-@media screen and (max-width: 671px){
+@media screen and (min-width: 671px){
+    .dashboard-menu-wrapper{
+        display: flex;
+    }
+}
+@media screen and (max-width: 670px){
+    .dashboard-menu-display{
+        background:  rgba(51, 51, 51, 0.63);
+        width: 100%;
+        height: 170px;
+        left: 0;
+        top: 100px;
+        display: flex;
+        flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 20px;
+    }
+    .dashboard-menu-display p{
+        display: flex;
+        color: #FAF4F4;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .dashboard-menu-display .menu{
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+    }
+    .span{
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #D35232;
+        box-shadow: 1px 3px 5px #28B9AF;
+        margin-top: 500px;
+    }
+    .fa-bars,
+    .fa-times{
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+        color: #FAF4F4;
+        border-radius: 100%;
+        text-align: center;
+        margin-top: 15px; 
+    }
+    .fa-bars:hover,
+    .fa-times:hover{
+        cursor: pointer;
+    }
+    .dashboard-menu-wrapper{
+        display: none;
+    }
     header{
         display: flex;
         flex-direction: column;
@@ -791,6 +844,15 @@ customize responsiveness
         height: 105px;
         padding-left: 20px;
         padding-top: 5px;
+    }
+    #profile-status-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    #admin-profile{
+        align-self: flex-end;
+        margin-left: auto;
     }
     .view-article-btn{
         align-self: flex-start;
@@ -802,10 +864,101 @@ customize responsiveness
     .dashboard-more{
         margin-top: 20%;
     }
-    footer{
-        align-self: flex-end;
+    body{
+        overflow-x: hidden;
     }
-    .dashboard-menu-wrapper{
-        top: 100px; 
+    .profile-popup{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        justify-content: center;
+        width: 300px;
+        height: 680px;
+        margin-top: 50%;
+        align-self: center;
+        border-radius: 15px;
+        padding-bottom: 20px;
+        display: none;
+    }
+    .profile-popup img{
+        margin-top: 20px;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        align-self: center;
+    }
+    #right-wrapper{
+        margin: auto;
+        padding-top: 10px;
+    }
+    #admin-infos{
+        margin: auto;
+    }
+    #upload-file{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+    }
+    #upload-file span{
+        margin-top: 10px;
+        margin-left: -70px;
+    }
+    .dashboard-content{
+        background: #C0C0C0;
+        margin: 40% 0 0 20%;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+    }
+    .edit-admin-profile{
+        width: 400px;
+        height: 300px;
+        margin-top: 60%;
+    }
+    .edit-admin-profile #form-fields input{
+        height: 35px;
+        padding-left: 5px;
+        width: 250px;
+    }
+    .add-new-article,
+    .update-existing-article{
+    background: #243447;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    width: 400px;
+    height: 550px;
+    margin-top: 50%;
+    align-self: center;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+    }
+    .articles-list{
+        margin: 40% 5% 0 5%;
+        display: none;
+    }
+    .card-content{
+        height: 200px;
+    }
+    .warn{
+        display: flex;
+        flex-direction:column;
+        -ms-flex-direction: column;
+        justify-content: space-between;
+        background: #D0546D;
+        width: 400px;
+        height: 400px;
+        align-self: center;
+        padding: 10px 30px;
+        border-radius: 15px;
+    }  
+    .warn-container{
+        width:400px;
+        margin-top: 55%;
+        padding: 0;
+    }
+    .queries-container-page{
+        margin: 50% 5% 0 5%;
     }
 }
