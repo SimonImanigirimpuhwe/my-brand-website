@@ -108,8 +108,12 @@ main{
 /*..........................
 customize responsiveness
 */
-
-@media screen and (max-width:1024px){
+@media screen and (max-width: 1085px){
+    #login-form-container{
+        height: 80%;
+    }
+}
+@media screen and (max-width:1013px){
     #imag-wrapper > img{
         display: none;
     }
@@ -117,7 +121,7 @@ customize responsiveness
         margin-right: 20%;
         margin-left: 40px;
         padding: 0;
-        padding-top: 25vh;
+        padding-top: 1vh;
     }
     #login-form-container{
         display: flex;
@@ -129,11 +133,14 @@ customize responsiveness
         height: 90%;
     }
     #imag-wrapper p{
-        padding-bottom: 70px;
-        margin-left: 30px;
+        padding-bottom: 100px;
+        text-align: center;
     }
     #login-form p{
         padding-bottom: 10px;
+    }
+    #imag-wrapper{
+        padding-top:0;
     }
 }
 
@@ -141,17 +148,16 @@ customize responsiveness
     #imag-wrapper > img{
         display: none;
     }
-    main{
-        height: 160vh;
-    }
     #login-form {
         margin-right: 20%;
         margin-left: 40px;
     }
     #login-form button{
-        margin-top: 20px;
+        margin-top: 50px;
         height: 40px;
         margin-bottom: 20px;
+        width: 300px;
+        align-self: center;
     }
     #login-form-container{
         display: flex;
@@ -162,7 +168,7 @@ customize responsiveness
         height: 90%;
     }
     #imag-wrapper p{
-        padding-bottom: 70px;
+        padding-bottom: 100px;
         margin-left: 40px;
     }
     #login-form p{
@@ -189,9 +195,9 @@ customize responsiveness
         padding-bottom: 5px;
     }
     #login-form button{
-        margin-top: 20px;
+        margin-top: 40px;
         margin-bottom: 20px;
-        height: 50px;
+        height: 40px;
     }
     #imag-wrapper p{
         padding-bottom: 150px;
@@ -199,5 +205,44 @@ customize responsiveness
     }
     #login-form p{
         padding-bottom: 10px;
+    }
+}
+@media screen and (max-width: 366px){
+    #login-form button{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        height: 40px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 272px){
+    #login-form p{
+        padding-top: 30px;
+        font-size: 15px;
+    }
+    #login-form button{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        height: 30px;
+        width: 150px;
+    }
+}
+@media screen and (max-width: 178px){
+    #login-form-container{
+        height: 80%;
+        width: 250px;
+    }
+    #login-form button{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        height: 30px;
+        width: 100px;
+    }
+    #imag-wrapper p{
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+    #login-form p{
+        margin-top: 10px;
     }
 }

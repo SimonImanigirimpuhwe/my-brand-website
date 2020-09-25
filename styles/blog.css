@@ -107,6 +107,10 @@ Header and footer styles are found in helper.css
         margin-left:0;
     }
 }
+
+/*..................
+customize responsiveness
+*/
 @media screen and (max-width:853px){
     .articles-container{
         margin: 0 5% 0 -10%;
@@ -120,3 +124,22 @@ Header and footer styles are found in helper.css
         height: 420px;
     }
 }  
+@media screen and (max-width: 350px){
+    .article-card{
+        height: 500px;
+    }
+    .interaction-menu{
+        height: 50px;
+    }
+}
+@media screen and (max-width: 290px){
+    .article-card img,
+    .article-image .iconify{
+        width: 100px;
+        height: 150px;
+    }
+    .article-card{
+        width: 180px;
+        margin-left: -20px;
+    }
+}

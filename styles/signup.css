@@ -115,13 +115,17 @@ input:focus{
 /*....................
 customize responsiveness
 */
-
+@media screen and (max-width: 1900px){
+    #signup-form{
+        padding-top: 7vh;
+    }
+    #signup-form-container{
+        height: 70%;
+    }
+}
 @media screen and (max-width:1024px){
     #image-wrapper > img{
         display: none;
-    }
-    main{
-        height: 110vh;
     }
     #signup-form {
         margin-right: 15%;
@@ -146,16 +150,13 @@ customize responsiveness
     }
 }
 
-@media screen and (max-width:853px){
+@media screen and (max-width:852px){
     #signup-form-container{
         flex-direction: column;
         -ms-flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        height: 90%;
-    }
-    main{
-        height: 200vh;
+        height: 70%;
     }
     #image-wrapper > img{
         display: none;
@@ -165,14 +166,13 @@ customize responsiveness
         margin-left: 10px;
     }
     #signup-form button{
-        margin-top: 20%;
+        margin-top: 10%;
         margin-bottom: 10px;
         width: 250px;
         height: 40px;
 
     }
     #image-wrapper >p{
-        padding-top: 5px;
         margin-left:30px;
     }
 }
@@ -184,6 +184,10 @@ customize responsiveness
     #signup-form {
         margin-right: 10%;
         margin-left: 10px;
+        padding-top: 2px;
+    }
+    main{
+        height: 120vh;
     }
     #signup-form button{
         margin-top: 15%;
@@ -195,10 +199,31 @@ customize responsiveness
         -ms-flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        height: 500px;
+        height: 600px;
         margin-bottom: 50px;
     }
     #image-wrapper >p{
         padding-top: 5px;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 320px){
+    #signup-form button{
+        width: 150px;
+    }
+    main{
+        height: 80vh;
+    }
+}
+@media screen and (max-width: 231px){
+    #signup-form button{
+        width: 120px;
+        height: 30px;
+    }
+}
+@media screen and (max-width: 170px){
+    #signup-form button{
+        width: 100px;
+        height: 20px;
     }
 }

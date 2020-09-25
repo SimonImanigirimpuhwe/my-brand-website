@@ -220,8 +220,6 @@ customize responsiveness
         margin-top: 80px;
         margin-left: 0;
         margin-right: 0;
-        transition: transform .5 ease-in-out;
-        -webkit-transtion: -webkit-transform .5 ease-in-out;
     }
     .dropdown ul{
         line-height: 30px;
@@ -264,8 +262,5 @@ customize responsiveness
     #float-left,
     #float-right{
         margin: auto;
-    }
-    .toggle-switch{
-        padding-top: 30vh;
     }
 }

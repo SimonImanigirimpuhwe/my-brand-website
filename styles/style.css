@@ -16,6 +16,7 @@ main{
     flex-direction: row;
     -ms-flex-direction: row;
     height: 90vh;
+    justify-content: center;
 }
 #welcome-section img{
     width: 450px;
@@ -30,11 +31,12 @@ main{
     color: #008B8B;
 }
 #text-wrapper{
-    padding-left: 50px;
+    margin-left: 50px;
     margin-top: 30vh;
     font-family: 'Roboto', sans-serif;
     font-size: 19px;
-    margin-right: 10%;
+    width: 700px;
+    height: 200px;
 }
 #text-wrapper p{
     padding-top: 10px;
@@ -111,81 +113,80 @@ main{
 .card:hover{
     cursor: pointer;
     transform: scale(1.03);
+    transition: all .3s;
 }
 #more-posts:hover{
     cursor: pointer;
     background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
 }
 
-@media screen and (max-width: 1054px){
-    #welcome-section{
-        display: flex;
-        flex-direction: column;
-        -ms-flex-direction: column;
-    }
-    #welcome-section img{
-        width: 250px;
-        height: 250px;
-        align-self: center;
-    }
-    #text-wrapper{
-        margin:auto;
-        padding-top: 20px;
-        margin-bottom: 30px;
-        margin-top: 10px;
-    }
 
-}
-@media screen and (max-width:853px){
-     #welcome-section{
-        display: flex;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        margin: auto;
-        margin-bottom: 10%;
-    }
-    #welcome-section img{
-        width: 250px;
-        height: 250px;
-        align-self: center;
-    }
-    .card{
-        width: 300px;
-        height: 350px;
-        margin: auto;
-        margin-top: 50px;
-    }
-}
-@media screen and (max-width: 671px){
+/*..........................
+customize responsiveness
+*/
+
+@media screen and (max-width: 1273px){
     #welcome-section{
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
-        margin: auto;
-        margin-bottom: 20%;
+        justify-content: center;
+        margin-bottom: 30px;
     }
     #welcome-section img{
-        width: 250px;
-        height: 250px;
+        width: 450px;
+        height: 450px;
         margin: auto;
+        margin-bottom: 10px;
+        margin-top: 30px;
     }
     #text-wrapper{
-        margin: auto;
-        padding-top: 20px;
-        padding-right: 10px;
+        margin-left: 0;
+        margin-top: 10px;
+        width: 700px;
+        height: 200px;
+        align-self: center;
     }
+}
+@media screen and (max-width: 832px){
     #featured-posts{
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
-    }
-    #featured-posts-wrapper{
-        margin-top: 20vh;
+        justify-content: space-around;
+        padding-bottom: 20px;
     }
     .card{
+        align-self: center;
+        margin-bottom: 30px;
+    }
+    #featured-posts-wrapper h3{
+        padding-bottom: 20px;
+    }
+    #text-wrapper{
+        width: 500px;
+        height: 300px;
+    }
+    #welcome-section img{
+        width: 250px;
+        height: 250px;
+    }
+}
+@media screen and (max-width: 524px){
+    #text-wrapper{
+        width: 400px;
+        height: 400px;
+    }
+    #welcome-section{
+        height: 80vh;
+    }
+    .toggle-switch{
+        margin-top: 2vh;
+    }
+}
+@media screen and (max-width: 442px){
+    #text-wrapper{
         width: 300px;
-        height: 350px;
-        margin: auto;
-        margin-top: 50px;
+        height: 400px;
     }
 }

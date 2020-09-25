@@ -103,8 +103,17 @@ Header and footer styles are found in helper.css
 #name:focus{
     outline: none;
 }
+@media screen and (max-width: 1896px){
+    #query-wrapper{
+        height: 656px;
+        margin-right: 50px;
 
-@media screen and (max-width: 854px){
+     }
+}
+@media screen and (max-width: 1140px){
+    
+}
+@media screen and (max-width: 1140px){
     .contact-container{
         display: flex;
         flex-direction: column;
@@ -114,9 +123,10 @@ Header and footer styles are found in helper.css
     }
     #query-wrapper{
         margin: auto;
-        width: 800px;
+        width: 500px;
         height: 656px;
         margin-top: 10vh;
+        justify-content: center;
      }
      #query-wrapper > img{
         display: none;
@@ -125,7 +135,7 @@ Header and footer styles are found in helper.css
         width: 300px;
         height: 40px;
         margin: auto;
-        margin-left: 30%;
+        margin-left: 10%;
     }
     #contact-form h3{
         margin: auto;
@@ -153,6 +163,7 @@ Header and footer styles are found in helper.css
        width: 300px;
        height: 500px;
        margin-top: 10vh;
+       padding-right: 20px;
     }
     #query-wrapper h3{
         margin: auto;
