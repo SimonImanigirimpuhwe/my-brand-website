@@ -68,8 +68,9 @@ main{
     margin-top: 20px;
     background: #FFFFFF;
     opacity: 0.9;
-    box-shadow: 5px 5px 10px 5px #3C3535;
+    box-shadow: 5px 5px 10px 5px #15202b;
     transition: ease-in-out 3s;
+    border-radius: 15px;
 }
 .card h4{
     padding-top: 20px;
@@ -120,9 +121,36 @@ main{
     background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
 }
 
+/*======================================
+Style dark mode
+====================================
+*/
+.dark-mode .card{
+    background: #243447;
+}
+.dark-mode .card p,
+.dark-mode .card h4{
+    color: #FFFFFF;
+}
+.dark-mode #welcome-section img{
+    filter: none;
+}
+.dark-mode #text-wrapper,
+.dark-mode #featured-posts-wrapper h3{
+    color: #FFFFFF;
+}
+.dark-mode #more-posts{
+    background: #008B8B;
+}
+.dark-mode #more-posts:hover{
+    cursor: pointer;
+    background: linear-gradient(180deg, #DF502A 0%, rgba(35, 112, 172, 0.68) 100%);
+}
 
-/*..........................
+
+/*======================================
 customize responsiveness
+=======================================
 */
 
 @media screen and (max-width: 1273px){

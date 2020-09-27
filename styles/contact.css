@@ -40,12 +40,12 @@ Header and footer styles are found in helper.css
     margin-left: 50px;
     margin-top: 50px;
     background: #FEFEFE;
-    box-shadow: 5px 5px 15px 5px #333333;
+    box-shadow: 5px 5px 15px 2px  #15202b;
     border-radius: 15px;
     height: 100vh;
     margin-bottom: 20vh;
 }
-#query-wrapper > img{
+#query-wrapper img{
     width: 348px;
     height: 324px;
     margin-top: 20vh;
@@ -55,6 +55,7 @@ Header and footer styles are found in helper.css
     flex-direction: column;
     -ms-flex-direction: column;
     padding-left: 20px;
+    padding-top: 20px;
 }
 #contact-form label{
     padding-bottom: 5px;
@@ -84,6 +85,8 @@ Header and footer styles are found in helper.css
     width: 400px;
     height: 100px;
     padding-left: 10px;
+    padding-top: 10px;
+    font-size: 20px;
     font-size: 15px;
     border: 3px solid #27447e;
 }
@@ -96,13 +99,50 @@ Header and footer styles are found in helper.css
     font-size: 20px;
     border: none;
     margin-top: 15vh;
-    margin-left: -20%;
+}
+#submit-form:hover{
+    background: #008B8B;
+    cursor: pointer;
 }
 #sumit-form button:focus,
 #email:focus,
-#name:focus{
+#name:focus,
+#message-area:focus{
     outline: none;
 }
+
+/*======================================
+style dark mode
+====================================
+*/
+.dark-mode #contacts-wrapper span{
+    color: #FFFF;
+}
+.dark-mode #contacts-wrapper h3,
+.dark-mode #contacts-wrapper i{
+    color: #008B8B;
+}
+.dark-mode #submit-form{
+    background: #15202b;
+}
+.dark-mode #submit-form:hover{
+    background: #008B8B;
+    cursor: pointer;
+}
+.dark-mode #sumit-form:focus{
+    outline: none;
+}
+.dark-mode #query-wrapper{
+    background: #243447;
+}
+.dark-mode #contact-form h3,
+.dark-mode #contact-form label{
+    color: #FFFF;
+}
+/*======================================
+customise responsivenss
+====================================
+*/
 @media screen and (max-width: 1896px){
     #query-wrapper{
         height: 656px;
@@ -128,7 +168,7 @@ Header and footer styles are found in helper.css
         margin-top: 10vh;
         justify-content: center;
      }
-     #query-wrapper > img{
+     #query-wrapper img{
         display: none;
     }
     #submit-form{
@@ -155,7 +195,7 @@ Header and footer styles are found in helper.css
     #contacts-wrapper{
        margin: auto;
     }
-    #query-wrapper > img{
+    #query-wrapper img{
         display: none;
     }
     #query-wrapper{

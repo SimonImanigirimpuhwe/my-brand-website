@@ -19,7 +19,7 @@ main{
     height: 75%;
     margin-top: 5vh;
     border-radius: 15px;
-    box-shadow: 5px 5px 15px 5px #333333;
+    box-shadow: 5px 5px 15px 2px #15202b;
 }
 #login-form{
     display: flex;
@@ -85,7 +85,7 @@ main{
 #imag-wrapper{
     padding-top: 50px;
 }
-#imag-wrapper > img{
+#imag-wrapper img{
     width: 200px;
     padding-left: 20px;
     margin-left: -30px;
@@ -105,8 +105,47 @@ main{
     text-decoration: underline;
 }
 
-/*..........................
+/*======================================
+Style dark mode
+========================================
+*/
+.dark-mode #login-form-container{
+    background: #243447;
+}
+.dark-mode #login-form p,
+.dark-mode #password-reset a,
+.dark-mode #imag-wrapper a,
+.dark-mode #login-form i{
+    color: #008B8B;
+}
+.dark-mode #login-form button{
+    background: #15202b;
+    border: none;
+}
+.dark-mode #login-form button:hover,
+.dark-mode #login-form button:focus{
+    background: #008B8B;
+    cursor: pointer;
+    outline: none;
+}
+.dark-mode #imag-wrapper p{
+    color:white
+}
+.dark-mode #password-reset label{
+    color: #FFFFFF;
+}
+.dark-mode input{
+    background: scroll ;
+    color: #FFFFFF;
+}
+.dark-mode #login-form input:not([type='checkbox']){
+    border-bottom: 2px solid #15202b;
+}
+
+
+/*=====================================
 customize responsiveness
+=======================================
 */
 @media screen and (max-width: 1085px){
     #login-form-container{
@@ -114,7 +153,7 @@ customize responsiveness
     }
 }
 @media screen and (max-width:1013px){
-    #imag-wrapper > img{
+    #imag-wrapper img{
         display: none;
     }
     #login-form {
@@ -145,7 +184,7 @@ customize responsiveness
 }
 
 @media screen and (max-width:853px){
-    #imag-wrapper > img{
+    #imag-wrapper img{
         display: none;
     }
     #login-form {
@@ -176,7 +215,7 @@ customize responsiveness
     }
 }
 @media screen and (max-width:671px){
-    #imag-wrapper > img{
+    #imag-wrapper img{
         display: none;
     }
     #login-form {

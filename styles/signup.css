@@ -17,7 +17,7 @@ main{
     margin-right: 20%;
     height: 75%;
     border-radius: 15px;
-    box-shadow: 5px 5px 15px 5px #333333;
+    box-shadow: 5px 5px 15px 5px  #15202b;
     margin-top: 5vh;
 }
 #signup-form{
@@ -92,7 +92,7 @@ input:focus{
     text-decoration: underline;
     cursor: pointer;
 }
-#image-wrapper > img{
+#image-wrapper img{
     width: 200px;
     height: 300px;
     padding-left: 20px;
@@ -112,8 +112,47 @@ input:focus{
     text-decoration: underline;
 }
 
-/*....................
+/*======================================
+Style dark mode
+====================================
+*/
+.dark-mode #signup-form-container{
+    background: #243447;
+}
+.dark-mode #signup-form p,
+.dark-mode #signup-form a,
+.dark-mode #image-wrapper a,
+.dark-mode #signup-form i{
+    color: #008B8B;
+}
+.dark-mode #image-wrapper >p,
+.dark-mode #agreement-input span{
+    color: #FFFFFF;
+}
+.dark-mode #signup-form button{
+    background: #15202b;
+    border: none;
+}
+.dark-mode #signup-form button:hover,
+.dark-mode #signup-form button:focus{
+    background: #008B8B;
+    cursor: pointer;
+    outline: none;
+}
+.dark-mode input{
+    background: scroll ;
+    color: #FFFFFF;
+}
+.dark-mode #signup-form input:not([type='checkbox']){
+    border-bottom: 2px solid #15202b;
+}
+.dark-mode #signup-form input[type='checkbox']{
+    background:#15202b;
+    color: #15202b;
+}
+/*==========================
 customize responsiveness
+===========================
 */
 @media screen and (max-width: 1900px){
     #signup-form{
@@ -124,7 +163,7 @@ customize responsiveness
     }
 }
 @media screen and (max-width:1024px){
-    #image-wrapper > img{
+    #image-wrapper img{
         display: none;
     }
     #signup-form {
@@ -158,7 +197,7 @@ customize responsiveness
         margin-right: 5%;
         height: 70%;
     }
-    #image-wrapper > img{
+    #image-wrapper img{
         display: none;
     }
     #signup-form {
@@ -178,7 +217,7 @@ customize responsiveness
 }
 
 @media screen and (max-width: 671px){
-    #image-wrapper > img{
+    #image-wrapper img{
         display: none;
     }
     #signup-form {

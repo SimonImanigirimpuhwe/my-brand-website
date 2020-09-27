@@ -15,21 +15,20 @@ header and footer styles are found in helper.css
     margin-left: 20px;
 }
 #back-btn button{
-    width: 100px;
-    height: 35px;
+    position: fixed;
+    width: 45px;
+    height: 45px;
     border-radius: 10px;
     border: none;
     background-color: #27447E;
+    border-radius: 100%;
 }
 #back-btn a{
     color: #FFFEFE;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: medium;
+
 }
 #back-btn i{
     font-size: 20px;
-    margin-right: 5px;
 }
 #back-btn button:focus{
     outline: none;
@@ -174,6 +173,24 @@ header and footer styles are found in helper.css
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
 }
+.comment-wrapper span button{
+    margin-left: 50px;
+    height: 30px;
+    width: 100px;
+    background: #27447E;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family:'ROBOTO', sans-serif;
+}
+.comment-wrapper span button:focus{
+    outline: none;
+}
+.comment-wrapper span button:hover{
+    background:#008B8B;
+    cursor: pointer;
+}
 #comments-card{
     width: 500px;
     height: 150px;
@@ -224,6 +241,53 @@ header and footer styles are found in helper.css
     padding-right: 5px;
 }
 
+/*======================================
+Style dark mode
+====================================
+*/
+.dark-mode #article-description,
+.dark-mode #article-title,
+.dark-mode .comment-wrapper h3{
+    color: #FFFFFF;
+}
+.dark-mode #published-time{
+    color: grey;
+}
+.dark-mode #back-btn button,
+.dark-mode .comment-wrapper span button{
+    background: #008B8B;
+}
+.dark-mode #highlighted{
+    background: grey;
+    padding: 10px;
+}
+.dark-mode #article-image img{
+    border-radius: 15px;
+}
+.dark-mode .interaction-menu{
+    background:  #243447;
+    border-radius: 15px;
+    color: grey;
+}
+.dark-mode .comment-form{
+    background: #243447;
+    box-shadow: none;
+}
+.dark-mode .comment-form label,
+.dark-mode .comment-form h3{
+    color: #FFFFFF;
+}
+.dark-mode #submit-comment-form{
+    background: #15202b;
+}
+.dark-mode #submit-comment-form:hover{
+    background: #008B8B;
+}
+
+/*======================================
+customise responsivess
+====================================
+*/
 @media screen and (max-width: 671px){
     .content-container{
         display: flex;

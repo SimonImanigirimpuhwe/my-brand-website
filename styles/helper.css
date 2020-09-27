@@ -68,9 +68,10 @@ header{
 .toggle-switch{
     padding-top: 15vh;
     margin-left:  auto;
-    padding-right: 20px;
+    padding-right: 50px;
 }
 .toggle-switch button{
+    position: fixed;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -81,6 +82,11 @@ header{
 }
 .fa-moon{
     color: #fce683;
+    font-size: 20px;
+}
+.fa-sun{
+    color: #999999;
+    font-size: 20px;
 }
 .light-mode{
     background-color:#333;
@@ -197,8 +203,29 @@ footer{
     padding-bottom: 20px;
 }
 
-/*.............
+/*======================================
+style dark mode
+====================================
+*/
+.dark-mode{
+    background: #15202b;
+}
+.light-mode.dark-mode{
+    background:#15202b ;
+}
+.dark-mode body{
+    background: #15202b;
+}
+.dark-mode footer{
+    border-top: 2px solid #DF502A;
+}
+.dark-mode header{
+    border-bottom: 2px solid #DF502A;
+}
+
+/*======================================
 customize responsiveness
+========================================
 */
 @media screen and (min-width: 671px){
     .span{

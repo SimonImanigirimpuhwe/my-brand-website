@@ -111,6 +111,21 @@ body{
 .skills-level .level{
     margin-left:  auto;
 }
+
+/*======================================
+Style dark mode
+====================================
+*/
+.dark-mode main{
+    color: #FFFFFF;
+}
+.dark-mode .welcome-section img{
+    filter: none;
+}
+
+/*====================================
+customize responsiveness
+*/
 @media screen and (max-width: 1054px){
     .welcome-section{
         display: flex;

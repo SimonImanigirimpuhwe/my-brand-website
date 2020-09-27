@@ -15,7 +15,6 @@ Header and footer styles are found in helper.css
 .article-card{
     width: 350px;
     height: 400px;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -23,13 +22,20 @@ Header and footer styles are found in helper.css
     background: #FFFFFF;
     border: 1px solid #FEFCFC;
     box-sizing: border-box;
-    box-shadow: 5px 5px 15px 2px #3C3535;
+    box-shadow: 4px 5px 15px 1px #15202b;
     border-radius: 15px;
     transition: all .2s;
+    justify-content: space-between;
 }
 .article-card:hover{
     cursor: pointer;
     transform: scale(1.03);
+}
+.article-more{
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .article-image{
     align-self: center;
@@ -90,6 +96,49 @@ Header and footer styles are found in helper.css
     padding-left: 5px;
 }
 
+/*======================================
+Style dark mode
+====================================
+*/
+.dark-mode .rticle-content-wrapper{
+    background: #243447;
+    border: none;
+}
+.dark-mode .article-card img,
+.dark-mode .article-image .iconify{
+    width: 350px;
+    height: 160px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.dark-mode .article-more{
+    background: #243447;
+    border: none;
+}
+.dark-mode .article-card{
+    border: none;
+}
+.dark-mode .article-image{
+    padding-top: 0;
+}
+.dark-mode .article-image .iconify{
+    background: #FFFFFF;
+}
+.dark-mode .article-content-wrapper p,
+.dark-mode .article-title{
+    color: #FFFFFF;
+}
+.dark-mode .published-time{
+    color: grey;
+}
+.dark-mode .interaction-menu{
+    background: #16263b;
+    color: grey;
+}
+
+/*..................
+customize responsiveness
+*/
 @media screen and (max-width:1200px){
     .articles-container{
         display: flex;
@@ -107,10 +156,6 @@ Header and footer styles are found in helper.css
         margin-left:0;
     }
 }
-
-/*..................
-customize responsiveness
-*/
 @media screen and (max-width:853px){
     .articles-container{
         margin: 0 5% 0 -10%;
@@ -135,7 +180,7 @@ customize responsiveness
 @media screen and (max-width: 290px){
     .article-card img,
     .article-image .iconify{
-        width: 100px;
+        width: 180px;
         height: 150px;
     }
     .article-card{
