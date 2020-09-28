@@ -80,7 +80,7 @@ main{
     height: 50px;
     font-size: 20px;
     width: 300px;
-    color: white;
+    color: #FFFFFF;
     border-radius:15px;
     border: none;
 }
@@ -192,7 +192,7 @@ customize responsiveness
     }
     #imag-wrapper p,
     #password-reset{
-        font-size: 18px;;
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 417px){
@@ -207,6 +207,7 @@ customize responsiveness
     }
     #login-form button{
         width: 250px;
+        height: 40px;
     }
 }
 @media screen and (max-width: 320px){
@@ -217,7 +218,8 @@ customize responsiveness
         width: 97%;
     }
     #login-form button{
-        width: 200px;
+        width: 250px;
+        margin-top: 50px;
     }
     #login-form p{
         font-size: 20px;
