@@ -247,7 +247,7 @@ customize responsiveness
     .dropdown{
         border-top: 2px solid #008B8B;
         position: fixed;
-        background-color: rgba(51, 51, 51);
+        background: rgba(51, 51, 51);
         height: 320px;
         width: 100%;
         margin-top: 80px;
