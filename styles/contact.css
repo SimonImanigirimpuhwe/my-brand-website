@@ -8,7 +8,7 @@ Header and footer styles are found in helper.css
     justify-content: space-around;
 }
 #contacts-wrapper{
-    margin-top: 5vh;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
