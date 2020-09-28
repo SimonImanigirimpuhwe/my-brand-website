@@ -106,8 +106,6 @@ Style dark mode
 }
 .dark-mode .article-card img,
 .dark-mode .article-image .iconify{
-    width: 350px;
-    height: 160px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -153,7 +151,7 @@ customize responsiveness
         height: 400px;
         border-radius: 15px;
         margin-top: 20px;
-        margin-left:0;
+        margin-left:unset;
     }
 }
 @media screen and (max-width:853px){
@@ -162,14 +160,19 @@ customize responsiveness
     }
 } 
 @media screen and (max-width: 671px){
-    .articles-container{
-        margin: 0 5% 0 -15%;
-    }
     .article-card{
-        height: 420px;
+        height: 425px;
     }
 }  
+@media screen and (max-width: 595px){
+    .articles-container{
+        margin: 0 5% 0 -13%;
+    }
+}
 @media screen and (max-width: 350px){
+    .articles-container{
+        margin: 0 10% 0 -20%;
+    }
     .article-card{
         height: 500px;
     }
@@ -178,6 +181,9 @@ customize responsiveness
     }
 }
 @media screen and (max-width: 290px){
+    .articles-container{
+        margin: 0 5% 0 -10%;
+    }
     .article-card img,
     .article-image .iconify{
         width: 180px;
@@ -186,5 +192,10 @@ customize responsiveness
     .article-card{
         width: 180px;
         margin-left: -20px;
+    }
+}
+@media screen and (max-width: 250px){
+    .articles-container{
+        margin: 0 15% 0 -20%;
     }
 }

@@ -10,6 +10,7 @@ header and footer styles are found in helper.css
     display: flex;
     flex-direction: row;
     -ms-flex-direction: row;
+    padding-top: 20px;
 }
 #back-btn{
     margin-left: 20px;
@@ -293,6 +294,7 @@ customise responsivess
         display: flex;
         flex-direction: column;
         -ms-flex-direction: column;
+        padding-top: 50px;
     }
     .interaction-menu{
         width: 250px;
@@ -302,7 +304,7 @@ customise responsivess
     .comment-form{
         margin: auto;
         margin-top: 30px;
-        width: 350px;
+        width: 300px;
     }
     #comments-card{
         margin: auto;
@@ -315,8 +317,5 @@ customise responsivess
     #article-image img{
         width: 300px;
         height: 250px;
-    }
-    .toggle-switch{
-        padding-top: 16vh;
     }
 }

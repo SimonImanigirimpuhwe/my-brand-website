@@ -5,7 +5,9 @@ body{
     background: #FFFFFF;
 }
 main{
-    height: 100vh;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
 }
 #signup-form-container{
     background: white;
@@ -13,22 +15,21 @@ main{
     flex-direction: row;
     -ms-flex-direction: row;
     justify-content: space-around;
-    margin-left: 20%;
-    margin-right: 20%;
-    height: 75%;
+    height:600px;
+    width: 100%;
     border-radius: 15px;
     box-shadow: 5px 5px 15px 5px  #15202b;
-    margin-top: 5vh;
+    margin-top: 50px;
 }
 #signup-form{
-    padding-top: 25px;
+    padding-top: 50px;
     padding-left: 30px;
     padding-right: 20px;
 }
 #signup-form p{
-    font-size: 20px;
+    font-size: 30px;
     text-transform: uppercase;
-    padding-bottom: 5px;
+    padding-bottom: 50px;
     color:#27447e;
 }
 #signup-form i{
@@ -39,7 +40,7 @@ main{
     text-transform: uppercase;
     top: 15px;
     left: 0;
-    font-size: 20px;
+    font-size: 25px;
     color: #27447e;
 }
 #signup-form div{
@@ -47,21 +48,25 @@ main{
 }
 #agreement-input span{
     padding-left:10px ;
-    font-size: 17px;
+    font-size: 25px;
 }
 #agreement-input{
-    font-size: 20px;
+    padding-top: 30px;
 }
 #signup-form input:not([type='checkbox']){
-    height: 30px;
-    width: 100%;
-    padding-left: 25px;  
+    height: 40px;
+    width: 500px;
+    padding-left:30px;  
     border-top: hidden;
     border-right: hidden;
     border-left: hidden;
     border-bottom: 2px solid #425B8E;;
     margin: 10px 0;
-    font-size: 15px;
+    font-size: 20px;
+}
+#signup-form input[type='checkbox']{
+    height: 20px;
+    width: 20px;
 }
 input:focus{
     outline: none;
@@ -69,11 +74,11 @@ input:focus{
 #signup-form button{
     background: #27447E;
     border-radius: 15px;
-    margin-top: 15%;
+    margin-top: 50px;
     margin-bottom: 10px;
-    width: 250px;
-    height: 40px;
-    font-size: 17px;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
     color: #F5F5F5;
     border: none;
 }
@@ -92,16 +97,23 @@ input:focus{
     text-decoration: underline;
     cursor: pointer;
 }
+#image-wrapper {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding-bottom: 40px;
+}
 #image-wrapper img{
     width: 200px;
     height: 300px;
     padding-left: 20px;
 }
 #image-wrapper >p{
-    font-size: 18px;
-    padding-bottom: 30px;
+    font-size: 25px;
+    padding-bottom: 50px;
     padding-right: 10px;
-    padding-top: 20px;
+    margin-top: auto;
     font-family: 'Roboto', sans-serif;
 }
 #image-wrapper a{
@@ -150,119 +162,97 @@ Style dark mode
     background:#15202b;
     color: #15202b;
 }
+
+
 /*==========================
 customize responsiveness
 ===========================
 */
-@media screen and (max-width: 1900px){
-    #signup-form{
-        padding-top: 7vh;
-    }
-    #signup-form-container{
-        height: 70%;
-    }
-}
-@media screen and (max-width:1024px){
+
+@media screen and (max-width:1153px){
     #image-wrapper img{
         display: none;
-    }
-    #signup-form {
-        margin-right: 15%;
-        margin-left: 15%;
-    }
-    #signup-form button{
-        width: 350px;
-        height: 40px;
-    }
-    #image-wrapper >p{
-        margin-left: 25%;
     }
     #signup-form-container{
         flex-direction: column;
         -ms-flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        height: 80%;
-    }
-    #image-wrapper >p{
-        padding-top: 5px;
-    }
-}
-
-@media screen and (max-width:852px){
-    #signup-form-container{
-        flex-direction: column;
-        -ms-flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        height: 70%;
-    }
-    #image-wrapper img{
-        display: none;
-    }
-    #signup-form {
-        margin-right: 10%;
-        margin-left: 10px;
-    }
-    #signup-form button{
-        margin-top: 10%;
-        margin-bottom: 10px;
-        width: 250px;
-        height: 40px;
-
-    }
-    #image-wrapper >p{
-        margin-left:30px;
-    }
-}
-
-@media screen and (max-width: 671px){
-    #image-wrapper img{
-        display: none;
-    }
-    #signup-form {
-        margin-right: 10%;
-        margin-left: 10px;
-        padding-top: 2px;
+        height:670px;
     }
     main{
-        height: 120vh;
+        width: 90%;
     }
-    #signup-form button{
-        margin-top: 15%;
-        margin-bottom: 10px;
-        width: 200px;
+    #image-wrapper{
+        align-self: center;
+        padding-left: unset;
     }
-    #signup-form-container{
-        flex-direction: column;
-        -ms-flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        height: 600px;
-        margin-bottom: 50px;
+    #image-wrapper p{
+        margin-left: -100px;
     }
-    #image-wrapper >p{
-        padding-top: 5px;
+    #signup-form{
+        align-self: center;
+    }
+}
+@media screen and (max-width: 615px){
+    #signup-form input:not([type='checkbox']){
+        width: 400px;
+    }
+    main{
+        width: 95%;
+    }
+    #image-wrapper p{
+        margin-left: unset;
+    }
+}
+@media screen and (max-width: 450px){
+    #signup-form input:not([type='checkbox']){
+        width: 300px;
         font-size: 17px;
     }
-}
-@media screen and (max-width: 320px){
+    #signup-form p{
+        font-size: 25px;
+    }
+    #agreement-input span{
+        font-size: 17px;
+    }
+    #signup-form input[type='checkbox']{
+        height: 15px;
+        width: 15px;
+    }
+    #signup-form i{
+        font-size: 20px;
+    }
+    #image-wrapper >p{
+        font-size: 17px;
+    }
     #signup-form button{
-        width: 150px;
+        width: 250px;
+        height: 40px;
+    }
+}
+@media screen and (max-width:345px){
+    #signup-form input:not([type='checkbox']){
+        width: 250px;
+    }
+}
+@media screen and (max-width: 300px){
+    #signup-form input:not([type='checkbox']){
+        width: 100%;
     }
     main{
-        height: 80vh;
+        width: 98%;
+    }
+    #signup-form button{
+        width: 200px;
+    }
+    #signup-form p{
+        font-size: 20px;
+    }
+    #image-wrapper >p{
+        padding-left: 10px;
     }
 }
-@media screen and (max-width: 231px){
+@media screen and (max-width: 215px){
     #signup-form button{
-        width: 120px;
-        height: 30px;
-    }
-}
-@media screen and (max-width: 170px){
-    #signup-form button{
-        width: 100px;
-        height: 20px;
+        width: 150px;
     }
 }

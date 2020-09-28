@@ -65,6 +65,7 @@ Header and footer styles are found in helper.css
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 29px;
+    padding-right: 30px;
 }
 #contact-form h3{
     margin-left: -70%;
@@ -80,6 +81,9 @@ Header and footer styles are found in helper.css
     border: 2px solid  #27447e;
     box-sizing: border-box;
     padding-left: 10px;
+}
+input{
+    font-size: 17px;
 }
 #message-area{
     width: 400px;
@@ -147,25 +151,21 @@ customise responsivenss
     #query-wrapper{
         height: 656px;
         margin-right: 50px;
-
      }
-}
-@media screen and (max-width: 1140px){
-    
 }
 @media screen and (max-width: 1140px){
     .contact-container{
         display: flex;
-        flex-direction: column;
-        -ms-flex-direction:column;
+        flex-direction: column-reverse;
+        -ms-flex-direction:column-reverse;
         padding-top: 5vh;
         padding-bottom: 10vh;
     }
     #query-wrapper{
         margin: auto;
-        width: 500px;
+        width: 80%;
         height: 656px;
-        margin-top: 10vh;
+        margin-top: 15px;
         justify-content: center;
      }
      #query-wrapper img{
@@ -183,39 +183,41 @@ customise responsivenss
         font-family: 'Roboto', sans-serif;
         font-size: 20px;
     }
+    #contacts-wrapper{
+        margin: auto;
+        padding-top: 50px;
+     }
+     #contact-form label,
+     textarea{
+         font-size: 20px;
+         font-weight: medium;
+     }
+     #email,
+     #name,
+     #message-area{
+     width: 500px;
+     margin: auto;
+     }
 }
 @media screen and (max-width: 761px){
-    .contact-container{
-        display: flex;
-        flex-direction: column;
-        -ms-flex-direction:column;
-        padding-top: 5vh;
-        padding-bottom: 10vh;
+    #email,
+    #name{
+    width:350px;
+    height: 40px;
     }
-    #contacts-wrapper{
-       margin: auto;
-    }
-    #query-wrapper img{
-        display: none;
-    }
-    #query-wrapper{
-       margin: auto;
-       width: 300px;
-       height: 500px;
-       margin-top: 10vh;
-       padding-right: 20px;
-    }
-    #query-wrapper h3{
-        margin: auto;
+    #message-area{
+        margin-bottom: 20px;
+        width: 350px;
     }
     #submit-form{
         margin: auto;
         width: 200px;
-        height: 40px;
     }
-    #contact-form{
-        margin: auto;
-    }
+    #query-wrapper{
+        height: 500px;
+     }
+}
+@media screen and (max-width: 495px){
     #email,
     #name{
     width: 270px;
@@ -225,4 +227,20 @@ customise responsivenss
         margin-bottom: 20px;
         width: 270px;
     }
+    #query-wrapper{
+        width: 90%;
+     }
+     #submit-form{
+        width: 150px;
+    }
+}
+@media screen and (max-width: 354px){
+    #email,
+    #name,
+    #message-area{
+    width: 200px;
+    }
+    #query-wrapper{
+        width: 90%;
+     }
 }
