@@ -209,7 +209,7 @@ customize responsiveness
         font-size: 17px;
     }
     #signup-form p{
-        font-size: 25px;
+        font-size: 20px;
     }
     #agreement-input span{
         font-size: 17px;
@@ -243,9 +243,6 @@ customize responsiveness
     }
     #signup-form button{
         width: 200px;
-    }
-    #signup-form p{
-        font-size: 20px;
     }
     #image-wrapper >p{
         padding-left: 10px;

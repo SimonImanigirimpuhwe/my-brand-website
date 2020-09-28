@@ -53,9 +53,6 @@ function showProfile() {
 }
 
 function showUserProfile() {
-  if(dashBoardContent.classList.contains('toggle-visibility')){
-    dashBoardContent.classList.remove('toggle-visibility')
-  }
   if(addArticleForm.style.display = 'flex'){
     addArticleForm.style.display = 'none';
   }
@@ -65,6 +62,7 @@ function showUserProfile() {
   if(queriesContainer.style.display ='flex') {
     queriesContainer.style.display ='none';
   }
+  dashBoardContent.classList.add('toggle-visibility')
   profilePopup.classList.toggle('display')
   editForm.style.display = 'none';
   editArticleForm.style.display = 'none';
@@ -114,9 +112,7 @@ function viewAllArticles() {
 }
 
 function clearBoard() {
-  if(dashBoardContent.classList.contains('toggle-visibility')){
-    dashBoardContent.classList.remove('toggle-visibility')
-  }
+    dashBoardContent.classList.add('toggle-visibility')
   if(profilePopup.classList.contains('display')){
     profilePopup.classList.toggle('display')
   }
@@ -167,13 +163,13 @@ display queries page
 
 const queriesBtn = document.querySelector('.fa-envelope-open-text');
 const queriesContainer = document.querySelector('.queries-container-page');
+const queryCard = document.querySelector('.blog-inquiry');
 
-queriesBtn.addEventListener('click', showQueries)
+queriesBtn.addEventListener('click', showQueries);
+queryCard.addEventListener('click', showQueries)
 
 function showQueries() {
-  if(dashBoardContent.classList.contains('toggle-visibility')){
-    dashBoardContent.classList.remove('toggle-visibility')
-  }
+  dashBoardContent.classList.add('toggle-visibility')
   if(editForm.style.display = 'flex'){
     editForm.style.display = 'none';
   }
