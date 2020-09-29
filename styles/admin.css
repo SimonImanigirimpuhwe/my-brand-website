@@ -162,7 +162,7 @@ main{
     width: 310px;
     height: 150px;
     align-self: flex-end;
-    margin-top: 5%;
+    margin-top: 70px;
     padding:15px 0 0 10px;
     display: flex;
     flex-direction: column;
@@ -215,7 +215,7 @@ profile container popup
     justify-content: center;
     width: 680px;
     height: 300px;
-    margin-top: 10%;
+    margin-top:150px;
     align-self: center;
     border-radius: 15px;
     display: none;
@@ -336,7 +336,7 @@ edit profile form
     -ms-flex-direction: column;
     width: 680px;
     height: 300px;
-    margin-top: 10%;
+    margin-top: 150px;
     align-self: center;
     border-radius: 15px;
     display: none;
@@ -410,7 +410,7 @@ form for adding new article and update existing article
     -ms-flex-direction: column;
     width: 680px;
     height: 550px;
-    margin-top: 10%;
+    margin-top: 150px;
     align-self: center;
     border-radius: 15px;
     padding: 20px 40px;
@@ -515,7 +515,7 @@ styles for article list
 */
 
 .articles-list{
-    margin: 10% 20% 0 25%;
+    margin: 150px 20% 0 25%;
     display: flex;
     flex-direction: column;
     display: none;
@@ -582,7 +582,7 @@ warning card
     -ms-flex-direction: column;
     width: 680px;
     height: 550px;
-    margin-top: 10%;
+    margin-top: 150px;
     align-self: center;
     border-radius: 15px;
     padding: 20px 40px;
@@ -649,7 +649,7 @@ queries view  page
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
-    margin: 10% 10% 0 20%;
+    margin: 100px 10% 0 20%;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -782,6 +782,111 @@ footer{
 /*....................
 customize responsiveness
 */
+@media screen and (max-width: 1116px){
+    .card-content{
+        height: 200px;
+    }
+}
+@media screen and (max-width: 1100px){
+    .add-new-article,
+    .update-existing-article{
+        margin-left: 10%;
+    }
+}
+@media screen and (max-width: 980px){
+    .profile-popup{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        justify-content: center;
+        width: 500px;
+        height: 680px;
+        margin-left: 15%;
+        align-self: center;
+        border-radius: 15px;
+        padding-bottom: 20px;
+        display: none;
+    }
+    .edit-admin-profile{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        justify-content: center;
+        width: 600px;
+        margin-left: 20%;
+    }
+    .edit-admin-profile #form-fields input{
+        height: 35px;
+        padding-left: 5px;
+        width: 350px;
+    }
+    .profile-popup img{
+        margin-top: 20px;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        align-self: center;
+    }
+    #right-wrapper{
+        margin: auto;
+        padding-top: 10px;
+    }
+    #admin-infos{
+        margin: auto;
+    }
+    #upload-file{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+    }
+    #upload-file span{
+        margin-top: 10px;
+        margin-left: -70px;
+    }
+    .warn{
+        width: 600px;
+        margin-left: 15%;
+    }
+
+}
+@media screen and (max-width: 920px){
+    .dashboard-content{
+        margin-top: 10%;
+    }
+    .add-new-article,
+    .update-existing-article{
+        width: 500px;
+    }
+    .warn{
+        width: 500px;
+        margin-left: 20%;
+    }
+
+}
+@media screen and (max-width: 807px){
+    .edit-admin-profile{
+        margin-left: 20%;
+        width: 450px;
+    }
+    .edit-admin-profile #form-fields input{
+        height: 35px;
+        padding-left: 5px;
+        width: 300px;
+    }
+    .add-new-article,
+    .update-existing-article{
+        margin-right: -10%;
+    }
+    .card-content{
+        height: 280px;
+    }
+}
+@media screen and (max-width: 718px){
+    .profile-popup{
+        width: 400px;
+        margin-left: unset;
+    }
+}
 @media screen and (min-width: 671px){
     .dashboard-menu-wrapper{
         display: flex;
@@ -789,7 +894,7 @@ customize responsiveness
 }
 @media screen and (max-width: 670px){
     .dashboard-menu-display{
-        background:  rgba(51, 51, 51, 0.63);
+        background:#333E41;
         width: 100%;
         height: 170px;
         left: 0;
@@ -857,108 +962,83 @@ customize responsiveness
     .view-article-btn{
         align-self: flex-start;
     }
-    .dashboard-content{
-        margin-left: 30%;  
-        margin-right: -40%;
-    }
     .dashboard-more{
+        margin-top: 105px;
+    }
+    .dashboard-content{
         margin-top: 20%;
     }
-    body{
-        overflow-x: hidden;
-    }
-    .profile-popup{
-        display: flex;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        justify-content: center;
-        width: 300px;
-        height: 680px;
-        margin-top: 50%;
-        align-self: center;
-        border-radius: 15px;
-        padding-bottom: 20px;
-        display: none;
-    }
-    .profile-popup img{
-        margin-top: 20px;
-        width: 100px;
-        height: 100px;
-        border-radius: 100%;
-        align-self: center;
-    }
-    #right-wrapper{
-        margin: auto;
-        padding-top: 10px;
-    }
-    #admin-infos{
-        margin: auto;
-    }
-    #upload-file{
-        display: flex;
-        flex-direction: column;
-        -ms-flex-direction: column;
-    }
-    #upload-file span{
-        margin-top: 10px;
-        margin-left: -70px;
-    }
-    .dashboard-content{
-        background: #C0C0C0;
-        margin: 40% 0 0 20%;
-        display: flex;
-        flex-direction: column;
-        visibility: hidden;
-    }
     .edit-admin-profile{
-        width: 400px;
-        height: 300px;
-        margin-top: 60%;
-    }
-    .edit-admin-profile #form-fields input{
-        height: 35px;
-        padding-left: 5px;
-        width: 250px;
+        margin-left: 5%;
+        width: 450px;
+        margin-right: 2%;
     }
     .add-new-article,
     .update-existing-article{
-    background: #243447;
-    display: flex;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    width: 400px;
-    height: 550px;
-    margin-top: 50%;
-    align-self: center;
-    border-radius: 15px;
-    padding: 20px 40px;
-    display: none;
+        margin-right: unset;
+        margin-left: unset;
     }
     .articles-list{
-        margin: 40% 5% 0 5%;
-        display: none;
-    }
-    .card-content{
-        height: 200px;
-    }
-    .warn{
-        display: flex;
-        flex-direction:column;
-        -ms-flex-direction: column;
-        justify-content: space-between;
-        background: #D0546D;
-        width: 400px;
-        height: 400px;
-        align-self: center;
-        padding: 10px 30px;
-        border-radius: 15px;
-    }  
-    .warn-container{
-        width:400px;
-        margin-top: 55%;
-        padding: 0;
+        margin: 150px 5% 0 10%;
     }
     .queries-container-page{
-        margin: 50% 5% 0 5%;
+        margin: 100px 10% 0 10%;
+    }
+    .warn{
+        width: 500px;
+        margin-left: -5%;
+    }
+}
+@media screen and (max-width:537px){
+    .edit-admin-profile{
+        margin-left: 5%;
+        width: 400px;
+        padding-right: 10px;
+    }
+    .edit-admin-profile #form-fields input{
+        width: 250px;
+    }
+}
+@media screen and (max-width:517px){
+    .add-new-article,
+    .update-existing-article{
+        width:400px;
+    }
+    .queries-container-page{
+        margin: 100px 15% 0 0;
+    }
+}
+@media screen and (max-width: 434px){
+    .profile-status-wrapper{
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        justify-content: unset;
+    }
+    #queries-notification{
+        top: -35px;
+        margin-left: auto;
+    }
+    #admin-profile{
+        margin-top: -35px;
+    }
+    .dashboard-content{
+        margin-top: 25%;
+    }
+    .profile-popup{
+        width: 300px;
+        margin-left: unset;
+    }
+    .edit-admin-profile{
+        margin-left: 5%;
+        width: 350px;
+        padding-right: 10px;
+    }
+    .edit-admin-profile #form-fields input{
+        width: 200px;
+    }
+    .add-new-article,
+    .update-existing-article{
+        width: 300px;
     }
 }
