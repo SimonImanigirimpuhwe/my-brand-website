@@ -246,7 +246,9 @@ const settingContainer = document.querySelector('.users-settings');
 settings.addEventListener('click', userSetting);
 
 function userSetting() {
+  clearBoard()
   settingContainer.style.display = 'flex';
+  table.style.display = 'none'
 }
 /*.........................
 customise dashboard reponsiveness
@@ -272,4 +274,31 @@ function showNav() {
         menu.style.display = 'none';
         spanIcon.innerHTML = `<i class="fas fa-bars"></i>`;
     }
+}
+
+/*
+activate toggle switch
+*/
+const toggleSwitch = document.querySelector('.switch-btn');
+const body = document.querySelector('body')
+const lightMode = document.querySelectorAll('.light-mode');
+
+
+
+toggleSwitch.addEventListener('click', () =>{
+    darkMode = !darkMode;
+    changeMode()
+});
+
+let darkMode = false;
+function changeMode() {
+    if(darkMode){
+        toggleSwitch.innerHTML= `<i class="fas fa-sun"></i>`;
+        body.classList.add('dark-mode')
+        lightMode.forEach(section => section.classList.add('dark-mode'))
+    }else {
+        toggleSwitch.innerHTML= `<i class="fas fa-moon"></i>`;
+        body.classList.remove('dark-mode') 
+        lightMode.forEach(section => section.classList.remove('dark-mode'))
+    } 
 }

@@ -196,6 +196,10 @@ main{
 .fa-moon{
     color: #fce683;
 }
+.fa-sun{
+    color: #999999;
+    font-size: 20px;
+}
 #admin-profile-btn,
 #log-out{
     display: flex;
@@ -443,11 +447,6 @@ form for adding new article and update existing article
     padding-bottom: 20px;
     font-size: 18px;
 }
-#update-article-dspt,
-#update-title{
-    text-align: center;
-    padding-top: 30px;
-}
 #image-label,
 #image-label span,
 #update-image-label,
@@ -476,6 +475,13 @@ form for adding new article and update existing article
     height: 40px;
     font-size: 17px;
     padding-left: 10px;
+    font-family: 'ROBOTO', sans-serif;
+}
+#new-description,
+#update-description{
+    font-size: 17px;
+    padding-left: 10px;
+    font-family: 'ROBOTO', sans-serif; 
 }
 .add-new-article input:focus,
 .add-new-article textarea:focus,
@@ -682,10 +688,11 @@ styles of the users wrapper
 =================================
 */
 .users-wrapper{
-    margin: 10% 10% 0 20%;
+    margin: 150px 10% 0 20%;
     border-radius: 15px;
     padding: 20px 40px;
     display: none;
+    align-self: center;
 }
 td,th{
     text-align: left;
@@ -718,7 +725,7 @@ user settings
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
-    margin: 10% 10% 0 20%;
+    margin: 150px 10% 0 20%;
     border-radius: 15px;
     padding: 20px 40px;
     display: none;
@@ -872,6 +879,111 @@ footer{
     font-weight: bold;
 }
 
+/*=========================
+style dark mode
+===========================
+*/
+.dark-mode{
+    background: #15202b;
+}
+.light-mode.dark-mode{
+    background: #15202b;
+}
+.dark-mode body,
+.dark-mode .dashboard-content,
+.dark-mode #biograph,
+.dark-mode #upload-file button,
+.dark-mode #right-wrapper button,
+.dark-mode .edit-admin-profile #form-fields button,
+.dark-mode #admin-profile,
+.dark-mode #save-article,
+.dark-mode #save-updated-article,
+.dark-mode #upload-article-image button,
+.dark-mode #update-article-image button,
+.dark-mode .setting-card button{
+    background: #15202b
+}
+.dark-mode #admin-profile{
+    border-left: 2px solid #DF502A;
+}
+.dark-mode #biograph{
+    color: #e0dede;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
+}
+.dark-mode #upload-file button,
+.dark-mode #right-wrapper button,
+.dark-mode .edit-admin-profile #form-fields button{
+    color: grey;
+}
+.dark-mode #upload-file button:hover,
+.dark-mode #right-wrapper button:hover,
+.dark-mode .edit-admin-profile #form-fields button:hover,
+.dark-mode #save-article:hover,
+.dark-mode #save-updated-article:hover,
+.dark-mode #upload-article-image button:hover,
+.dark-mode #update-article-image button:hover,
+.dark-mode .setting-card button:hover{
+    background: #008B8B;
+    color: #FAF4F4;
+}
+.dark-mode .dashboard-menu-wrapper{
+    background:#15202b;
+    border-right: 2px solid #DF502A;
+}
+.dark-mode .dashboard-content h2,
+.dark-mode .card h3,
+.dark-mode #save-article,
+.dark-mode #save-updated-article,
+.dark-mode #upload-article-image button,
+.dark-mode #update-article-image button,
+.dark-mode .card-content,
+.dark-mode .setting-card button{
+    color: #e0dede;
+}
+.dark-mode .card,
+.dark-mode .profile-popup,
+.dark-mode .dashboard-more,
+.dark-mode .add-new-article,
+.dark-mode .queries-page,
+.dark-mode .card-content,
+.dark-mode .setting-card,
+.dark-mode th{
+    background:#243447;
+}
+.dark-mode .card #visitor-number,
+.dark-mode .card #inquiry-number,
+.dark-mode .queries-page,
+.dark-mode td{
+    color: #FFFFFF;
+}
+.dark-mode #visitor-number{
+    border: 10px solid#33638E;
+    border-top: 10px solid #168989;
+    border-right: 10px solid #168989;
+}
+.dark-mode #inquiry-number{
+    border: 10px solid#33638E;
+    border-top: 10px solid #168989;
+    border-right: 10px solid #168989;
+    border-bottom: 10px solid #168989;
+}
+.dark-mode .menu .iconify,
+.dark-mode .menu i,
+.dark-mode .actions .fa-edit,
+.dark-mode .actions .fa-info-circle,
+.dark-mode th,
+.dark-mode .fa-pen{
+    color: #008B8B;
+}
+.dark-mode .menu p{
+    color: #FFFFFF;
+}
+.dark-mode header{
+    border-bottom: 2px solid #DF502A;
+}
+.dark-mode td{
+    background:#1d2836;
+}
 /*....................
 customize responsiveness
 */
@@ -907,6 +1019,7 @@ customize responsiveness
         justify-content: center;
         width: 600px;
         margin-left: 20%;
+        display: none;
     }
     .edit-admin-profile #form-fields input{
         height: 35px;
@@ -954,6 +1067,9 @@ customize responsiveness
         width: 500px;
         margin-left: 20%;
     }
+    .users-wrapper{
+        margin: 150px 5% 0 20%;
+    }
 
 }
 @media screen and (max-width: 807px){
@@ -974,10 +1090,21 @@ customize responsiveness
         height: 280px;
     }
 }
+@media screen and (max-width: 758px){
+    .users-wrapper{
+        margin: 150px 5% 0 20%;
+    }
+    td,th{
+        padding-left: 20px;
+    }
+}
 @media screen and (max-width: 718px){
     .profile-popup{
         width: 400px;
         margin-left: unset;
+    }
+    .users-settings{
+        margin: 150px 5% 0 25%;
     }
 }
 @media screen and (min-width: 671px){
@@ -986,6 +1113,9 @@ customize responsiveness
     }
 }
 @media screen and (max-width: 670px){
+    .dark-mode .dashboard-menu-display{
+        background:#243447;
+    }
     .dashboard-menu-display{
         background:#333E41;
         width: 100%;
@@ -1009,6 +1139,10 @@ customize responsiveness
         flex-direction: column;
         padding-left: 30px;
     }
+    .menu .iconify,
+    .menu i{
+        color: #f0f0f3;
+    }
     .span{
         position: fixed;
         width: 50px;
@@ -1016,7 +1150,11 @@ customize responsiveness
         border-radius: 100%;
         background-color: #D35232;
         box-shadow: 1px 3px 5px #28B9AF;
-        margin-top: 500px;
+        margin-top: 270px;
+    }
+    .dark-mode .span{
+       background:#243447;
+       box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
     }
     .fa-bars,
     .fa-times{
@@ -1081,6 +1219,15 @@ customize responsiveness
         width: 500px;
         margin-left: -5%;
     }
+    .users-settings{
+        margin: 150px 5% 0 0;
+    }
+    .users-wrapper{
+        margin: 150px 15% 0 10%;
+    }
+    td,th{
+        padding-left: 30px;
+    }
 }
 @media screen and (max-width:537px){
     .edit-admin-profile{
@@ -1090,6 +1237,11 @@ customize responsiveness
     }
     .edit-admin-profile #form-fields input{
         width: 250px;
+    }
+    .card{
+        background: #FCFCFC;
+        width: 400px;
+        height: 260px;
     }
 }
 @media screen and (max-width:517px){
