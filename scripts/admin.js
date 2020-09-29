@@ -44,6 +44,8 @@ function showDashBoard() {
   }
   editArticleForm.style.display = 'none';
   warnContiner.style.display = 'none';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
   dashBoardContent.classList.toggle('toggle-visibility')
 }
 
@@ -67,6 +69,8 @@ function showUserProfile() {
   editForm.style.display = 'none';
   editArticleForm.style.display = 'none';
   warnContiner.style.display = 'none';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
 }
 
 function logOutfn() {
@@ -82,6 +86,8 @@ function editProfile() {
   }
   editForm.style.display = 'flex';
   editArticleForm.style.display = 'none';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
 }
 
 function addArticle() {
@@ -95,6 +101,8 @@ function addArticle() {
   editArticleForm.style.display = 'none';
   addArticleForm.style.display = 'flex';
   warnContiner.style.display = 'none';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
 }
 
 function viewAllArticles() {
@@ -108,6 +116,8 @@ function viewAllArticles() {
   articlesList.classList.toggle('show')
   editForm.style.display = 'none';
   addArticleForm.style.display = 'none';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
 
 }
 
@@ -125,7 +135,9 @@ function updateArticle() {
   if(queriesContainer.style.display ='flex') {
     queriesContainer.style.display ='none';
   }
-  editArticleForm.style.display = 'flex'
+  editArticleForm.style.display = 'flex';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
 }
 
 /*...........
@@ -145,7 +157,13 @@ function deleteArticle() {
     queriesContainer.style.display ='none';
   }
   warnContiner.style.display = 'flex';
-   warnContiner.innerHTML =
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
+  warningCard();
+}
+
+function warningCard() {
+  return   warnContiner.innerHTML =
   `<div class="warn">
       <i class="fas fa-exclamation-triangle"></i>
       <p>Be aware that the action you are going to take is irreversible once it’s done.</p>
@@ -156,7 +174,6 @@ function deleteArticle() {
    </div>
   `;
 }
-
 /*...............
 display queries page
 */
@@ -184,6 +201,8 @@ function showQueries() {
   }
   warnContiner.style.display = 'none';
   queriesContainer.style.display ='flex';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
   queriesContainer.innerHTML = 
   `
   <div class="queries-page">
@@ -195,7 +214,40 @@ function showQueries() {
   </div>
   `
 }
+/*..........................
+delete user
+*/
+const deleteUser = document.querySelector('.fa-trash');
+const manageUser = document.querySelector('.manage-users')
+const table = document.querySelector('table')
 
+deleteUser.addEventListener('click', () =>{
+  table.style.display = 'none'
+  warnContiner.style.display = 'flex';
+  table.style.display = 'none';
+  settingContainer.style.display = 'none';
+  clearBoard();
+  warningCard()
+})
+
+manageUser.addEventListener('click', allUsers)
+
+function allUsers() {
+  clearBoard()
+  table.style.display = 'flex';
+  settingContainer.style.display = 'none';   
+}
+/*
+user settings
+*/
+const settings = document.querySelector('.settings')
+const settingContainer = document.querySelector('.users-settings');
+
+settings.addEventListener('click', userSetting);
+
+function userSetting() {
+  settingContainer.style.display = 'flex';
+}
 /*.........................
 customise dashboard reponsiveness
 */

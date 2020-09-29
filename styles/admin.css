@@ -675,6 +675,99 @@ queries view  page
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }
+
+
+/*===============================
+styles of the users wrapper
+=================================
+*/
+.users-wrapper{
+    margin: 10% 10% 0 20%;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+}
+td,th{
+    text-align: left;
+    padding: 10px;
+    padding-left: 40px;
+    font-size: 18px;
+}
+th{
+    background: #dddddd;
+    text-align: unset;
+}
+td{
+    background:	#808080;
+}
+.fa-pen:hover,
+.fa-trash:hover{
+    cursor: pointer;
+}
+.fa-pen{
+    color: #33638E;
+}
+.fa-trash{
+    color: #E75050;
+}
+
+/*................
+user settings
+*/
+.users-settings{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin: 10% 10% 0 20%;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: none;
+}
+.setting-card{
+    background: #243447;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    width: 500px;
+    height: 200px;
+    align-self: center;
+    border-radius: 15px;
+    padding: 20px 50px;
+    font-family: 'ROBOTO', sans-serif;
+}
+.setting-card label{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding-bottom: 10px;
+    color: #ffffff;
+}
+.setting-card h3{
+    align-self: center;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+.setting-card input{
+    height: 25px;
+    border: none;
+    padding-left: 10px;
+}
+.setting-card button{
+    height: 40px;
+    flex: 1;
+    background: #8F8D8D;
+    color: #0B0A0A;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.setting-card input:focus,
+.setting-card button:focus{
+    outline: none;
+}
 /*.......................
 styles of the dashboard access
 */
