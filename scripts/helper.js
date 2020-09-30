@@ -52,3 +52,18 @@ function changeMode() {
     }
     
 }
+
+
+//setup firebase connection
+var firebaseConfig = {
+    apiKey: "AIzaSyBSYtGMcFcj0KSWu3mjKqTKRr6S5JmwMeA",
+    authDomain: "my-brand-p-website.firebaseapp.com",
+    databaseURL: "https://my-brand-p-website.firebaseio.com",
+    projectId: "my-brand-p-website",
+    storageBucket: "my-brand-p-website.appspot.com",
+    messagingSenderId: "604559782516",
+    appId: "1:604559782516:web:d4d9c4fa2eb44544285721",
+    measurementId: "G-597HBL7D03"
+  };
+
+  

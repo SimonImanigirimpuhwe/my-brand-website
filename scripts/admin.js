@@ -253,52 +253,25 @@ function userSetting() {
 /*.........................
 customise dashboard reponsiveness
 */
-const hambergIcon = document.querySelector('fa-bars');
-const menu = document.querySelector('.dashboard-menu-wrapper');
-const spanIcon = document.querySelector('.span');
+const dashBoardHamburgIcon = document.querySelector('fa-bars');
+const dashboardMenu = document.querySelector('.dashboard-menu-wrapper');
+const dashboardSpanIcon = document.querySelector('.span');
 
 
-spanIcon.addEventListener('click', () => {
-    hambergIconDisplay = !hambergIconDisplay;
+dashboardSpanIcon.addEventListener('click', () => {
+    dashBoardHamburgIconDisplay = !dashBoardHamburgIconDisplay;
     showNav()
 })
 
-let hambergIconDisplay = false;
+let dashBoardHamburgIconDisplay = false;
 function showNav() {
-    if(hambergIconDisplay){
-        menu.classList.add('dashboard-menu-display');
-        menu.style.display = 'flex';
-        spanIcon.innerHTML = `<i class="fas fa-times"></i>`;
+    if(dashBoardHamburgIconDisplay){
+        dashboardMenu.classList.add('dashboard-menu-display');
+        dashboardMenu.style.display = 'flex';
+        dashboardSpanIcon.innerHTML = `<i class="fas fa-times"></i>`;
     }else{
-        menu.classList.remove('dashboard-menu-display');
-        menu.style.display = 'none';
-        spanIcon.innerHTML = `<i class="fas fa-bars"></i>`;
+        dashboardMenu.classList.remove('dashboard-menu-display');
+        dashboardMenu.style.display = 'none';
+        dashboardSpanIcon.innerHTML = `<i class="fas fa-bars"></i>`;
     }
-}
-
-/*
-activate toggle switch
-*/
-const toggleSwitch = document.querySelector('.switch-btn');
-const body = document.querySelector('body')
-const lightMode = document.querySelectorAll('.light-mode');
-
-
-
-toggleSwitch.addEventListener('click', () =>{
-    darkMode = !darkMode;
-    changeMode()
-});
-
-let darkMode = false;
-function changeMode() {
-    if(darkMode){
-        toggleSwitch.innerHTML= `<i class="fas fa-sun"></i>`;
-        body.classList.add('dark-mode')
-        lightMode.forEach(section => section.classList.add('dark-mode'))
-    }else {
-        toggleSwitch.innerHTML= `<i class="fas fa-moon"></i>`;
-        body.classList.remove('dark-mode') 
-        lightMode.forEach(section => section.classList.remove('dark-mode'))
-    } 
 }

@@ -15,8 +15,8 @@ const toggleBtn= document.querySelector('.switch-btn');
 
 toggleBtn.addEventListener('click', () => {
     if(darkMode){
-        darkAvatar.innerHTML = `<img src="../assets/images/login-undr.jpg" alt="contact form image">`;
-    }else{
         darkAvatar.innerHTML = `<img src="../assets/images/darklogin-undr.jpg" alt="contact form image">`;
+    }else{
+        darkAvatar.innerHTML = `<img src="../assets/images/login-undr.jpg" alt="contact form image">`;
     }
 })
