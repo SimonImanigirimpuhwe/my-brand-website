@@ -297,6 +297,7 @@ const logoutBtn = document.querySelector('.fa-sign-out-alt');
 
 logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    auth.signOut();
-    location.href = '../login/index.html';
+    auth
+    .signOut()
+    .then(() => location.href = '../login/index.html');
 })
