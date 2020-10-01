@@ -119,7 +119,12 @@ main{
 #imag-wrapper a:hover{
     text-decoration: underline;
 }
-
+#login-result{
+    padding-top: 10px;
+    font-size: 17px;
+    color: #000000;
+    font-family: 'ROBOTO', sans-serif;
+}
 /*======================================
 Style dark mode
 ========================================

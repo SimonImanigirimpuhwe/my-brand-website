@@ -123,7 +123,12 @@ input:focus{
 #image-wrapper a:hover{
     text-decoration: underline;
 }
-
+#signup-result{
+    padding-top: 10px;
+    font-size: 17px;
+    color: #000000;
+    font-family: 'ROBOTO', sans-serif;
+}
 /*======================================
 Style dark mode
 ====================================

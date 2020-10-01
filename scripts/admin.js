@@ -14,13 +14,9 @@ const editArticleForm = document.querySelector('.update-existing-article');
 const editArticleBtn = document.querySelectorAll('.fa-edit')
 
 
-
-
-
 dashBoard.addEventListener('click', showDashBoard);
 ellipsisIcon.addEventListener('click', showProfile);
 userProfile.forEach(icon => icon.addEventListener('click', showUserProfile));
-logOutBtn.addEventListener('click', logOutfn);
 editProfileBtn.addEventListener('click', editProfile);
 addArticleBtn.addEventListener('click', addArticle);
 viewAllBtn.addEventListener('click', viewAllArticles);
@@ -71,10 +67,6 @@ function showUserProfile() {
   warnContiner.style.display = 'none';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
-}
-
-function logOutfn() {
-  location.href = '../login/index.html'
 }
 
 function editProfile() {
@@ -140,9 +132,8 @@ function updateArticle() {
   settingContainer.style.display = 'none';
 }
 
-/*...........
-warning for delete an article
-*/
+
+//warning for delete an article
 
 const deleteBtn = document.querySelectorAll('.fa-trash-alt');
 const warnContiner = document.querySelector('.warn-container');
@@ -174,9 +165,8 @@ function warningCard() {
    </div>
   `;
 }
-/*...............
-display queries page
-*/
+
+//display queries page
 
 const queriesBtn = document.querySelector('.fa-envelope-open-text');
 const queriesContainer = document.querySelector('.queries-container-page');
@@ -214,9 +204,9 @@ function showQueries() {
   </div>
   `
 }
-/*..........................
-delete user
-*/
+
+//delete user
+
 const deleteUser = document.querySelector('.fa-trash');
 const manageUser = document.querySelector('.manage-users')
 const table = document.querySelector('table')
@@ -237,9 +227,9 @@ function allUsers() {
   table.style.display = 'flex';
   settingContainer.style.display = 'none';   
 }
-/*
-user settings
-*/
+
+//user settings
+
 const settings = document.querySelector('.settings')
 const settingContainer = document.querySelector('.users-settings');
 
@@ -250,9 +240,10 @@ function userSetting() {
   settingContainer.style.display = 'flex';
   table.style.display = 'none'
 }
-/*.........................
-customise dashboard reponsiveness
-*/
+
+
+//customise dashboard reponsiveness
+
 const dashBoardHamburgIcon = document.querySelector('fa-bars');
 const dashboardMenu = document.querySelector('.dashboard-menu-wrapper');
 const dashboardSpanIcon = document.querySelector('.span');
@@ -275,3 +266,37 @@ function showNav() {
         dashboardSpanIcon.innerHTML = `<i class="fas fa-bars"></i>`;
     }
 }
+
+
+//update admin display name through firebase
+const displayName = document.querySelector('#admin-display-name');
+const adminName = document.querySelector('#admin-name');
+const displayEmail = document.querySelector('#admin-display-email');
+
+auth.onAuthStateChanged(user => {
+  if (user){
+    getUser()
+  } else {
+    console.log('no user credentials')
+  }
+})
+
+function getUser() {
+  let user =  firebase.auth().currentUser;
+  if (user != null) {
+      user.providerData.forEach(function (profile) {
+      displayName.innerHTML = profile.displayName;
+      adminName.innerHTML = profile.displayName;
+      displayEmail.innerHTML =  profile.email;
+    });
+  }
+}
+
+// logout
+const logoutBtn = document.querySelector('.fa-sign-out-alt');
+
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut();
+    location.href = '../login/index.html';
+})
