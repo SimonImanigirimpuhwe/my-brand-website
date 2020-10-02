@@ -30,44 +30,37 @@ const inputValidation  = (fullName, mail, pswd, cfrPass, form) => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Name is required!';
         return false;
-      }
-      if (!namePattern.test(fullName)) {
+      } else if (!namePattern.test(fullName)) {
         name.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Name should be valid'
         return false;
-      }
-      if (mail.length === 0) {
+      } else if (mail.length === 0) {
         email.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Email is required';
         return false;
-      }
-      if (!emailPattern.test(mail)) {
+      } else if (!emailPattern.test(mail)) {
         email.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Invalid email'
         return false;
-      }
-      if (pswd.length === 0) {
+      } else if (pswd.length === 0) {
         password.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Password is required!'
         return false;
-      }
-      if (pswd.length < 6) {
+      } else if (pswd.length < 6) {
         password.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Password must be at least 6 characters'
         return false;
-      }
-      if (cfrPass.length === 0) {
+      } else if (cfrPass.length === 0) {
         cfrmPass.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Comfirm your password';
         return false;
-      }
-      if (pswd !== cfrPass) {
+      } else if (pswd !== cfrPass) {
           cfrmPass.style.borderBottom = '1px solid red';
           signupResult.style.color = '#DF502A';
           signupResult.innerHTML = 'Password not match';
@@ -99,7 +92,7 @@ const submitForm = async(name, email, password, form) => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Something went wrong';
     })
-    saveUser(name)
+    saveUser(name.value)
 }
 
 signupForm.addEventListener('submit', (e) => {

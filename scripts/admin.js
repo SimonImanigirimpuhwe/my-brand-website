@@ -277,7 +277,7 @@ auth.onAuthStateChanged(user => {
   if (user){
     getUser()
   } else {
-    console.log('no user credentials')
+    location.href = '../login/';
   }
 })
 
@@ -299,5 +299,5 @@ logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
     auth
     .signOut()
-    .then(() => location.href = '../login/index.html');
+    .then(() => location.href = '../login/');
 })

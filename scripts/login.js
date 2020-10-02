@@ -21,7 +21,7 @@ const loginResult = document.querySelector('#login-result');
 
 //function to validate form fields before submission
 const validateForm = (mail, pswd, form) => {
-    const emailPattern = /^[a-z]+([a-z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
+  const emailPattern = /^[a-z]+([a-zA-Z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
 
     if (mail.length === 0) {
         email.style.borderBottom = '1px solid red';
@@ -49,21 +49,30 @@ const validateForm = (mail, pswd, form) => {
 }
 
 //login user
+let isLogged = false;
 async function loginFnc(email, password, form) {
+    isLogged = true;
     await auth
     .signInWithEmailAndPassword(email, password)
-    .then(() => {
-        form.reset();
-        loginBtn.innerHTML = 'Login';
-        loginResult.style.color = '#008B8B';
-        loginResult.innerHTML = 'Logged in successfully';
-        location.href = '../admin/index.html';
-    })
     .catch(err => {
-        loginResult.style.color = '#DF502A';
-        loginResult.innerHTML = err.message;
+      isLogged = false;
+      loginResult.style.color = '#DF502A';
+      loginResult.innerHTML = err.message;
     })
+    checkSuccess(form)
 }
+
+//check success
+function checkSuccess(form) {
+  location.href = '../admin/';
+  if (isLogged) {
+    form.reset();
+    loginBtn.innerHTML = 'Login';
+    loginResult.style.color = '#008B8B';
+    loginResult.innerHTML = 'Logged in successfully';
+  }
+}
+
 
 //function to submit the form
 loginForm.addEventListener('submit', (e) => {

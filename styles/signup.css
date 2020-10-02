@@ -74,7 +74,7 @@ input:focus{
 #signup-form button{
     background: #27447E;
     border-radius: 15px;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 10px;
     width: 300px;
     height: 50px;
@@ -124,7 +124,7 @@ input:focus{
     text-decoration: underline;
 }
 #signup-result{
-    padding-top: 10px;
+    padding-top:20px;
     font-size: 20px;
     font-family: 'ROBOTO', sans-serif;
 }
@@ -252,8 +252,12 @@ customize responsiveness
         padding-left: 10px;
     }
 }
-@media screen and (max-width: 215px){
+@media screen and (max-width: 260px){
     #signup-form button{
         width: 150px;
+    }
+    #signup-form p{
+        padding-bottom: 10px;
+        font-size: 15px;
     }
 }
