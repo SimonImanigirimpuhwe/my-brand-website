@@ -74,25 +74,25 @@ const submitForm = async(name, email, password, form) => {
 
     await auth
     .createUserWithEmailAndPassword(email, password)
-    .then(() => {
-       return db.collection('users').add({
+    .then((cred) => {
+       return db.collection('users').doc(cred.user.uid).set({
             FullName: name,
             Email: email,
             createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date())
         })
     })
-    .then(() => {      
+    .then(() => {  
         form.reset();
         signupBtn.innerHTML = 'Signup';
         signupResult.style.color = '#008B8B';
         signupResult.innerHTML = 'Account created successsfully';
-        location.href = '../admin/index.html';
+        location.href = '../admin/';
     })
     .catch(() => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Something went wrong';
     })
-    saveUser(name.value)
+    saveUser(name)
 }
 
 signupForm.addEventListener('submit', (e) => {
@@ -101,6 +101,7 @@ signupForm.addEventListener('submit', (e) => {
     inputValidation(name.value, email.value, password.value, cfrmPass.value, signupForm);
 });
 
+//function to update display name
 async function saveUser(name) {
     const user = auth.currentUser;
     await user.updateProfile({
@@ -113,3 +114,10 @@ async function saveUser(name) {
         signupResult.innerHTML = 'unable to update display name';
     })
 }
+
+//clear the error on keydown
+const inputs = document.querySelectorAll('input')
+ inputs.forEach(input => input.addEventListener('keydown', () => {
+    signupBtn.innerHTML = 'Singup';
+    signupResult.innerHTML = '';
+}) )

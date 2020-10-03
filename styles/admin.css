@@ -281,14 +281,10 @@ profile container popup
     -ms-flex-direction: row;
     margin-top: 65px;
 }
-#upload-file button{
-    background: #8F8D8D;
-    height: 30px;
-    width: 130px;
-    color: #0B0A0A;
+#upload-file input[type="file"]{
+    color: #8F8D8D;
     border-radius: 5px;
     border: none;
-    font-size: 17px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
@@ -305,14 +301,6 @@ profile container popup
 #form-fields button:hover{
     cursor: pointer;
     color: #FAF4F4;
-}
-#upload-file span{
-    align-self: center;
-    padding-left: 5px;
-    color: #8F8D8D;
-    font-size: 17px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
 }
 #admin-infos{
     color: #FFFEFE;

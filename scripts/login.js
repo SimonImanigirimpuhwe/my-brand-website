@@ -80,3 +80,31 @@ loginForm.addEventListener('submit', (e) => {
     loginBtn.innerHTML = 'Loading .....'
     validateForm(email.value, password.value, loginForm)
 })
+
+//clear the error on keydown
+const inputs = document.querySelectorAll('input');
+ inputs.forEach(input => input.addEventListener('keydown', () => {
+    loginResult.innerHTML = 'Login';
+    loginResult.innerHTML = '';
+}) )
+
+// function to reset password
+const forgetPass = document.querySelector('#forget-pass');
+
+forgetPass.addEventListener('click', () => {
+  const email = document.querySelector('#email-input')
+  const emailAddress = email.value;
+  
+  auth.sendPasswordResetEmail(emailAddress).then(() => {
+    loginResult.style.color = '#008B8B';
+    loginResult.innerHTML = 'Email sent!'
+    if(loginResult.innerHTML === 'Email sent!') {
+      loginBtn.innerHTML = 'Login'
+    } else {
+      loginBtn.innerHTML = 'Loading .....'
+    }
+  }).catch((error) => {
+    loginResult.style.color = '#DF502A';
+    loginResult.innerHTML = error.message
+  });
+})

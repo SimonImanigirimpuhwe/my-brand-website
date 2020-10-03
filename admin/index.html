@@ -28,7 +28,7 @@
             </div>
             <div id="admin-profile">
                 <div id="current-admin-profile">
-                    <img src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
+                    <img class="img" src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
                     <p id="admin-name">Imanigirimpuhwe Simon</p>
                 </div>
                 <i class="fas fa-ellipsis-v"></i>
@@ -83,15 +83,15 @@
                 </div>
             </div>
             <div class="profile-popup">
-                <img src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
+                <img class="img" src="../assets/images/undraw_profile_pic_ic5t.jpg" alt="admin profile">
                 <div id="infos-wrapper">
                     <div id="admin-infos">
                         <p id="admin-display-name">Imanigirimpuhwe Simon</p>
                         <p id="admin-display-email">email@gmail.com</p>
                     </div>
                     <div id="upload-file">
-                        <button class="select-file">Choose file</button>
-                        <span>No file chosen</span>
+                        <input type="file" class="select-file" />
+                        <!-- <span>No file chosen</span> -->
                     </div>
                 </div>
                 <div id="right-wrapper">
@@ -302,6 +302,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-storage.js"></script>
     <script src="../scripts/helper.js"></script>
     <script src="../scripts/admin.js"></script>
 </body>

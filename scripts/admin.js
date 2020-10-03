@@ -275,19 +275,26 @@ const displayEmail = document.querySelector('#admin-display-email');
 
 auth.onAuthStateChanged(user => {
   if (user){
-    getUser()
+    getUser(user)
+    uploadImage(user)
   } else {
     location.href = '../login/';
   }
 })
 
-function getUser() {
-  let user =  firebase.auth().currentUser;
+function getUser(data) {
+  let user = auth.currentUser;
   if (user != null) {
       user.providerData.forEach(function (profile) {
       displayName.innerHTML = profile.displayName;
       adminName.innerHTML = profile.displayName;
       displayEmail.innerHTML =  profile.email;
+      firebase
+      .storage()
+      .ref(`users/profile/${data.uid}`)
+      .getDownloadURL()
+      .then(image => img.forEach(profile => profile.src = image))
+      .catch(err => console.log(err.message))
     });
   }
 }
@@ -301,3 +308,28 @@ logoutBtn.addEventListener('click', (e) => {
     .signOut()
     .then(() => location.href = '../login/');
 })
+
+//upload image
+const img = document.querySelectorAll('.img');
+const selectFile = document.querySelector('.select-file')
+
+const saveProfileData = document.querySelector('#save-admin-profile');
+
+function uploadImage(user) {
+  selectFile.onchange = (event) => {
+    let file = {};
+      file = event.target.files[0];
+      event.preventDefault()
+      console.log(event)
+      firebase
+      .storage()
+      .ref(`users/profile/${user.uid}`)
+      .put(file)
+      .then((image) => {
+         db.collection('profiles').doc(user.uid).set({
+          photoURL: image.ref.location.path
+        })
+      })
+      .catch(err => console.log(err.message))
+  }
+}
