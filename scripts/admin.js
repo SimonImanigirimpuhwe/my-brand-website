@@ -289,6 +289,7 @@ function getUser(data) {
       displayName.innerHTML = profile.displayName;
       adminName.innerHTML = profile.displayName;
       displayEmail.innerHTML =  profile.email;
+
       firebase
       .storage()
       .ref(`users/profile/${data.uid}`)
@@ -320,13 +321,16 @@ function uploadImage(user) {
     let file = {};
       file = event.target.files[0];
       event.preventDefault()
-      console.log(event)
+
       firebase
       .storage()
       .ref(`users/profile/${user.uid}`)
       .put(file)
       .then((image) => {
          db.collection('profiles').doc(user.uid).set({
+          photoURL: image.ref.location.path
+        })
+        user.updateProfile({
           photoURL: image.ref.location.path
         })
       })
