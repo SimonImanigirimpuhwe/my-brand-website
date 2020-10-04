@@ -94,36 +94,17 @@ const forgetPass = document.querySelector('#forget-pass');
 forgetPass.addEventListener('click', () => {
   const email = document.querySelector('#email-input')
   const emailAddress = email.value;
-  const emailPattern = /^[a-z]+([a-zA-Z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
-
-  if (emailAddress.length === 0) {
-      email.style.borderBottom = '1px solid red';
-      loginResult.style.color = '#DF502A';
-      loginResult.innerHTML = 'Email is required';
-      return false;
-    } else if (!emailPattern.test(emailAddress)) {
-      email.style.borderBottom = '1px solid red';
-      loginResult.style.color = '#DF502A';
-      loginResult.innerHTML = 'Invalid email';
-      return false;
+  
+  auth.sendPasswordResetEmail(emailAddress).then(() => {
+    loginResult.style.color = '#008B8B';
+    loginResult.innerHTML = 'Email sent!'
+    if(loginResult.innerHTML === 'Email sent!') {
+      loginBtn.innerHTML = 'Login'
     } else {
-      auth.sendPasswordResetEmail(emailAddress).then(() => {
-        loginResult.style.color = '#008B8B';
-        loginResult.innerHTML = 'Email sent!';
-        if (loginResult.innerHTML === 'Email sent!') {
-          loginForm.reset()
-          loginBtn.innerHTML = 'Login'
-        } else {
-          loginBtn.innerHTML = 'Loading .....';
-        }
-      }).catch((error) => {
-        if (error.code === "auth/user-not-found") {
-          loginResult.style.color = '#DF502A';
-          loginResult.innerHTML = "Email not found!";
-        } else {
-          loginResult.style.color = '#DF502A';
-          loginResult.innerHTML = "Something went wrong!";
-        }
-      });
+      loginBtn.innerHTML = 'Loading .....'
     }
+  }).catch((error) => {
+    loginResult.style.color = '#DF502A';
+    loginResult.innerHTML = error.message
+  });
 })
