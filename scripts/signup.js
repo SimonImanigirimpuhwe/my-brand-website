@@ -22,15 +22,16 @@ const cfrmPass = signupForm['password-confirm'];
 const signupBtn = signupForm['sign-up-btn'];
 
 const inputValidation  = (fullName, mail, pswd, cfrPass, form) => {
-    const emailPattern = /^[a-z]+([a-z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
-    const namePattern = /^([^0-9])+([a-zA-Z]{1,})$/; 
-    
+    const emailRegx = /^[a-z]+([a-z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
+    const nameRegex = /^([^0-9])+([a-zA-Z]{1,})$/; 
+    const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(a-zA-Z0-9){6,12}$/;
+
     if (fullName.length === 0) {
         name.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Name is required!';
         return false;
-      } else if (!namePattern.test(fullName)) {
+      } else if (!nameRegex.test(fullName)) {
         name.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Name should be valid'
@@ -40,7 +41,7 @@ const inputValidation  = (fullName, mail, pswd, cfrPass, form) => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Email is required';
         return false;
-      } else if (!emailPattern.test(mail)) {
+      } else if (!emailRegx.test(mail)) {
         email.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Invalid email'
@@ -50,12 +51,17 @@ const inputValidation  = (fullName, mail, pswd, cfrPass, form) => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Password is required!'
         return false;
-      } else if (pswd.length < 6) {
+      }else if (pswd.length < 6) {
         password.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Password must be at least 6 characters'
         return false;
-      } else if (cfrPass.length === 0) {
+      } else if (!passRegex.test(pswd)) {
+        password.style.borderBottom = '1px solid red';
+        signupResult.style.color = '#DF502A';
+        signupResult.innerHTML = 'Password should contains 1 number lowercase and uppercase characters!'
+        return false;
+      }  else if (cfrPass.length === 0) {
         cfrmPass.style.borderBottom = '1px solid red';
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Comfirm your password';
@@ -78,7 +84,8 @@ const submitForm = async(name, email, password, form) => {
        return db.collection('users').doc(cred.user.uid).set({
             FullName: name,
             Email: email,
-            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date())
+            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
+            role: "admin"
         })
     })
     .then(() => {  

@@ -44,13 +44,14 @@
             <form id="contact-form">
                 <h3>Reach me through</h3>
                 <label for="fullname">Name
-                    <input type="text" name="fullname" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="fullname" id="name" placeholder="Enter your name">
                 </label>
                 <label for="email">Email
-                    <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                    <input type="text" name="email" id="email" placeholder="Enter your email address">
                 </label>
-                <label for="message">Message<textarea name="message" id="message-area" cols="30"
+                <label for="message">Message<textarea type="text" name="message" id="message-area" cols="30"
                         rows="10"></textarea></label>
+                <div id="query-result"></div>
                 <button type="submit" id="submit-form">Send</button>
             </form>
         </div>
@@ -89,6 +90,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
     <script src="../scripts/helper.js"></script>
     <script src="../scripts/contact.js"></script>
 </body>

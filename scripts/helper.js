@@ -1,6 +1,13 @@
-const hambergIcon = document.querySelector('fa-bars');
-const menu = document.querySelector('nav');
-const spanIcon = document.querySelector('.span');
+const domElement = function(value){
+    return document.querySelector(value);
+  };
+  const domNodeList = function(value) {
+    return document.querySelectorAll(value);
+  };
+
+const hambergIcon = domElement(".fa-bars");
+const menu = domElement("nav");
+const spanIcon = domElement(".span");
 
 
 spanIcon.addEventListener('click', () => {
@@ -21,14 +28,12 @@ function showNav() {
     }
 }
 
-/*
-activate dark mode
-*/
 
-const toggleSwitch = document.querySelectorAll('.switch-btn');
-const logo = document.querySelectorAll('#logo');
-const body = document.querySelector('body')
-const lightMode = document.querySelectorAll('.light-mode');
+//activate dark mode
+const toggleSwitch = domNodeList(".switch-btn");
+const logo = domNodeList("#logo");
+const body = domElement("body");
+const lightMode = domNodeList(".light-mode");
 
 
 
@@ -49,8 +54,7 @@ function changeMode() {
         logo.forEach(img => img.innerHTML = `<img src="../assets/images/nlogo.jpg" alt="logo">`)
         body.classList.remove('dark-mode') 
         lightMode.forEach(section => section.classList.remove('dark-mode'))
-    }
-    
+    }   
 }
 
 

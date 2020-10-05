@@ -1,26 +1,18 @@
-const dashBoard = document.querySelector('.dashboard');
-const dashBoardContent = document.querySelector('.dashboard-content');
-const profilePopup = document.querySelector('.profile-popup');
-const ellipsisIcon = document.querySelector('.fa-ellipsis-v');
-const userProfile = document.querySelectorAll('.profile');
-const logOutBtn = document.querySelector('.fa-sign-out-alt');
-const editProfileBtn = document.querySelector('.edit-profile');
-const editForm = document.querySelector('.edit-admin-profile');
-const addArticleForm = document.querySelector('.add-new-article');
-const addArticleBtn = document.querySelector('.add-post-btn');
-const viewAllBtn = document.querySelector('.view-all-articles');
-const articlesList = document.querySelector('.articles-list');
-const editArticleForm = document.querySelector('.update-existing-article');
-const editArticleBtn = document.querySelectorAll('.fa-edit')
+const dashBoardContent = domElement(".dashboard-content");
+const profilePopup = domElement(".profile-popup");
+const editForm = domElement(".edit-admin-profile");
+const addArticleForm = domElement(".add-new-article");
+const articlesList = domElement(".articles-list");
+const editArticleForm = domElement(".update-existing-article");
 
 
-dashBoard.addEventListener('click', showDashBoard);
-ellipsisIcon.addEventListener('click', showProfile);
-userProfile.forEach(icon => icon.addEventListener('click', showUserProfile));
-editProfileBtn.addEventListener('click', editProfile);
-addArticleBtn.addEventListener('click', addArticle);
-viewAllBtn.addEventListener('click', viewAllArticles);
-editArticleBtn.forEach(btn => btn.addEventListener('click', updateArticle));
+domElement(".dashboard").addEventListener('click', showDashBoard);
+domElement(".fa-ellipsis-v").addEventListener('click', showProfile);
+domNodeList(".profile").forEach(icon => icon.addEventListener('click', showUserProfile));
+domElement(".edit-profile").addEventListener('click', editProfile);
+domElement(".add-post-btn").addEventListener('click', addArticle);
+domElement(".view-all-articles").addEventListener('click', viewAllArticles);
+domNodeList(".fa-edit").forEach(btn => btn.addEventListener('click', updateArticle));
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -134,11 +126,9 @@ function updateArticle() {
 
 
 //warning for delete an article
+const warnContiner = domElement(".warn-container");
 
-const deleteBtn = document.querySelectorAll('.fa-trash-alt');
-const warnContiner = document.querySelector('.warn-container');
-
-deleteBtn.forEach(btn => btn.addEventListener('click', deleteArticle));
+domNodeList(".fa-trash-alt").forEach(btn => btn.addEventListener('click', deleteArticle));
 
 function deleteArticle() {
   if(articlesList.classList.contains('show')) {
@@ -168,9 +158,9 @@ function warningCard() {
 
 //display queries page
 
-const queriesBtn = document.querySelector('.fa-envelope-open-text');
-const queriesContainer = document.querySelector('.queries-container-page');
-const queryCard = document.querySelector('.blog-inquiry');
+const queriesBtn = domElement(".fa-envelope-open-text");
+const queriesContainer = domElement(".queries-container-page");
+const queryCard = domElement(".blog-inquiry");
 
 queriesBtn.addEventListener('click', showQueries);
 queryCard.addEventListener('click', showQueries)
@@ -193,25 +183,11 @@ function showQueries() {
   queriesContainer.style.display ='flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
-  queriesContainer.innerHTML = 
-  `
-  <div class="queries-page">
-      <h2 id="query-title">Hello</h2>
-      <p id="query-body">Lorem ipsum dolor, 
-      sit amet consectetur adipisicing elit. Esse ullam reiciendis explicabo 
-      laborum eius, nobis nihil ex omnis dolor nesciunt.
-      </p>
-  </div>
-  `
 }
 
 //delete user
-
-const deleteUser = document.querySelector('.fa-trash');
-const manageUser = document.querySelector('.manage-users')
-const table = document.querySelector('table')
-
-deleteUser.addEventListener('click', () =>{
+const table = domElement("table");
+domElement(".fa-trash").addEventListener('click', () =>{
   table.style.display = 'none'
   warnContiner.style.display = 'flex';
   table.style.display = 'none';
@@ -220,7 +196,8 @@ deleteUser.addEventListener('click', () =>{
   warningCard()
 })
 
-manageUser.addEventListener('click', allUsers)
+//Event to display manage users page
+domElement(".manage-users").addEventListener('click', allUsers)
 
 function allUsers() {
   clearBoard()
@@ -229,11 +206,9 @@ function allUsers() {
 }
 
 //user settings
+const settingContainer = domElement(".users-settings");
 
-const settings = document.querySelector('.settings')
-const settingContainer = document.querySelector('.users-settings');
-
-settings.addEventListener('click', userSetting);
+domElement(".settings").addEventListener('click', userSetting);
 
 function userSetting() {
   clearBoard()
@@ -241,12 +216,10 @@ function userSetting() {
   table.style.display = 'none'
 }
 
-
 //customise dashboard reponsiveness
-
-const dashBoardHamburgIcon = document.querySelector('fa-bars');
-const dashboardMenu = document.querySelector('.dashboard-menu-wrapper');
-const dashboardSpanIcon = document.querySelector('.span');
+const dashBoardHamburgIcon = domElement(".fa-bars");
+const dashboardMenu = domElement(".dashboard-menu-wrapper");
+const dashboardSpanIcon = domElement(".span");
 
 
 dashboardSpanIcon.addEventListener('click', () => {
@@ -269,9 +242,9 @@ function showNav() {
 
 
 //update admin display name through firebase
-const displayName = document.querySelector('#admin-display-name');
-const adminName = document.querySelector('#admin-name');
-const displayEmail = document.querySelector('#admin-display-email');
+const displayName = domElement("#admin-display-name");
+const adminName = domElement("#admin-name");
+const displayEmail = domElement("#admin-display-email");
 
 auth.onAuthStateChanged(user => {
   if (user){
@@ -301,9 +274,7 @@ function getUser(data) {
 }
 
 // logout
-const logoutBtn = document.querySelector('.fa-sign-out-alt');
-
-logoutBtn.addEventListener('click', (e) => {
+domElement(".fa-sign-out-alt").addEventListener('click', (e) => {
     e.preventDefault();
     auth
     .signOut()
@@ -311,13 +282,10 @@ logoutBtn.addEventListener('click', (e) => {
 })
 
 //upload image
-const img = document.querySelectorAll('.img');
-const selectFile = document.querySelector('.select-file')
-
-const saveProfileData = document.querySelector('#save-admin-profile');
+const img = domNodeList(".img");
 
 function uploadImage(user) {
-  selectFile.onchange = (event) => {
+  domElement(".select-file").onchange = (event) => {
     let file = {};
       file = event.target.files[0];
       event.preventDefault()

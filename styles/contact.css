@@ -114,7 +114,11 @@ input{
 #message-area:focus{
     outline: none;
 }
-
+#query-result{
+    padding-top:5px;
+    font-size: 20px;
+    font-family: 'ROBOTO', sans-serif;
+}
 /*======================================
 style dark mode
 ====================================

@@ -22,7 +22,7 @@ const loginResult = document.querySelector('#login-result');
 //function to validate form fields before submission
 const validateForm = (mail, pswd, form) => {
   const emailPattern = /^[a-z]+([a-zA-Z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
-
+  const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(a-zA-Z0-9){6,12}$/;
     if (mail.length === 0) {
         email.style.borderBottom = '1px solid red';
         loginResult.style.color = '#DF502A';
@@ -42,6 +42,11 @@ const validateForm = (mail, pswd, form) => {
         password.style.borderBottom = '1px solid red';
         loginResult.style.color = '#DF502A';
         loginResult.innerHTML = 'Password must be at least 6 characters'
+        return false;
+      } else if (!passRegex.test(pswd)) {
+        password.style.borderBottom = '1px solid red';
+        loginResult.style.color = '#DF502A';
+        loginResult.innerHTML = 'Password should contains 1 number lowercase and uppercase characters!'
         return false;
       } else {
         loginFnc(email.value, password.value, form)

@@ -641,31 +641,37 @@ queries view  page
 */
 .queries-container-page{
     display: flex;
-    flex-direction: column;
-    -ms-flex-direction: column;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    flex-wrap: wrap;
     margin: 100px 10% 0 20%;
-    display: flex;
-    flex-direction: column;
     border-radius: 15px;
     padding: 20px 40px;
     display: none;
 }
-.queries-page{
+.queries-container-page div{
     background: #FCFCFC;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
     width: 300px;
     height: 200px;
-    margin: auto;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
     border-radius: 5px;
     text-align: center;
-    padding: 10px 0 0 0; 
+    margin: 10px; 
 }
-#query-title{
+.queries-container-page h2{
     padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 5px;
+}
+.queries-container-page h5{
+    padding-top: 5px;
     font-family: 'Roboto', sans-serif;
     padding-bottom: 20px;
 }
-#query-body{
+.queries-container-page p{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }
@@ -932,7 +938,7 @@ style dark mode
 .dark-mode .profile-popup,
 .dark-mode .dashboard-more,
 .dark-mode .add-new-article,
-.dark-mode .queries-page,
+.dark-mode .queries-container-page div,
 .dark-mode .card-content,
 .dark-mode .setting-card,
 .dark-mode th{
@@ -940,7 +946,7 @@ style dark mode
 }
 .dark-mode .card #visitor-number,
 .dark-mode .card #inquiry-number,
-.dark-mode .queries-page,
+.dark-mode .queries-container-page div,
 .dark-mode td{
     color: #FFFFFF;
 }
