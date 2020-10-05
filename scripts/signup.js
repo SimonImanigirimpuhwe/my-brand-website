@@ -84,8 +84,7 @@ const submitForm = async(name, email, password, form) => {
        return db.collection('users').doc(cred.user.uid).set({
             FullName: name,
             Email: email,
-            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
-            role: "admin"
+            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date())
         })
     })
     .then(() => {  
