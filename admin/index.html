@@ -95,12 +95,7 @@
                 </div>
                 <div id="right-wrapper">
                     <h3>Bio</h3>
-                    <div id="biograph">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Tenetur, repellat tempore autem odit, corrupti nemo quod laborum ex obcaecati vero harum
-                            veniam!
-                        </p>
-                    </div>
+                    <div id="biograph"></div>
                     <button class="edit-profile"><i class="fas fa-user-edit"></i>Edit profile</button>
                 </div>
             </div>
@@ -114,6 +109,7 @@
                         <label for="bio" id="bio-wrapper">Bio
                             <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
                         </label>
+                        <div class="profile-error"></div>
                     </div>
                     <button type="submit" id="save-admin-profile">Save</button>
                 </div>
@@ -303,6 +299,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-storage.js"></script>
     <script src="../scripts/helper.js"></script>
     <script src="../scripts/admin.js"></script>
+    <script src="../scripts/profile.js"></script>
 </body>
 
 </html>
