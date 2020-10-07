@@ -46,7 +46,7 @@ const validateForm = (mail, pswd, form) => {
       } else if (!passRegex.test(pswd)) {
         password.style.borderBottom = '1px solid red';
         loginResult.style.color = '#DF502A';
-        loginResult.innerHTML = 'Password must contain at least 1 number, uppercase and lowercase characters'
+        loginResult.innerHTML = 'Invalid email'
         return false;
       } else {
         loginFnc(email.value, password.value, form)

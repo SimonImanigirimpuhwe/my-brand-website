@@ -9,6 +9,8 @@ auth.onAuthStateChanged(user => {
     uploadImage(user)
     updateProfileInfo(user)
     updateBio(user)
+    savePost()
+    uploadBlogImage()
   } else {
     location.href = '../login/';
   }
@@ -96,8 +98,12 @@ function updateProfileInfo(user) {
 function updateBio(user) {
     db.collection('users').doc(user.uid).get().then((bio) =>{
         const biograph = bio.data();
-        domElement("#biograph").innerHTML =`
-        <p>${biograph.Biograph}</p>
-        ` 
+        if (!biograph.Biograph) {
+          domElement("#biograph").style.visibility = 'hidden';
+        } else {
+          domElement("#biograph").innerHTML =`
+          <p>${biograph.Biograph}</p>
+          `
+        } 
     })
 }
