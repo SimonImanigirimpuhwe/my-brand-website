@@ -69,8 +69,8 @@ async function loginFnc(email, password, form) {
 
 //check success
 function checkSuccess(form) {
-  location.href = '../admin/';
   if (isLogged) {
+    location.href = '../admin/';
     form.reset();
     loginBtn.innerHTML = 'Login';
     loginResult.style.color = '#008B8B';

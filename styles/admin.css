@@ -484,12 +484,9 @@ form for adding new article and update existing article
     flex-direction: row;
     -ms-flex-direction: row;
 }
-#upload-article-image button,
-#update-article-image button{
-    background: #8F8D8D;
-    height: 30px;
-    width: 130px;
-    color: #0B0A0A;
+#upload-article-image input,
+#update-article-image input{
+    color: #8F8D8D;
     border-radius: 5px;
     border: none;
     font-size: 17px;
@@ -498,12 +495,13 @@ form for adding new article and update existing article
     margin-right: 5px;
     align-self: center;
 }
-#upload-article-image span,
-#update-article-image span{
-    align-self: center;
-    color: #8F8D8D;
+.article-error{
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: -20px;
+    font-size: 18px;
+    font-family: 'ROBOTO', sans-serif;
 }
-
 /*.......
 styles for article list
 */
@@ -892,8 +890,6 @@ style dark mode
 .dark-mode #admin-profile,
 .dark-mode #save-article,
 .dark-mode #save-updated-article,
-.dark-mode #upload-article-image button,
-.dark-mode #update-article-image button,
 .dark-mode .setting-card button{
     background: #15202b
 }
@@ -914,8 +910,6 @@ style dark mode
 .dark-mode .edit-admin-profile #form-fields button:hover,
 .dark-mode #save-article:hover,
 .dark-mode #save-updated-article:hover,
-.dark-mode #upload-article-image button:hover,
-.dark-mode #update-article-image button:hover,
 .dark-mode .setting-card button:hover{
     background: #008B8B;
     color: #FAF4F4;
@@ -928,8 +922,6 @@ style dark mode
 .dark-mode .card h3,
 .dark-mode #save-article,
 .dark-mode #save-updated-article,
-.dark-mode #upload-article-image button,
-.dark-mode #update-article-image button,
 .dark-mode .card-content,
 .dark-mode .setting-card button{
     color: #e0dede;

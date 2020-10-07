@@ -87,6 +87,7 @@ function addArticle() {
   warnContiner.style.display = 'none';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
+  savePost()
 }
 
 function viewAllArticles() {
@@ -248,8 +249,11 @@ const displayEmail = domElement("#admin-display-email");
 
 auth.onAuthStateChanged(user => {
   if (user){
+    console.log()
     getUser(user)
     uploadImage(user)
+    savePost()
+    uploadBlogImage()
   } else {
     location.href = '../login/';
   }
@@ -303,5 +307,55 @@ function uploadImage(user) {
         })
       })
       .catch(err => console.log(err.message))
+  }
+}
+
+//save post to database
+function savePost() {
+  const articleForm = domElement(".add-new-article");
+  articleForm.onsubmit = (e) => {
+    e.preventDefault();
+    const title = domElement("#title").value;
+    const description = domElement("#new-description").value;
+    const blogErr = domElement(".article-error");
+
+    if (title == '' || description == '') {
+      blogErr.style.color = '#DF502A'
+      blogErr.innerHTML = 'Please fill the form fields';
+    } else {
+      let user = auth.currentUser;
+      db.collection('blogs').add({
+        Title:title,
+        PublishedAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
+        Author: user.displayName,
+        Description: description
+      })
+      .then((docRef) => {
+        db.collection('blogs').doc(docRef.id).set({
+          PostImage: `blogs/images/${title}`
+        }, { merge: true })
+        articleForm.reset()
+        blogErr.style.color = '#008B8B'
+        blogErr.innerHTML = 'Blog created'
+      })
+      .catch((err) =>console.log(err))
+    }
+  }
+}
+
+function uploadBlogImage() {
+  domElement(".select-article-image").onchange = (event) => {
+    event.preventDefault()
+    const title = domElement("#title").value;
+    let file = {};
+    file = event.target.files[0];
+    if (title == '') {
+      return 
+    } else {
+      firebase
+      .storage()
+      .ref(`blogs/images/${title}`)
+      .put(file)
+    } 
   }
 }

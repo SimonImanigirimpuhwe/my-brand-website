@@ -129,10 +129,10 @@
                 </label>
                 <label for="image" id="image-label">Add image
                     <div id="upload-article-image">
-                        <button class="select-article-image">Choose file</button>
-                        <span>No file chosen</span>
+                        <input type="file" class="select-article-image" />
                     </div>
                 </label>
+                <div class="article-error"></div>
                 <button id="save-article">Save</button>
             </form>
             <form class="update-existing-article">
@@ -146,8 +146,7 @@
                 </label>
                 <label for="image" id="update-image-label">Add image
                     <div id="update-article-image">
-                        <button class="select-new-image">Choose file</button>
-                        <span>No file chosen</span>
+                        <input type="file" class="select-new-image" />
                     </div>
                 </label>
                 <button id="save-updated-article">Save changes</button>
