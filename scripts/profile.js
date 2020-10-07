@@ -72,8 +72,11 @@ function updateProfileInfo(user) {
         e.preventDefault();
         const name = domElement("#name");
         const bio = domElement("#bio");
+        const profileError = domElement(".profile-error");
+
         if (name.value == '' || bio.value =='') {
-            console.log('Please fill the fields');
+          profileError.style.color = '#DF502A';
+          profileError.innerHTML = 'Please fill the form fields';
         } else {
              db.collection('users').doc(user.uid).set({
                 FullName: name.value,
@@ -82,7 +85,9 @@ function updateProfileInfo(user) {
             user.updateProfile({
                 displayName: name.value
             })
-            form.reset(); 
+            form.reset();
+            profileError.style.color = '#008B8B';
+            profileError.innerHTML = 'Profile updated successfully'; 
         }    
     }
 }

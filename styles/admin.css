@@ -389,7 +389,12 @@ edit profile form
 #bio-wrapper{
     padding-top: 20px;
 }
-
+.profile-error{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'ROBOTO', sans-serif;
+}
 /*...........................
 form for adding new article and update existing article
 */
