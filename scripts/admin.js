@@ -184,10 +184,14 @@ function showQueries() {
   queriesContainer.style.display ='flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
+
+   firebaseQueries() 
 }
+
 
 //delete user
 const table = domElement("table");
+
 domElement(".fa-trash").addEventListener('click', () =>{
   table.style.display = 'none'
   warnContiner.style.display = 'flex';
@@ -197,7 +201,6 @@ domElement(".fa-trash").addEventListener('click', () =>{
   warningCard()
 })
 
-//Event to display manage users page
 domElement(".manage-users").addEventListener('click', allUsers)
 
 function allUsers() {
@@ -207,6 +210,7 @@ function allUsers() {
 }
 
 //user settings
+
 const settingContainer = domElement(".users-settings");
 
 domElement(".settings").addEventListener('click', userSetting);
@@ -217,11 +221,11 @@ function userSetting() {
   table.style.display = 'none'
 }
 
+
 //customise dashboard reponsiveness
 const dashBoardHamburgIcon = domElement(".fa-bars");
 const dashboardMenu = domElement(".dashboard-menu-wrapper");
 const dashboardSpanIcon = domElement(".span");
-
 
 dashboardSpanIcon.addEventListener('click', () => {
     dashBoardHamburgIconDisplay = !dashBoardHamburgIconDisplay;
@@ -241,6 +245,33 @@ function showNav() {
     }
 }
 
+//function do handle queries data
+function handleData(doc) {
+  const list = doc.data();
+  const queriesPage = document.createElement('div');
+  const name = document.createElement('h2');
+  const email = document.createElement('h5');
+  const content = document.createElement('p');
+
+  name.textContent = list.FullName;
+  email.textContent = list.Email;
+  content.textContent = list.Message;
+
+  queriesPage.appendChild(name);
+  queriesPage.appendChild(email);
+  queriesPage.appendChild(content);
+
+  queriesContainer.appendChild(queriesPage) 
+}
+
+
+//view queries from DB
+function firebaseQueries() {
+  db.collection("queries")
+    .get()
+    .then((queries) => queries.docs.forEach(query => handleData(query)))
+    .catch(error => console.log(error))
+}
 
 //update admin display name through firebase
 const displayName = domElement("#admin-display-name");
