@@ -18,7 +18,39 @@ domElement(".view-all-articles").addEventListener('click', viewAllArticles);
 domElement(".articles-list").addEventListener('click', (e) => {
   if (!e.target.classList.contains('fa-edit')) return;
     updateArticle()
+    let id = e
+    .target
+    .parentElement
+    .parentElement
+    .parentElement
+    .getAttribute('data-id');
+    handleArticleUpdate(id);
 })
+
+function handleArticleUpdate(id) {
+  editArticleForm.onsubmit = (e) => {
+    e.preventDefault();
+    const title = domElement('#update-title').value;
+    const description = domElement('#update-description').value;
+    const updateResult = domElement('.article-edit-error');
+
+    if (title == '' || description == '') {
+      updateResult.style.display = 'flex';
+      updateResult.style.color = '#DF502A';
+      updateResult.innerHTML = 'Please fill the form fields';
+    } else {
+      db.collection('blogs').doc(id).update({
+        Title:title,
+        Description: description
+      })
+      .then(() => {
+        editArticleForm.reset()
+        updateResult.style.color = '#008B8B'
+        updateResult.innerHTML = 'Blog created'
+      })
+    }
+  }
+}
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -118,7 +150,7 @@ function clearBoard() {
     profilePopup.classList.toggle('display')
   }
 }
-
+//********************************************************** */
 function updateArticle() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
@@ -130,7 +162,7 @@ function updateArticle() {
   table.style.display = 'none';
   settingContainer.style.display = 'none';
 }
-
+//**************************************************************** */
 
 //warning for delete an article
 const warnContiner = domElement(".warn-container");

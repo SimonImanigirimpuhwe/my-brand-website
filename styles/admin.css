@@ -500,7 +500,8 @@ form for adding new article and update existing article
     margin-right: 5px;
     align-self: center;
 }
-.article-error{
+.article-error,
+.article-edit-error{
     text-align: center;
     margin-bottom: 5px;
     margin-top: -20px;
