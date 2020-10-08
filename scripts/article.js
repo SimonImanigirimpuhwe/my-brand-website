@@ -6,3 +6,4 @@ const showForm = () => {
     commentForm.style.display = 'flex';
 }
 commentIcon.addEventListener('click', showForm)
+

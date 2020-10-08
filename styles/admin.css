@@ -520,7 +520,7 @@ styles for article list
 .articles-list.show{
     display: flex;
 }
-.article-card-content{
+.articles-list > div{
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -529,7 +529,7 @@ styles for article list
 }
 .card-content{
     background: #FAF4F4;
-    height: 150px;
+    height: 250px;
     padding: 5px 5px;
 }
 .card-content h3{
@@ -989,6 +989,11 @@ customize responsiveness
         margin-left: 10%;
     }
 }
+@media screen and (max-width: 1095px){
+    .card-content{
+        height: 270px;
+    }
+}
 @media screen and (max-width: 980px){
     .profile-popup{
         display: flex;
@@ -1061,6 +1066,9 @@ customize responsiveness
     .users-wrapper{
         margin: 150px 5% 0 20%;
     }
+    .card-content{
+        height: 300px;
+    }
 
 }
 @media screen and (max-width: 807px){
@@ -1078,7 +1086,7 @@ customize responsiveness
         margin-right: -10%;
     }
     .card-content{
-        height: 280px;
+        height: 320px;
     }
 }
 @media screen and (max-width: 758px){
@@ -1096,6 +1104,9 @@ customize responsiveness
     }
     .users-settings{
         margin: 150px 5% 0 25%;
+    }
+    .card-content{
+        height: 350px;
     }
 }
 @media screen and (min-width: 671px){
@@ -1242,6 +1253,9 @@ customize responsiveness
     }
     .queries-container-page{
         margin: 100px 15% 0 0;
+    }
+    .card-content{
+        height: 370px;
     }
 }
 @media screen and (max-width: 434px){

@@ -12,7 +12,12 @@ domNodeList(".profile").forEach(icon => icon.addEventListener('click', showUserP
 domElement(".edit-profile").addEventListener('click', editProfile);
 domElement(".add-post-btn").addEventListener('click', addArticle);
 domElement(".view-all-articles").addEventListener('click', viewAllArticles);
-domNodeList(".fa-edit").forEach(btn => btn.addEventListener('click', updateArticle));
+
+//article update form display
+domElement(".articles-list").addEventListener('click', (e) => {
+  if (!e.target.classList.contains('fa-edit')) return;
+    updateArticle()
+})
 
 function showDashBoard() {
   if(editForm.style.display = 'flex'){
@@ -184,8 +189,6 @@ function showQueries() {
   queriesContainer.style.display ='flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
-
-   firebaseQueries() 
 }
 
 
@@ -320,4 +323,36 @@ function uploadBlogImage() {
       .put(file)
     } 
   }
+}
+
+//get all articles from DB
+function fetchData() {
+  db
+  .collection('blogs')
+  .onSnapshot((data) => data.forEach((article) => displayArticle(article, article.id)))
+}
+function displayArticle(post, id) {
+  const list = post.data();
+  const result = document.createElement('div')
+  result.innerHTML = `
+  <div data-id="${id}">
+        <div class="card-content">
+            <h3>${list.Title}</h3>
+            <div class="article-body">
+              <p>${list.Description}</p>
+            </div>
+        </div>
+        <div class="actions">
+            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-info-circle"></i>
+        </div>
+  </div>
+  `
+  domElement(".articles-list").appendChild(result)
+}
+
+window.onload = () => {
+  fetchData()
+  firebaseQueries() 
 }
