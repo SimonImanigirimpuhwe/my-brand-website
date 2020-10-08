@@ -696,8 +696,14 @@ styles of the users wrapper
     margin: 150px 10% 0 20%;
     border-radius: 15px;
     padding: 20px 40px;
-    display: none;
     align-self: center;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+tbody{
+    display: table;
 }
 td,th{
     text-align: left;

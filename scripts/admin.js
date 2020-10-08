@@ -150,7 +150,7 @@ function clearBoard() {
     profilePopup.classList.toggle('display')
   }
 }
-//********************************************************** */
+
 function updateArticle() {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
@@ -162,7 +162,6 @@ function updateArticle() {
   table.style.display = 'none';
   settingContainer.style.display = 'none';
 }
-//**************************************************************** */
 
 //warning for delete an article
 const warnContiner = domElement(".warn-container");
@@ -223,8 +222,14 @@ function warningCard(id) {
 
   domElement("#cancel").addEventListener('click', (e) => {
     e.preventDefault();
-    warnContiner.style.display ='none';
-    articlesList.style.display = 'flex';
+    let eventCheck = e.target.parentElement.parentElement.parentElement.parentElement;
+    if (!eventCheck.classList.contains('main-content')) {
+      warnContiner.style.display ='none';
+      table.style.display = 'flex';
+    } else {
+      warnContiner.style.display ='none';
+      articlesList.style.display = 'flex';
+    }
   })
 }
 
@@ -257,26 +262,72 @@ function showQueries() {
   settingContainer.style.display = 'none';
 }
 
-
 //delete user
 const table = domElement("table");
 
-domElement(".fa-trash").addEventListener('click', () =>{
+table.addEventListener('click', (e) =>{
+  if (!e.target.classList.contains('fa-trash')) return;
+
   table.style.display = 'none'
   warnContiner.style.display = 'flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
+
   clearBoard();
   warningCard()
+  manageUsers(e);
 })
+
+
+//handle users
+
+function manageUsers(e) {
+  e.stopPropagation();
+  const id = e.
+              target
+              .parentElement
+              .parentElement
+              .parentElement
+              .getAttribute('data-id');
+  db.collection('users').doc(id).delete().then(() => {
+    firebase.storage().doc(id).delete()
+    warnContiner.style.display ='none';
+    deleteMessage.style.display ='flex';
+    deleteMessage.style.color ='#008B8B';
+    deleteMessage.innerHTML ='User deleted successfully';
+  })
+
+}
 
 domElement(".manage-users").addEventListener('click', allUsers)
 
 function allUsers() {
   clearBoard()
+  fetchUsers()
   table.style.display = 'flex';
   settingContainer.style.display = 'none';   
 }
+//fetch users
+function fetchUsers() {
+  db
+  .collection('users')
+  .get()
+  .then((users) => users.forEach((user) => {
+    let info = user.data();
+
+      const tr = document.createElement('tbody')
+      tr.setAttribute('data-id', user.id)
+      tr.innerHTML = `
+              <td>${info.FullName}</td>
+              <td>${info.role || 'Regular User'}</td>
+              <td>${info.status || 'Active'}</td>
+              <td><i class="fas fa-pen"></i></td>
+              <td><i class="fas fa-trash"></i></td>  
+      `
+      table.appendChild(tr)
+  }))
+}
+
 
 //user settings
 
