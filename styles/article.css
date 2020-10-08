@@ -41,6 +41,19 @@ header and footer styles are found in helper.css
     margin-left: 10%;
     margin-right: 10%;
 }
+.user-location{
+    margin-top: 50px;
+    margin-left: 20px;
+    position: fixed;
+    color: #27447E;
+}
+.user-location i{
+    font-size: 40px;
+}
+.user-location p{
+    font-size: 17px;
+}
+
 #article-image{
     align-self: center;
 }
