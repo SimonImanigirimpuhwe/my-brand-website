@@ -638,7 +638,14 @@ warning card
 #confirm:hover{
     color:#D0546D ;
 }
-
+.delete-message{
+    margin-top: 150px;
+    align-self: center;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-family: 'ROBOTO',sans-serif;
+    display: none;
+}
 /*.......................
 queries view  page
 */

@@ -92,7 +92,7 @@ const submitForm = async(name, email, password, form) => {
         signupBtn.innerHTML = 'Signup';
         signupResult.style.color = '#008B8B';
         signupResult.innerHTML = 'Account created successsfully';
-        location.href = '../admin/';
+        window.location.href = '../admin/';
     })
     .catch(() => {
         signupResult.style.color = '#DF502A';

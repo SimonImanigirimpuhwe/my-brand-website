@@ -4,6 +4,7 @@ const editForm = domElement(".edit-admin-profile");
 const addArticleForm = domElement(".add-new-article");
 const articlesList = domElement(".articles-list");
 const editArticleForm = domElement(".update-existing-article");
+const deleteMessage = domElement(".delete-message")
 
 
 domElement(".dashboard").addEventListener('click', showDashBoard);
@@ -133,8 +134,18 @@ function updateArticle() {
 
 //warning for delete an article
 const warnContiner = domElement(".warn-container");
-
-domNodeList(".fa-trash-alt").forEach(btn => btn.addEventListener('click', deleteArticle));
+domElement(".articles-list").addEventListener('click', (e) => {
+  if (!e.target.classList.contains('fa-trash-alt')) return;
+  deleteArticle()
+  let id = e
+          .target
+          .parentElement
+          .parentElement
+          .parentElement
+          .getAttribute('data-id');
+  warningCard(id)
+  articlesList.style.display = 'none';
+})
 
 function deleteArticle() {
   if(articlesList.classList.contains('show')) {
@@ -146,20 +157,43 @@ function deleteArticle() {
   warnContiner.style.display = 'flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
-  warningCard();
 }
 
-function warningCard() {
-  return   warnContiner.innerHTML =
+function warningCard(id) {
+  warnContiner.innerHTML =
   `<div class="warn">
       <i class="fas fa-exclamation-triangle"></i>
       <p>Be aware that the action you are going to take is irreversible once it’s done.</p>
       <div id="cfrm-btn">
         <button id="cancel">Cancel</button>
-        <button id="confirm">Delete</button>
+        <button id="confirm"${id}>Delete</button>
       </div>
    </div>
   `;
+
+  domElement("#confirm").addEventListener('click', (e) => {
+    e.stopPropagation();
+    db
+    .collection('blogs')
+    .doc(id)
+    .delete()
+    .then(() => {
+      warnContiner.style.display ='none';
+      deleteMessage.style.display ='flex';
+      deleteMessage.style.color ='#008B8B';
+      deleteMessage.innerHTML ='Blog deleted successfully';
+    })
+    .catch(() => {
+      deleteMessage.style.color = '#DF502A'
+      deleteMessage.innerHTML = 'Failed to delete the blog';
+    })
+  })
+
+  domElement("#cancel").addEventListener('click', (e) => {
+    e.preventDefault();
+    warnContiner.style.display ='none';
+    articlesList.style.display = 'flex';
+  })
 }
 
 //display queries page
@@ -333,9 +367,10 @@ function fetchData() {
 }
 function displayArticle(post, id) {
   const list = post.data();
-  const result = document.createElement('div')
+  const result = document.createElement('div');
+  result.setAttribute('data-id', id)
   result.innerHTML = `
-  <div data-id="${id}">
+  <div >
         <div class="card-content">
             <h3>${list.Title}</h3>
             <div class="article-body">
