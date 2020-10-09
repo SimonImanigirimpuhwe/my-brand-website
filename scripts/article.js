@@ -10,6 +10,7 @@ commentIcon.addEventListener('click', showForm)
 
 const locationWrapper = domElement(".user-location");
 function scb(data) {
+    locationWrapper.style.display = 'block';
     const latitude = document.createElement('p');
     const longitude = document.createElement('p');
     latitude.textContent = `Latitude: ${Math.round(data.coords.latitude)}`;
@@ -25,6 +26,8 @@ function fcb() {
 function userLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(scb, fcb)
+    } else {
+        return false
     }
 }
 
