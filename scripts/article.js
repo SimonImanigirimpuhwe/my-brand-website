@@ -63,8 +63,9 @@ const commentsInput = (mail, msg, form) => {
 
 
 async function submitComment(email, comment, form) {
+    const docId = localStorage.getItem('id')
     submitBtn.innerHTML = 'Loading ....';
-    await db.collection("comments").add({
+    await db.collection("comments").doc(docId).set({
         Email: email,
         Comment: comment
     })
@@ -95,6 +96,21 @@ function clearFeedBack() {
 email.addEventListener('keydown', clearFeedBack)
 comment.onkeydown = clearFeedBack;
 
+//fetch comments
+function getComments() {
+    const docId = localStorage.getItem('id');
+    db
+    .collection('comments')
+    .doc(docId)
+    .get()
+    .then((comments) => {
+        let comment = comments.data();
+        domElement("#user-email").innerHTML = `${comment.Email}`;
+        domElement("#user-comment").innerHTML = `${comment.Comment}`
+    })
+}
 window.onload = () => {
     userLocation()
+    readArticle()
+    getComments()
 }

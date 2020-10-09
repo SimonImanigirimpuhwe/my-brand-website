@@ -2,8 +2,10 @@ const selectedPost = document.querySelector('main');
 
 selectedPost.addEventListener('click', (e) => {
     e.preventDefault();
+    let dataId = localStorage.setItem("id", e.target.getAttribute('data-id'));
     if (!e.target.classList.contains('card-content')) return ;
-
+    console.log(dataId)
+    // readArticle(dataId)
     window.location.href = '../blog/article.html';
 });
 
@@ -22,12 +24,12 @@ async function displayPost(post, id) {
     .ref(`${(list.PostImage)}`)
     .getDownloadURL()
     .then((imag) => { 
+
         return imag
     })
     .catch((err) => console.log(err))
 
     const result = document.createElement('section');
-
     result.innerHTML = `
     <div class="card-content" data-id="${id}">
             <div class="article-image">
@@ -65,7 +67,7 @@ async function displayPost(post, id) {
     </div>
     `
     domElement(".articles-container").appendChild(result)
-  }
+}
 
 
 window.onload = () => {
