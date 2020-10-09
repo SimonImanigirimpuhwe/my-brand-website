@@ -18,7 +18,6 @@ function scb(data) {
 
     locationWrapper.appendChild(latitude);
     locationWrapper.appendChild(longitude)
-    console.log(locationWrapper)
 }
 function fcb() {
     console.log('Failure')
@@ -30,6 +29,71 @@ function userLocation() {
         return false
     }
 }
+
+//function to enable comments
+
+const email = document.getElementById("email-field");
+const comment = document.getElementById("comment-area");
+const commentResult = document.getElementById("comment-result");
+const submitBtn = document.getElementById("submit-comment-form");
+
+
+const commentsInput = (mail, msg, form) => {
+    const emailPattern = /^[a-z]+([a-z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
+    
+    if (mail.length === 0) {
+        email.style.border = '1px solid red';
+        commentResult.style.color = '#DF502A';
+        commentResult.innerHTML = 'Email is required';
+        return false;
+      } else if (!emailPattern.test(mail)) {
+        email.style.border = '1px solid red';
+        commentResult.style.color = '#DF502A';
+        commentResult.innerHTML = 'Invalid Email Format'
+        return false;
+      } else if (msg.length === 0) {
+        comment.style.border = '1px solid red';
+        commentResult.style.color = '#DF502A';
+        commentResult.innerHTML = 'comment is required!'
+        return false;
+      } else {
+        submitComment(email.value, comment.value, form)
+      }
+}
+
+
+async function submitComment(email, comment, form) {
+    submitBtn.innerHTML = 'Loading ....';
+    await db.collection("comments").add({
+        Email: email,
+        Comment: comment
+    })
+    .then(() => {
+        form.reset();
+        submitBtn.innerHTML = 'Submit';
+        commentResult.style.color = '#008B8B';
+        commentResult.innerHTML = 'Comment added!';
+    })
+    .catch((err) => {
+        console.log(err)
+        submitBtn.innerHTML = 'Submit';
+        commentResult.innerHTML = 'Create account to comment!';
+    })
+}
+
+submitBtn.onclick = (e) => {
+    e.preventDefault();
+    commentsInput( email.value, comment.value, commentForm)
+}
+
+//clear the error on keydown
+
+function clearFeedBack() {
+    submitBtn.innerHTML = 'Submit';
+    commentResult.innerHTML = '';
+}
+email.addEventListener('keydown', clearFeedBack)
+comment.onkeydown = clearFeedBack;
 
 window.onload = () => {
     userLocation()

@@ -66,8 +66,7 @@ async function submitResult(name, email, message, form) {
         queryResult.style.color = '#008B8B';
         queryResult.innerHTML = 'Thanks for your Inquery!';
     })
-    .catch((error) => {
-        console.log(error)
+    .catch(() => {
         queryResult.innerHTML = 'Something went wrong, Please re-try!';
     })
 }

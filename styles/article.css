@@ -44,7 +44,6 @@ header and footer styles are found in helper.css
 .user-location{
     margin-top: 50px;
     margin-left: 20px;
-    position: fixed;
     color: #27447E;
     display: none;
 }
@@ -219,6 +218,13 @@ header and footer styles are found in helper.css
     margin-top: 20px;
     padding-left: 10px;
     font-size: 18px;
+}
+#comment-result{
+    align-self:center;
+    font-weight: bold;
+    font-family: 'ROBOTO', sans-serif;
+    font-size: 20px;
+    padding-bottom: 10px;
 }
 #user-email{
     color: #EFB3B9;
