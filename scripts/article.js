@@ -7,7 +7,7 @@ const showForm = () => {
 }
 commentIcon.addEventListener('click', showForm)
 
-
+//function to get user location
 const locationWrapper = domElement(".user-location");
 function scb(data) {
     locationWrapper.style.display = 'block';
@@ -65,7 +65,8 @@ const commentsInput = (mail, msg, form) => {
 async function submitComment(email, comment, form) {
     const docId = localStorage.getItem('id')
     submitBtn.innerHTML = 'Loading ....';
-    await db.collection("comments").doc(docId).set({
+    const docRef = db.collection("blogs");
+    await docRef.doc(docId).collection("comments").doc().set({
         Email: email,
         Comment: comment
     })
@@ -74,6 +75,10 @@ async function submitComment(email, comment, form) {
         submitBtn.innerHTML = 'Submit';
         commentResult.style.color = '#008B8B';
         commentResult.innerHTML = 'Comment added!';
+        commentForm.style.display = 'none';
+        setTimeout(() => {
+            commentResult.innerHTML = '';  
+        }, 2000);
     })
     .catch((err) => {
         console.log(err)
@@ -100,15 +105,37 @@ comment.onkeydown = clearFeedBack;
 function getComments() {
     const docId = localStorage.getItem('id');
     db
-    .collection('comments')
+    .collection('blogs')
     .doc(docId)
-    .get()
-    .then((comments) => {
-        let comment = comments.data();
-        domElement("#user-email").innerHTML = `${comment.Email}`;
-        domElement("#user-comment").innerHTML = `${comment.Comment}`
-    })
+    .collection('comments')
+    .onSnapshot((comments) => comments
+    .forEach((comment) => handleCommets(comment)))
 }
+
+function handleCommets(comment) {
+        let blogComment = comment.data();
+        let divEl = document.createElement('div');
+        
+        divEl.innerHTML = 
+        `<div id="comments-card">
+            <div id="user-email">${blogComment.Email}</div>
+            <div id="user-comment">${blogComment.Comment}</div>
+            <div id="user-reaction">
+            <div id="user-reaction-icon">
+            <i class="fas fa-heart"></i>
+            <i class="far fa-thumbs-up"></i>
+            </div>
+            <div id="reply">
+            <p>Reply</p>
+            <i class="fas fa-reply"></i>
+            </div>
+            </div>
+        </div>`;
+
+    domElement(".comment-wrapper").appendChild(divEl)
+}
+
+
 window.onload = () => {
     userLocation()
     readArticle()

@@ -4,8 +4,6 @@ selectedPost.addEventListener('click', (e) => {
     e.preventDefault();
     let dataId = localStorage.setItem("id", e.target.getAttribute('data-id'));
     if (!e.target.classList.contains('card-content')) return ;
-    console.log(dataId)
-    // readArticle(dataId)
     window.location.href = '../blog/article.html';
 });
 

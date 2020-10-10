@@ -10,7 +10,7 @@ Header and footer styles are found in helper.css
     padding-left: 100px;
     padding-top:5vh;
     padding-bottom: 10vh;
-    margin: 0 10% 0 15%;
+    margin: 0 auto;
 }
 .card-content{
     width: 350px;

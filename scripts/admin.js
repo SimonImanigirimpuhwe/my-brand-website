@@ -290,11 +290,11 @@ function manageUsers(e) {
               .parentElement
               .getAttribute('data-id');
   db.collection('users').doc(id).delete().then(() => {
-    firebase.storage().doc(id).delete()
     warnContiner.style.display ='none';
     deleteMessage.style.display ='flex';
     deleteMessage.style.color ='#008B8B';
     deleteMessage.innerHTML ='User deleted successfully';
+    firebase.storage().doc(id).delete()
   })
 
 }

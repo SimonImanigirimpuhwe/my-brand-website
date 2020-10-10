@@ -52,6 +52,7 @@ header and footer styles are found in helper.css
 }
 .user-location p{
     font-size: 17px;
+    font-family: 'ROBOTO', sans-serif;
 }
 
 #article-image{
@@ -304,7 +305,12 @@ Style dark mode
 .dark-mode #submit-comment-form:hover{
     background: #008B8B;
 }
-
+.dark-mode .user-location i{
+    color:#008B8B;
+}
+.dark-mode .user-location p{
+    color: #FFFFFF;
+}
 /*======================================
 customise responsivess
 ====================================

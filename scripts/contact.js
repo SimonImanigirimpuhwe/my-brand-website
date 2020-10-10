@@ -76,7 +76,7 @@ submitBtn.onclick = (e) => {
     inputValidation(name.value, email.value, message.value, contactForm)
 }
 
-//clear the error on keydown
+//clear the result container on keydown
 const inputs = document.querySelectorAll('input')
 
 function clearFeedBack() {
