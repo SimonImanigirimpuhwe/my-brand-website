@@ -38,38 +38,38 @@
     <main class="light-mode">
         <span class="fas span"><i class="fas fa-bars"></i></span>
         <div class="dashboard-menu-wrapper">
-            <div class="menu">
+            <div class="menu dashboard-menu">
                 <div class="dashboard"><span class="iconify dashboard" data-inline="false"
                         data-icon="ri:dashboard-fill"></span></div>
                 <p>Dashboard</p>
             </div>
-            <div class="menu">
+            <div class="menu profile-menu">
                 <div class="profile"><span class="iconify" data-inline="false" data-icon="gg:profile"></span></div>
                 <p>Profile</p>
             </div>
-            <div class="menu">
+            <div class="menu add-post-btn-menu">
                 <div class="add-post-btn"><span class="iconify" data-inline="false"
                         data-icon="carbon:add-filled"></span></div>
                 <p>New article</p>
             </div>
-            <div class="menu">
+            <div class="menu manage-users-menu">
                 <div class="manage-users"><span class="iconify" data-inline="false" data-icon="fa-solid:users"></span>
                 </div>
                 <p>Users</p>
             </div>
-            <div class="menu">
+            <div class="menu settings-menu">
                 <div class="settings"><span class="iconify" data-inline="false"
                         data-icon="ant-design:setting-filled"></span></div>
                 <p>Settings</p>
             </div>
-            <div class="menu">
+            <div class="menu queries-menu">
                 <i class="fas fa-envelope-open-text"></i>
                 <p>Queries</p>
             </div>
         </div>
         <div class="main-content">
             <div class="dashboard-more">
-                <div id="admin-profile-btn">
+                <div id="admin-profile-btn" class="profile-menu">
                     <small class="profile display-user-infos"><span class="iconify" data-inline="false"
                             data-icon="gg:profile"></span></small><label>Profile</label>
                 </div>
@@ -150,23 +150,23 @@
             </form>
             <div class="articles-list"></div>
             <div class="warn-container"></div>
-            <div class="delete-message">Hello</div>
+            <div class="delete-message"></div>
             <div class="queries-container-page"></div>
             <table class="users-wrapper">
-                <tr>
-                    <th>Full Name</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
             <div class="users-settings">
                 <div class="setting-card">
                     <h3>Reset your account</h3>
-                    <label for="email">Email
-                        <input type="email" name="email" id="new-email">
-                    </label>
                     <label for="password">Password
                         <input type="password" name="password" id="new-password">
                     </label>
@@ -198,7 +198,7 @@
                         <i class="far fa-star"></i>
                         <p id="subscribe-number">5K+</p>
                     </div>
-                    <div class="card">
+                    <div class="card blog-number-card">
                         <h3 id="blog-article">Articles</h3>
                         <p id="article-number">5K</p>
                     </div>

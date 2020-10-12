@@ -8,6 +8,7 @@ body{
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
+    overflow-x: hidden;
 }
 header{
     position: fixed;
@@ -395,10 +396,10 @@ edit profile form
     font-size: 18px;
     font-family: 'ROBOTO', sans-serif;
 }
+
 /*...........................
 form for adding new article and update existing article
 */
-
 .add-new-article,
 .update-existing-article{
     background: #243447;
@@ -655,7 +656,7 @@ queries view  page
     flex-direction: row;
     -ms-flex-direction: row;
     flex-wrap: wrap;
-    margin: 100px 10% 0 20%;
+    margin: 100px 10% 0 17%;
     border-radius: 15px;
     padding: 20px 40px;
     display: none;
@@ -666,7 +667,7 @@ queries view  page
     flex-direction: column;
     -ms-flex-direction: column;
     width: 300px;
-    height: 200px;
+    height: 250px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.84);
     border-radius: 5px;
     text-align: center;
@@ -686,37 +687,70 @@ queries view  page
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }
-
-
+.queries-container-page section{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.queries-container-page section .fa-reply{
+    color: #008B8B;
+    cursor: pointer;
+}
 /*===============================
 styles of the users wrapper
 =================================
 */
 .users-wrapper{
-    margin: 150px 10% 0 20%;
+    margin: 150px 5% 0 15%;
     border-radius: 15px;
     padding: 20px 40px;
-    align-self: center;
     display: flex;
-    display: none;
     flex-direction: column;
     -ms-flex-direction: column;
+    border-collapse: collapse;
+    display: none;
 }
-tbody{
-    display: table;
-}
-td,th{
+
+.users-wrapper td{
     text-align: left;
-    padding: 10px;
-    padding-left: 40px;
+    padding: 20px;
+    padding-left: 145px;
+    font-size: 18px;  
+}
+tbody tr{
+    background-color: #ddd;
+}
+.users-wrapper th{
+    padding-left: 80px;
+    padding-bottom: 12px;
+    padding-top: 12px;
     font-size: 18px;
+    background-color: #243447;
+    color: #FFFFFF;
 }
-th{
-    background: #dddddd;
-    text-align: unset;
+.users-wrapper tbody tr:nth-child(even){
+    background-color: white;
 }
-td{
-    background:	#808080;
+.users-wrapper tbody td:nth-child(1){
+    padding-left: 15px;
+}
+.users-wrapper th:nth-child(1){
+    padding-left: 15px;
+}
+.users-wrapper th:nth-child(2){
+    padding-left: 270px;
+}
+.users-wrapper th:nth-child(3){
+    padding-left: 220px;
+}
+.users-wrapper th:nth-child(4){
+    padding-left: 150px;
+}
+.users-wrapper th:nth-child(5){
+    padding-left: 130px;
+    padding-right: 22px;
 }
 .fa-pen:hover,
 .fa-trash:hover{
@@ -751,6 +785,7 @@ user settings
     align-self: center;
     border-radius: 15px;
     padding: 20px 50px;
+    justify-content: space-between;
     font-family: 'ROBOTO', sans-serif;
 }
 .setting-card label{
@@ -766,13 +801,12 @@ user settings
     text-transform: capitalize;
 }
 .setting-card input{
-    height: 25px;
+    height: 40px;
     border: none;
     padding-left: 10px;
 }
 .setting-card button{
     height: 40px;
-    flex: 1;
     background: #8F8D8D;
     color: #0B0A0A;
     border-radius: 5px;
@@ -786,13 +820,14 @@ user settings
 .setting-card button:focus{
     outline: none;
 }
+
 /*.......................
 styles of the dashboard access
 */
 
 .dashboard-content{
     background: #C0C0C0;
-    margin: 5% 0 0 20%;
+    margin: 5% -20% 0 10%;
     display: flex;
     flex-direction: column;
     visibility: visible;
@@ -824,6 +859,9 @@ styles of the dashboard access
     border-radius: 5px;
     text-align: center;
     padding: 10px 0 0 0;
+}
+.card:hover{
+    cursor: pointer;
 }
 .card h3{
     padding-bottom: 10px;
@@ -858,7 +896,7 @@ styles of the dashboard access
 }
 .card #article-number{
     font-family: 'Roboto', sans-serif;
-    font-size: 70px;
+    font-size: 40px;
     font-weight: bold;
     line-height: 117px;
     color: #33638E ;
@@ -992,9 +1030,47 @@ style dark mode
 /*....................
 customize responsiveness
 */
+@media screen and (max-width: 1160px){
+    .users-wrapper{
+        margin: 150px 10% 0 10%;
+    }
+    .users-wrapper th:nth-child(2){
+        padding-left: 250px;
+    }
+    .users-wrapper th:nth-child(3){
+        padding-left: 180px;
+    }
+    .users-wrapper th:nth-child(5){
+        padding-right: 27px;
+    }
+}
+@media screen and (max-width: 1145px){
+    .users-wrapper{
+        margin: 150px 20% 0 20%;
+    }
+    .users-wrapper td{
+        padding-left: 100px;
+    }
+    .users-wrapper th:nth-child(2){
+        padding-left: 200px;
+    }
+    .users-wrapper th:nth-child(3){
+        padding-left: 150px;
+    }
+    .users-wrapper th:nth-child(4){
+        padding-left: 120px;
+    }
+    .users-wrapper th:nth-child(5){
+        padding-left: 80px;
+        padding-right: 6px;
+    }
+}
 @media screen and (max-width: 1116px){
     .card-content{
         height: 200px;
+    }
+    .users-wrapper{
+        margin: 150px 25% 0 15%;
     }
 }
 @media screen and (max-width: 1100px){
@@ -1007,8 +1083,47 @@ customize responsiveness
     .card-content{
         height: 270px;
     }
+   
+}
+@media screen and (max-width: 1010px){
+    .users-wrapper{
+        margin: 150px 5% 0 13%;
+    }
+    .users-wrapper th:nth-child(2){
+        padding-left: 200px;
+    }
+    .users-wrapper th:nth-child(3){
+        padding-left: 150px;
+    }
+    .users-wrapper th:nth-child(5){
+        padding-right: 6px;
+    }
+}
+@media screen and (max-width: 990px){
+    .queries-container-page{
+        margin: 150px 5% 0 20%;
+    }
 }
 @media screen and (max-width: 980px){
+    .users-wrapper{
+        margin: 150px 10% 0 20%;
+    }
+    .users-wrapper td{
+        padding-left: 40px;
+    }
+    .users-wrapper th:nth-child(2){
+        padding-left: 140px;
+    }
+    .users-wrapper th:nth-child(3){
+        padding-left: 90px;
+    }
+    .users-wrapper th:nth-child(4){
+        padding-left: 40px;
+    }
+    .users-wrapper th:nth-child(5){
+        padding-left: 40px;
+        padding-right: 8px;
+    }
     .profile-popup{
         display: flex;
         flex-direction: column;
@@ -1063,6 +1178,12 @@ customize responsiveness
         width: 600px;
         margin-left: 15%;
     }
+    .dashboard-content{
+        margin: 5% -20% 0 15%;
+    }
+    .queries-container-page{
+        margin: 150px -25% 0 20%;
+    }
 
 }
 @media screen and (max-width: 920px){
@@ -1077,13 +1198,15 @@ customize responsiveness
         width: 500px;
         margin-left: 20%;
     }
-    .users-wrapper{
-        margin: 150px 5% 0 20%;
-    }
     .card-content{
         height: 300px;
     }
 
+}
+@media screen and (max-width: 950px){
+    .queries-container-page{
+        margin: 150px 5% 0 25%;
+    }
 }
 @media screen and (max-width: 807px){
     .edit-admin-profile{
@@ -1102,13 +1225,8 @@ customize responsiveness
     .card-content{
         height: 320px;
     }
-}
-@media screen and (max-width: 758px){
     .users-wrapper{
-        margin: 150px 5% 0 20%;
-    }
-    td,th{
-        padding-left: 20px;
+        margin: 150px 20% 0 15%;
     }
 }
 @media screen and (max-width: 718px){
@@ -1121,6 +1239,27 @@ customize responsiveness
     }
     .card-content{
         height: 350px;
+    }
+    .users-wrapper{
+        margin: 150px 10% 0 25%;
+    }
+    .users-wrapper td{
+        padding-left: 20px;
+    }
+    .users-wrapper tbody td:nth-child(5){
+        padding-right: 30px;
+    }
+    .users-wrapper th:nth-child(2){
+        padding-left: 125px;
+    }
+    .users-wrapper th:nth-child(3){
+        padding-left: 65px;
+    }
+    .users-wrapper th:nth-child(4){
+        padding-left: 30px;
+    }
+    .users-wrapper th:nth-child(5){
+        padding-left: 20px;
     }
 }
 @media screen and (min-width: 671px){
@@ -1228,9 +1367,9 @@ customize responsiveness
     .articles-list{
         margin: 150px 5% 0 10%;
     }
-    .queries-container-page{
+    /* .queries-container-page{
         margin: 100px 10% 0 10%;
-    }
+    } */
     .warn{
         width: 500px;
         margin-left: -5%;
@@ -1239,10 +1378,7 @@ customize responsiveness
         margin: 150px 5% 0 0;
     }
     .users-wrapper{
-        margin: 150px 15% 0 10%;
-    }
-    td,th{
-        padding-left: 30px;
+        margin: 150px 25% 0 5%;
     }
 }
 @media screen and (max-width:537px){
@@ -1270,6 +1406,9 @@ customize responsiveness
     }
     .card-content{
         height: 370px;
+    }
+    .users-wrapper{
+        margin: 150px 30% 0 2%;
     }
 }
 @media screen and (max-width: 434px){

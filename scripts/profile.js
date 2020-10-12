@@ -29,7 +29,13 @@ function getUser(data) {
       .ref(`users/profile/${data.uid}`)
       .getDownloadURL()
       .then(image => img.forEach(profile => profile.src = image))
-      .catch(err => console.log(err.message))
+      .catch(()=> {
+        if (code = "storage/object-not-found") {
+          console.log('No Profile yet!')
+        }else{
+          console.log('Something went wrong!')
+        }
+      })
     });
   }
 }
@@ -39,7 +45,7 @@ domElement(".fa-sign-out-alt").addEventListener('click', (e) => {
     e.preventDefault();
     auth
     .signOut()
-    .then(() => location.href = '../login/');
+    .then(() => window.location.href = '../login/');
 })
 
 //upload image
@@ -90,13 +96,16 @@ function updateProfileInfo(user) {
             form.reset();
             profileError.style.color = '#008B8B';
             profileError.innerHTML = 'Profile updated successfully'; 
+            setTimeout(() => {
+              form.style.display = 'none';
+            }, 3000);
         }    
     }
 }
 
 //update bio
 function updateBio(user) {
-    db.collection('users').doc(user.uid).get().then((bio) =>{
+    db.collection('users').doc(user.uid).onSnapshot((bio) =>{
         const biograph = bio.data();
         if (!biograph.Biograph) {
           domElement("#biograph").style.visibility = 'hidden';

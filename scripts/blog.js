@@ -2,7 +2,7 @@ const selectedPost = document.querySelector('main');
 
 selectedPost.addEventListener('click', (e) => {
     e.preventDefault();
-    let dataId = localStorage.setItem("id", e.target.getAttribute('data-id'));
+    localStorage.setItem("id", e.target.getAttribute('data-id'));
     if (!e.target.classList.contains('card-content')) return ;
     window.location.href = '../blog/article.html';
 });
@@ -40,9 +40,7 @@ async function displayPost(post, id) {
                 </div>
                 <div class="article-content-wrapper">
                     <h4 class="article-title">${list.Title}</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nobis eius veniam similique debitis suscipit hic quae deleniti
-                    ratione! Nihil, ipsa minus?</p>
+                    <p>${list.Description.slice(0, 130)} [...]</p>
                 </div>
                 <div class="interaction-menu">
                     <div class="reactions">

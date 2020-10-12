@@ -159,10 +159,18 @@ header and footer styles are found in helper.css
 .comment-form input{
     border: 1px solid #243447;
     height: 40px;
+    font-size: 18px;
+    font-family: 'ROBOTO', sans-serif;
+    padding-left: 10px;
+    padding-right: 5px;
 }
 .comment-form textarea{
     border: 1px solid #243447;
     height: 100px;
+    font-size: 18px;
+    font-family: 'ROBOTO', sans-serif;
+    padding-left: 10px;
+    padding-right: 6px;
 }
 #submit-comment-form{
     background: #243447;

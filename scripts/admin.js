@@ -7,24 +7,26 @@ const editArticleForm = domElement(".update-existing-article");
 const deleteMessage = domElement(".delete-message")
 
 
-domElement(".dashboard").addEventListener('click', showDashBoard);
+domElement(".dashboard-menu").addEventListener('click', showDashBoard);
 domElement(".fa-ellipsis-v").addEventListener('click', showProfile);
-domNodeList(".profile").forEach(icon => icon.addEventListener('click', showUserProfile));
+domNodeList(".profile-menu").forEach(icon => icon.addEventListener('click', showUserProfile));
 domElement(".edit-profile").addEventListener('click', editProfile);
-domElement(".add-post-btn").addEventListener('click', addArticle);
-domElement(".view-all-articles").addEventListener('click', viewAllArticles);
+domElement(".add-post-btn-menu").addEventListener('click', addArticle);
+domElement(".view-article-btn").addEventListener('click', viewAllArticles);
+domElement(".blog-number-card").addEventListener('click', viewAllArticles);
 
 //article update form display
 domElement(".articles-list").addEventListener('click', (e) => {
   if (!e.target.classList.contains('fa-edit')) return;
-    updateArticle()
-    let id = e
-    .target
-    .parentElement
-    .parentElement
-    .parentElement
-    .getAttribute('data-id');
-    handleArticleUpdate(id);
+  let id = e
+  .target
+  .parentElement
+  .parentElement
+  .parentElement
+  .getAttribute('data-id');
+
+  updateArticle(id)
+  handleArticleUpdate(id);
 })
 
 function handleArticleUpdate(id) {
@@ -38,7 +40,7 @@ function handleArticleUpdate(id) {
       updateResult.style.display = 'flex';
       updateResult.style.color = '#DF502A';
       updateResult.innerHTML = 'Please fill the form fields';
-    } else {
+    } else {    
       db.collection('blogs').doc(id).update({
         Title:title,
         Description: description
@@ -46,7 +48,10 @@ function handleArticleUpdate(id) {
       .then(() => {
         editArticleForm.reset()
         updateResult.style.color = '#008B8B'
-        updateResult.innerHTML = 'Blog created'
+        updateResult.innerHTML = 'Blog updated successfully';
+        setTimeout(() => {
+          editArticleForm.style.display = 'none';
+        }, 3000);
       })
     }
   }
@@ -151,7 +156,7 @@ function clearBoard() {
   }
 }
 
-function updateArticle() {
+function updateArticle(id) {
   if(articlesList.classList.contains('show')) {
     articlesList.classList.remove('show')
   }
@@ -161,6 +166,13 @@ function updateArticle() {
   editArticleForm.style.display = 'flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
+  const title = domElement('#update-title');
+  const description = domElement('#update-description');
+  db.collection('blogs').doc(id).onSnapshot((blog) => {
+    const list = blog.data();
+    title.value = list.Title;
+    description.innerHTML = list.Description
+  })
 }
 
 //warning for delete an article
@@ -213,10 +225,16 @@ function warningCard(id) {
       deleteMessage.style.display ='flex';
       deleteMessage.style.color ='#008B8B';
       deleteMessage.innerHTML ='Blog deleted successfully';
+      setTimeout(() => {
+        deleteMessage.innerHTML = ''
+      }, 3000);
     })
     .catch(() => {
       deleteMessage.style.color = '#DF502A'
       deleteMessage.innerHTML = 'Failed to delete the blog';
+      setTimeout(() => {
+        deleteMessage.innerHTML = ''
+      }, 5000);
     })
   })
 
@@ -233,9 +251,9 @@ function warningCard(id) {
   })
 }
 
-//display queries page
 
-const queriesBtn = domElement(".fa-envelope-open-text");
+//display queries page
+const queriesBtn = domElement(".queries-menu");
 const queriesContainer = domElement(".queries-container-page");
 const queryCard = domElement(".blog-inquiry");
 
@@ -264,81 +282,125 @@ function showQueries() {
 
 //delete user
 const table = domElement("table");
+const tableBody = domElement("tbody")
 
-table.addEventListener('click', (e) =>{
+tableBody.addEventListener('click', (e) =>{
   if (!e.target.classList.contains('fa-trash')) return;
-
+ 
   table.style.display = 'none'
   warnContiner.style.display = 'flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
 
   clearBoard();
-  warningCard()
   manageUsers(e);
 })
 
 
 //handle users
-
 function manageUsers(e) {
-  e.stopPropagation();
+  const userDeleteWarn = document.querySelector('.warn-container');
   const id = e.
               target
               .parentElement
               .parentElement
-              .parentElement
               .getAttribute('data-id');
-  db.collection('users').doc(id).delete().then(() => {
-    warnContiner.style.display ='none';
-    deleteMessage.style.display ='flex';
-    deleteMessage.style.color ='#008B8B';
-    deleteMessage.innerHTML ='User deleted successfully';
-    firebase.storage().doc(id).delete()
+
+  userDeleteWarn.innerHTML =
+  `<div class="warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>Be aware that the action you are going to take is irreversible once it’s done.</p>
+      <div id="cfrm-btn">
+        <button id="cancel">Cancel</button>
+        <button id="confirm"${id}>Delete</button>
+      </div>
+   </div>
+  `;
+
+  domElement("#confirm").addEventListener('click', (e) => {
+    e.stopPropagation();
+    db.collection('users').doc(id).delete().then(() => {
+      userDeleteWarn.style.display ='none';
+      deleteMessage.style.display ='flex';
+      deleteMessage.style.color ='#008B8B';
+      deleteMessage.innerHTML ='User deleted successfully';
+      setTimeout(() => {
+        deleteMessage.innerHTML = '';
+      }, 5000);
+    })
+    .catch((err) => {
+      console.log(err)
+      deleteMessage.style.color = '#DF502A'
+      deleteMessage.innerHTML = 'Failed to delete the user';
+      setTimeout(() => {
+        deleteMessage.style.display = 'none'
+      }, 3000);
+    })
   })
 
+  //cancel the delete user action
+  domElement("#cancel").addEventListener('click', (e) => {
+    e.preventDefault();
+      table.style.display = 'flex';
+      userDeleteWarn.style.display = 'none';
+  })
 }
 
-domElement(".manage-users").addEventListener('click', allUsers)
+//Add event listerner to display users table
+domElement(".manage-users-menu").addEventListener('click', allUsers)
 
 function allUsers() {
   clearBoard()
-  fetchUsers()
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
   table.style.display = 'flex';
-  settingContainer.style.display = 'none';   
+  settingContainer.style.display = 'none';
+  editForm.style.display = 'none';
+  addArticleForm.style.display = 'none';
+  editArticleForm.style.display = 'none'; 
+  queriesContainer.style.display ='none';  
 }
+
+
 //fetch users
 function fetchUsers() {
   db
   .collection('users')
-  .get()
-  .then((users) => users.forEach((user) => {
+  .onSnapshot((users) => users.forEach((user) => {
     let info = user.data();
 
-      const tr = document.createElement('tbody')
+      const tr = document.createElement('tr')
+      const tbody = domElement('tbody')
       tr.setAttribute('data-id', user.id)
       tr.innerHTML = `
+      <tr>
               <td>${info.FullName}</td>
               <td>${info.role || 'Regular User'}</td>
               <td>${info.status || 'Active'}</td>
               <td><i class="fas fa-pen"></i></td>
               <td><i class="fas fa-trash"></i></td>  
+      </tr>
       `
-      table.appendChild(tr)
-  }))
+      tbody.appendChild(tr)
+    }))
 }
 
-
 //user settings
-
 const settingContainer = domElement(".users-settings");
 
-domElement(".settings").addEventListener('click', userSetting);
-
+domElement(".settings-menu").addEventListener('click', userSetting);
 function userSetting() {
   clearBoard()
+  if(articlesList.classList.contains('show')) {
+    articlesList.classList.remove('show')
+  }
   settingContainer.style.display = 'flex';
-  table.style.display = 'none'
+  table.style.display = 'none';
+  queriesContainer.style.display ='none'; 
+  editForm.style.display = 'none';
+  addArticleForm.style.display = 'none';
+  editArticleForm.style.display = 'none';  
 }
 
 
@@ -365,6 +427,7 @@ function showNav() {
     }
 }
 
+
 //function do handle queries data
 function handleData(doc) {
   const list = doc.data();
@@ -372,7 +435,12 @@ function handleData(doc) {
   const name = document.createElement('h2');
   const email = document.createElement('h5');
   const content = document.createElement('p');
+  const action = document.createElement('section')
 
+  action.innerHTML = `
+  <i class="fas fa-reply"></i>
+  <i class="far fa-trash-alt"></i>
+  `
   name.textContent = list.FullName;
   email.textContent = list.Email;
   content.textContent = list.Message;
@@ -380,6 +448,7 @@ function handleData(doc) {
   queriesPage.appendChild(name);
   queriesPage.appendChild(email);
   queriesPage.appendChild(content);
+  queriesPage.appendChild(action);
 
   queriesContainer.appendChild(queriesPage) 
 }
@@ -417,8 +486,11 @@ function savePost() {
           PostImage: `blogs/images/${title}`
         }, { merge: true })
         articleForm.reset()
-        blogErr.style.color = '#008B8B'
-        blogErr.innerHTML = 'Blog created'
+        blogErr.style.color = '#008B8B';
+        blogErr.innerHTML = 'Blog created';
+        setTimeout(() => {
+          article.style.didplay = 'none';
+        }, 3000);
       })
       .catch((err) =>console.log(err))
     }
@@ -446,7 +518,9 @@ function uploadBlogImage() {
 function fetchData() {
   db
   .collection('blogs')
-  .onSnapshot((data) => data.forEach((article) => displayArticle(article, article.id)))
+  .onSnapshot((data) => data.forEach((article) => {
+    displayArticle(article, article.id)
+  }))
 }
 function displayArticle(post, id) {
   const list = post.data();
@@ -470,7 +544,34 @@ function displayArticle(post, id) {
   domElement(".articles-list").appendChild(result)
 }
 
+
+//function to get totol number of records in a collection
+function getLength(collName, dataHolder, keyword) {
+   db.collection(collName).onSnapshot((data) => {
+    return  dataHolder.innerHTML =  `${data.size} ${keyword}`;
+  })
+} 
+
+
+//function to append total number of articles to dashboard
+function totalArticles() {
+  const articleNumber = domElement('#article-number');
+   return `${getLength('blogs',articleNumber, 'Articles')}`;
+};
+
+
+//function to append total number of messages to dashboard
+function totalMessages() {
+  const messageNmbr = domElement('#inquiry-number');
+  const topSide = domElement('#message-notification');
+   `${getLength('queries', messageNmbr, 'Queries')}`;
+   `${getLength('queries', topSide, '')}`;
+};
+
 window.onload = () => {
   fetchData()
+  fetchUsers()
   firebaseQueries() 
+  totalArticles()
+  totalMessages()
 }
