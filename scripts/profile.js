@@ -1,130 +1,149 @@
-//update admin display name through firebase
 const displayName = domElement("#admin-display-name");
 const adminName = domElement("#admin-name");
 const displayEmail = domElement("#admin-display-email");
+const img = domNodeList('.img');
 
-auth.onAuthStateChanged(user => {
-  if (user){
-    getUser(user)
-    uploadImage(user)
-    updateProfileInfo(user)
-    updateBio(user)
-    savePost()
-    uploadBlogImage()
 
-    db.collection('users').doc(user.uid).onSnapshot((info) => {
-      const userInfo = info.data();
-      if (userInfo.role === 'admin') {
-        domNodeList('.admin').forEach((ui) => ui.style.display = 'flex')
-
-      } else {
-        domElement('.fa-comment-dots').style.display = 'none';
-      }         
+function getUser() {
+    fetch(`${url}/users/profile`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',   
+        'auth-token': authToken,
+      }
     })
-
-  } else {
-    location.href = '../login/';
-  }
-})
-
-function getUser(data) {
-  let user = auth.currentUser;
-  if (user != null) {
-      user.providerData.forEach(function (profile) {
-      displayName.innerHTML = profile.displayName;
-      adminName.innerHTML = profile.displayName;
+    .then(handleResponse)
+    .then((result) => {
+      const profile = result.userProfile
+      displayName.innerHTML = profile.name;
+      adminName.innerHTML = profile.name;
       displayEmail.innerHTML =  profile.email;
-      console.log(profile)
-
-      firebase
-      .storage()
-      .ref(`users/profile/${data.uid}`)
-      .getDownloadURL()
-      .then(image => img.forEach(profile => profile.src = image))
-      .catch(()=> {
-        if (code = "storage/object-not-found") {
-          console.log('No Profile yet!')
-        }else{
-          console.log('Something went wrong!')
-        }
-      })
-    });
-  }
+      img.forEach(imag => imag.src = profile.profileImag)
+    })
+    .catch((err) => console.log(err))
 }
 
 // logout
 domElement(".fa-sign-out-alt").addEventListener('click', (e) => {
-    e.preventDefault();
-    auth
-    .signOut()
-    .then(() => window.location.href = '../login/');
+    e.preventDefault();  
+    sessionStorage.removeItem('s-techToken');
+      setTimeout(() => {
+        window.location.href = '../login/'
+      },3000)
 })
 
+
+const authToken = sessionStorage.getItem('s-techToken')
+const formData = new FormData();
+
+const input = domElement(".select-file");
+
 //upload image
-const img = domNodeList(".img");
-
-function uploadImage(user) {
-  domElement(".select-file").onchange = (event) => {
-    let file = {};
-      file = event.target.files[0];
-      event.preventDefault()
-
-      firebase
-      .storage()
-      .ref(`users/profile/${user.uid}`)
-      .put(file)
-      .then((image) => {
-         db.collection('users').doc(user.uid).set({
-          photoURL: image.ref.location.path
-        }, { merge: true })
-        user.updateProfile({
-          photoURL: image.ref.location.path,
-        })
-      })
-      .catch(err => console.log(err.message))
-  }
+function uploadImage(file) {
+  fetch(`${url}/users/profile`, {
+    method: 'POST',
+    headers: {
+        'Accept': 'multipart/form-data',
+        'auth-token': authToken
+    },
+    body:file
+})
+.then(handleResponse)
+.then((result) => { 
+    if (result.error) {
+      window.alert(result.error)
+    } else {
+      window.alert(result.message)
+    }
+})
+.catch((err) => window.alert(err))
+  
 }
 
+input.addEventListener('change', ({target}) => {
+    const { files } = target;
+    formData.append('profileImag', files[0])
+    uploadImage(formData)
+})
+
+
+function handleResponse(response){
+  let contentType = response.headers.get('content-type')
+
+  if (contentType.includes('application/json')){
+      return response.json()
+  } else if (contentType.includes('multipart/form-data')){
+      return response.blob()
+  } else if (contentType.includes('text/html')) {
+      return response.text()
+  }  else {
+      throw new Error(`content-type ${contentType} is not supported`)
+  }
+};
+
 //update profile information
-function updateProfileInfo(user) {
+function updateProfileInfo() {
     const form =domElement(".edit-admin-profile");
     form.onsubmit = (e) => {
         e.preventDefault();
         const name = domElement("#name");
         const bio = domElement("#bio");
         const profileError = domElement(".profile-error");
-
         if (name.value == '' || bio.value =='') {
           profileError.style.color = '#DF502A';
           profileError.innerHTML = 'Please fill the form fields';
         } else {
-             db.collection('users').doc(user.uid).set({
-                FullName: name.value,
-                Biograph:bio.value
-            }, { merge: true })
-            user.updateProfile({
-                displayName: name.value
-            })
-            form.reset();
-            profileError.style.color = '#008B8B';
-            profileError.innerHTML = 'Profile updated successfully'; 
-            setTimeout(() => {
-              form.style.display = 'none';
-            }, 3000);
+            fetch(`${url}/users/profile`, {
+              method: 'PUT',
+              headers: {
+                  'content-type': 'application/json',   
+                  'auth-token': authToken,
+              },
+              body: JSON.stringify({
+                name: name.value,
+                biograph: bio.value
+              })
+          })
+          .then(handleResponse)
+          .then((result) => {
+            form.reset()
+            profileError.style.color = '#FFFFFF'
+            profileError.innerHTML = result.message;
+              setTimeout(() => {
+                profileError.innerHTML = '';
+              }, 3000)
+          })
+          .catch((err) => {
+              submitBtn.innerHTML = 'Submit';
+              profileError.innerHTML = 'Something went wrong!';
+          })
         }    
     }
 }
-
 //update bio
-function updateBio(user) {
-    db.collection('users').doc(user.uid).onSnapshot((bio) =>{
-        const biograph = bio.data();
-        if (!biograph.Biograph) {
-          domElement("#biograph").style.visibility = 'hidden';
-        } else {
-          domElement("#biograph").innerHTML =`
-          <p>${biograph.Biograph}</p>
-          `
-        } 
-    })
+function updateBio() {
+  fetch(`${url}/users/profile`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',   
+      'auth-token': authToken,
+    }
+  })
+  .then(handleResponse)
+  .then((result) => {
+    if (!result.userProfile.biograph) {
+      domElement("#biograph").style.visibility = 'hidden';
+    } else {
+      domElement("#biograph").innerHTML =`
+      <p>${result.userProfile.biograph}</p>
+      `
+    } 
+  })
+  .catch((err) => console.log(err))
+};
+
+window.onload = () => {
+  updateBio()
+  updateProfileInfo()
+  getUser()
 }

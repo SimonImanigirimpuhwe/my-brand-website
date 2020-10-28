@@ -76,51 +76,63 @@ const inputValidation  = (fullName, mail, pswd, cfrPass, form) => {
       }
 }
 
-const submitForm = async(name, email, password, form) => {
+// server link
+const url = 'https://simon-tech-site.herokuapp.com';
 
-    await auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((cred) => {
-       return db.collection('users').doc(cred.user.uid).set({
-            FullName: name,
-            Email: email,
-            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
-            role: 'regular user'
+
+// signing up a user
+const submitForm = async(name, email, password, form) => {
+    fetch(`${url}/users/signup`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            password
         })
     })
-    .then(() => {  
-        form.reset();
-        signupBtn.innerHTML = 'Signup';
-        signupResult.style.color = '#008B8B';
-        signupResult.innerHTML = 'Account created successsfully';
-        window.location.href = '../login/';
+    .then(handleResponse)
+    .then((result) => { 
+        if (result.error) {
+            signupResult.style.color = '#DF502A';
+          signupResult.innerHTML = result.error;
+        } else {
+            form.reset();
+            signupBtn.innerHTML = 'Signup';
+            signupResult.style.color = '#008B8B';
+            signupResult.innerHTML = result.message;
+            window.location.href = '../login/';
+        }
+        console.log(result)
     })
     .catch(() => {
         signupResult.style.color = '#DF502A';
         signupResult.innerHTML = 'Something went wrong';
     })
-    saveUser(name)
+    // saveUser(name)
 }
+
+// handle fetch response
+function handleResponse(response){
+    let contentType = response.headers.get('content-type')
+
+    if (contentType.includes('application/json')){
+        return response.json()
+    } else if (contentType.includes('text/html')) {
+        return response.text()
+    } else {
+        throw new Error(`content-type ${contentType} is not supported`)
+    }
+};
+
 
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
     signupBtn.innerHTML = 'Loading .....';
     inputValidation(name.value, email.value, password.value, cfrmPass.value, signupForm);
 });
-
-//function to update display name
-async function saveUser(name) {
-    const user = auth.currentUser;
-    await user.updateProfile({
-        displayName: name,
-    })
-    .then(() => {
-        return true;
-    })
-    .catch(() => {
-        signupResult.innerHTML = 'unable to update display name';
-    })
-}
 
 //clear the error on keydown
 const inputs = document.querySelectorAll('input')

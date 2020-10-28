@@ -5,7 +5,7 @@ const addArticleForm = domElement(".add-new-article");
 const articlesList = domElement(".articles-list");
 const editArticleForm = domElement(".update-existing-article");
 const deleteMessage = domElement(".delete-message")
-
+const userToken = sessionStorage.getItem('s-techToken')
 
 domElement(".dashboard-menu").addEventListener('click', showDashBoard);
 domElement(".fa-ellipsis-v").addEventListener('click', showProfile);
@@ -15,7 +15,18 @@ domElement(".add-post-btn-menu").addEventListener('click', addArticle);
 domElement(".view-article-btn").addEventListener('click', viewAllArticles);
 domElement(".blog-number-card").addEventListener('click', viewAllArticles);
 
+//server link
+const url = 'https://simon-tech-site.herokuapp.com';
+
 //article update form display
+let updateImagRef;
+const updateArticleFile = domElement('.select-new-image');
+
+updateArticleFile.addEventListener('change', ({ target }) => {
+  const { files } = target;
+  updateImagRef= files[0]
+})
+
 domElement(".articles-list").addEventListener('click', (e) => {
   if (!e.target.classList.contains('fa-edit')) return;
   let id = e
@@ -33,26 +44,44 @@ function handleArticleUpdate(id) {
   editArticleForm.onsubmit = (e) => {
     e.preventDefault();
     const title = domElement('#update-title').value;
-    const description = domElement('#update-description').value;
+    const content = domElement('#update-description').value;
     const updateResult = domElement('.article-edit-error');
+    e.preventDefault();
 
-    if (title == '' || description == '') {
+    if (title == '' || content == '') {
       updateResult.style.display = 'flex';
       updateResult.style.color = '#DF502A';
       updateResult.innerHTML = 'Please fill the form fields';
-    } else {    
-      db.collection('blogs').doc(id).update({
-        Title:title,
-        Description: description
+    } else { 
+      
+      const updatedData = new FormData();
+      updatedData.append('title', title);
+      updatedData.append('content', content);
+      updatedData.append('articleImage', updateImagRef);
+  
+      fetch(`${url}/articles/${id}`, {
+        method: 'PUT',
+        headers: {
+          'auth-token': userToken
+        },
+        body: updatedData
       })
-      .then(() => {
+      .then(handleResponse)
+      .then((result) => {
+        if (result.error) {
+          updateResult.style.color = 'red'
+          updateResult.innerHTML = result.error;
+          return false;
+        }
         editArticleForm.reset()
+        domElement('#update-description').innerHTML= '';
         updateResult.style.color = '#008B8B'
-        updateResult.innerHTML = 'Blog updated successfully';
+        updateResult.innerHTML = result.message;
         setTimeout(() => {
-          editArticleForm.style.display = 'none';
-        }, 3000);
+          editArticleForm.style.display = 'none'
+        }, 5000)
       })
+      .catch((err) => console.log(err))  
     }
   }
 }
@@ -115,6 +144,8 @@ function editProfile() {
   editArticleForm.style.display = 'none';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
+  domElement("#name").value = domElement("#admin-name").innerHTML;
+  domElement("#bio").value = domElement("#biograph").textContent;
 }
 
 function addArticle() {
@@ -166,13 +197,21 @@ function updateArticle(id) {
   editArticleForm.style.display = 'flex';
   table.style.display = 'none';
   settingContainer.style.display = 'none';
-  const title = domElement('#update-title');
-  const description = domElement('#update-description');
-  db.collection('blogs').doc(id).onSnapshot((blog) => {
-    const list = blog.data();
-    title.value = list.Title;
-    description.innerHTML = list.Description
+
+  fetch(`${url}/articles/${id}`, {
+    method: 'GET',
+    headers: {
+        'content-type': 'application/json',
+    }
   })
+  .then(handleResponse)
+  .then(result => {
+      const articleData = result.signleArticle;
+      domElement('#update-title').value= articleData.title;
+      domElement('#update-description').innerHTML = articleData.content;
+      console.log('update-title', domElement('#update-title'))
+  })
+  .catch((err) => console.log(err))
 }
 
 //warning for delete an article
@@ -216,22 +255,25 @@ function warningCard(id) {
 
   domElement("#confirm").addEventListener('click', (e) => {
     e.stopPropagation();
-    db
-    .collection('blogs')
-    .doc(id)
-    .delete()
-    .then(() => {
+    fetch(`${url}/articles/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'auth-token': userToken
+      }
+    })
+    .then(handleResponse)
+    .then((result) => {
       warnContiner.style.display ='none';
       deleteMessage.style.display ='flex';
       deleteMessage.style.color ='#008B8B';
-      deleteMessage.innerHTML ='Blog deleted successfully';
+      deleteMessage.innerHTML = result.message;
       setTimeout(() => {
         deleteMessage.innerHTML = ''
       }, 3000);
     })
-    .catch(() => {
+    .catch((err) => {
       deleteMessage.style.color = '#DF502A'
-      deleteMessage.innerHTML = 'Failed to delete the blog';
+      deleteMessage.innerHTML = err
       setTimeout(() => {
         deleteMessage.innerHTML = ''
       }, 5000);
@@ -319,14 +361,29 @@ function manageUsers(e) {
 
   domElement("#confirm").addEventListener('click', (e) => {
     e.stopPropagation();
-    db.collection('users').doc(id).delete().then(() => {
-      userDeleteWarn.style.display ='none';
-      deleteMessage.style.display ='flex';
-      deleteMessage.style.color ='#008B8B';
-      deleteMessage.innerHTML ='User deleted successfully';
-      setTimeout(() => {
-        deleteMessage.innerHTML = '';
-      }, 5000);
+      fetch(`${url}/users/info/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'auth-token': userToken
+        }
+    })
+    .then(handleResponse)
+    .then((result) => {
+      if (result.error) {
+        userDeleteWarn.style.display ='none';
+        deleteMessage.style.display ='flex';
+        deleteMessage.style.color ='red';
+        deleteMessage.innerHTML =result.error;
+      } else {
+        userDeleteWarn.style.display ='none';
+        deleteMessage.style.display ='flex';
+        deleteMessage.style.color ='#008B8B';
+        deleteMessage.innerHTML =result.message;
+        setTimeout(() => {
+          deleteMessage.innerHTML = '';
+        }, 5000);
+      }
     })
     .catch((err) => {
       console.log(err)
@@ -362,29 +419,60 @@ function allUsers() {
   queriesContainer.style.display ='none';  
 }
 
-
 //fetch users
 function fetchUsers() {
-  db
-  .collection('users')
-  .onSnapshot((users) => users.forEach((user) => {
-    let info = user.data();
-
+    fetch(`${url}/users/info`, {
+      method: 'GET',
+      headers: {
+          'content-type': 'application/json',
+          'auth-token': userToken
+      }
+  })
+  .then(handleResponse)
+  .then((users) => users.user.forEach((user) => {
       const tr = document.createElement('tr')
       const tbody = domElement('tbody')
-      tr.setAttribute('data-id', user.id)
+      tr.setAttribute('data-id', user._id)
       tr.innerHTML = `
       <tr>
-              <td>${info.FullName}</td>
-              <td>${info.role || 'Regular User'}</td>
-              <td>${info.status || 'Active'}</td>
+              <td>${user.name}</td>
+              <td>${checkRole(user)}</td>
+              <td>${checkStatus(user)}</td>
               <td><i class="fas fa-pen"></i></td>
               <td><i class="fas fa-trash"></i></td>  
       </tr>
       `
       tbody.appendChild(tr)
-    }))
+    })
+    )
 }
+
+function checkRole(user){
+  if (user.isAdmin === true){
+    return 'Admin'
+  } else {
+    return 'Regular user'
+  }
+}
+function checkStatus(user){
+  if (user.isActive === true){
+    return 'Active'
+  } else {
+    return 'Inactive'
+  }
+}
+// handle fetch response
+function handleResponse(response){
+  let contentType = response.headers.get('content-type')
+
+  if (contentType.includes('application/json')){
+      return response.json()
+  } else if (contentType.includes('text/html')) {
+      return response.text()
+  } else {
+      throw new Error(`content-type ${contentType} is not supported`)
+  }
+};
 
 //user settings
 const settingContainer = domElement(".users-settings");
@@ -472,8 +560,7 @@ function manageQueriesFnc(id){
   })
 }
 //function do handle queries data
-function handleData(doc, id) {
-  const list = doc.data();
+function handleData(list) {
   const queriesPage = document.createElement('div');
   const name = document.createElement('h2');
   const email = document.createElement('h5');
@@ -482,11 +569,11 @@ function handleData(doc, id) {
 // console.log(id)
   action.innerHTML = `
   <i class="fas fa-reply"></i>
-  <i class="far fa-trash-alt" onclick="manageQueriesFnc('${id}')" ></i>
+  <i class="far fa-trash-alt" onclick="manageMessages('${list._id}')"></i>
   `
-  name.textContent = list.FullName;
-  email.textContent = list.Email;
-  content.textContent = list.Message;
+  name.textContent = list.name;
+  email.textContent = list.email;
+  content.textContent = list.message;
 
   queriesPage.appendChild(name);
   queriesPage.appendChild(email);
@@ -497,109 +584,148 @@ function handleData(doc, id) {
 }
 
 //view queries from DB
-function firebaseQueries() {
-  db.collection("queries")
-    .get()
-    .then((queries) => queries.forEach(query => handleData(query, query.id)))
+function fetchMessages() {
+    fetch(`${url}/messages`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'auth-token': userToken
+        }
+    })
+    .then(handleResponse)
+    .then((queries) => queries.allMessages.forEach(query => handleData(query)))
     .catch(error => console.log(error))
 }
 
+
+// manage messages
+function manageMessages(id) {
+  console.log(id)
+    fetch(`${url}/messages/${id}`, {
+      method: 'DELETE',
+      headers: {
+          'content-type': 'application/json',
+          'auth-token': userToken
+      }
+    })
+    .then(handleResponse)
+    .then(result => {
+      console.log(result.message)
+      location.reload()
+    })
+    .catch((err) => console.log(err))
+}
+
+
 //save post to database
+let imagRef;
 const blogErr = domElement(".article-error");
+const articleFile = domElement(".select-article-image");
+
+articleFile.addEventListener('change', ({ target }) => {
+  const { files } = target;
+  imagRef = files[0]
+})
+
 function savePost() {
   const articleForm = domElement(".add-new-article");
   articleForm.onsubmit = (e) => {
     e.preventDefault();
     const title = domElement("#title").value;
-    const description = domElement("#new-description").value;
+    const content = domElement("#new-description").value;
 
-    if (title == '' || description == '') {
+    if (title == '' || content == '') {
       blogErr.style.color = '#DF502A'
       blogErr.innerHTML = 'Please fill the form fields';
     } else {
-      let user = auth.currentUser;
-      db.collection('blogs').add({
-        Title:title,
-        PublishedAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
-        Author: user.displayName,
-        Description: description
-      })
-      .then((docRef) => {
-        db.collection('blogs').doc(docRef.id).set({
-          PostImage: `blogs/images/${title}`
-        }, { merge: true })
-        articleForm.reset()
-        blogErr.style.color = '#008B8B';
-        blogErr.innerHTML = 'Blog created';
-        setTimeout(() => {
-          article.style.didplay = 'none';
-        }, 3000);
-      })
-      .catch((err) =>console.log(err))
-    }
+    const data = new FormData();
+    data.append('title', title);
+    data.append('content', content);
+    data.append('articleImage', imagRef);
+
+    fetch(`${url}/articles`, {
+      method: 'POST',
+      headers: {
+        'auth-token': userToken
+      },
+      body: data
+    })
+    .then(handleResponse)
+    .then((result) => {
+      if (result.error) {
+        blogErr.innerHTML = result.error;
+      }
+      articleForm.reset()
+      blogErr.style.color = '#008B8B';
+      blogErr.innerHTML = result.message;
+      setTimeout(() => {
+        blogErr.innerHTML = '';
+        articleForm.style.display = 'none';
+      }, 3000);
+    })
+    .catch((err) => console.log(err))
+  }
   }
 }
 
-function uploadBlogImage() {
-  domElement(".select-article-image").onchange = (event) => {
-    event.preventDefault()
-    const title = domElement("#title").value;
-    let file = {};
-    file = event.target.files[0];
-    if (title == '') {
-      return 
-    } else {
-      firebase
-      .storage()
-      .ref(`blogs/images/${title}`)
-      .put(file)
-    } 
-  }
-}
-
-//get all articles from DB
 function fetchData() {
-  db
-  .collection('blogs')
-  .onSnapshot((data) => data.forEach((article) => {
-    displayArticle(article, article.id)
-  }))
-}
-function displayArticle(post, id) {
-  const list = post.data();
-  const result = document.createElement('div');
-  result.setAttribute('data-id', id)
-  result.innerHTML = `
-  <div >
-        <div class="card-content">
-            <h3>${list.Title}</h3>
-            <div class="article-body">
-              <p>${list.Description}</p>
+  fetch(`${url}/articles`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'auth-token': userToken
+    }
+  })
+  .then(handleResponse)
+  .then((articles) => {
+    articles.savedArticles.forEach((_article) => {
+      const result = document.createElement('div');
+      result.setAttribute('data-id', _article._id)
+      result.innerHTML = `
+      <div >
+            <div class="card-content">
+                <h3>${_article.title}</h3>
+                <div class="article-body">
+                  <p>${_article.content}</p>
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <i class="fas fa-trash-alt"></i>
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-info-circle"></i>
-        </div>
-  </div>
-  `
-  domElement(".articles-list").appendChild(result)
+            <div class="actions">
+                <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-info-circle"></i>
+            </div>
+      </div>
+      `
+      domElement(".articles-list").appendChild(result)
+    })
+  })
+  .catch((err) => console.log(err))
+  
 }
 
 
 //function to get totol number of records in a collection
-function getLength(collName, dataHolder, keyword) {
-   db.collection(collName).onSnapshot((data) => {
-    return  dataHolder.innerHTML =  `${data.size} ${keyword}`;
+function getLength(modelName, dataHolder, keyword) {
+  fetch(`${url}/${modelName}`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'auth-token': userToken
+    }
   })
+  .then(handleResponse)
+  .then((data) => {
+    const checkDataHoder = modelName === 'articles' ? data.savedArticles.length : modelName === 'messages' ? data.allMessages.length : 0
+    return  dataHolder.innerHTML =  `${checkDataHoder} ${keyword}`;
+  })
+  .catch((err) => console.log(err))
 } 
 
 
 //function to append total number of articles to dashboard
 function totalArticles() {
   const articleNumber = domElement('#article-number');
-   return `${getLength('blogs',articleNumber, 'Articles')}`;
+   return `${getLength('articles',articleNumber, 'Articles')}`;
 };
 
 
@@ -607,14 +733,12 @@ function totalArticles() {
 function totalMessages() {
   const messageNmbr = domElement('#inquiry-number');
   const topSide = domElement('#message-notification');
-   `${getLength('queries', messageNmbr, 'Queries')}`;
-   `${getLength('queries', topSide, '')}`;
+   `${getLength('messages', messageNmbr, 'Queries')}`;
+   `${getLength('messages', topSide, '')}`;
 };
 
-window.onload = () => {
-  fetchData()
-  fetchUsers()
-  firebaseQueries() 
-  totalArticles()
-  totalMessages()
-}
+fetchData()
+fetchUsers()
+fetchMessages() 
+totalArticles()
+totalMessages()

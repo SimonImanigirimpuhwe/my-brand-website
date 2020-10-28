@@ -51,25 +51,54 @@ const inputValidation = (fullName, mail, msg, form) => {
       }
 }
 
+// const url = 'https://simon-tech-site.herokuapp.com';
+const url = 'http://localhost:3000';
+
 
 async function submitResult(name, email, message, form) {
     submitBtn.innerHTML = 'Loading ....';
-    await db.collection("queries").add({
-        FullName: name,
-        Email: email,
-        Message: message,
-        submittedAt: new Date()
-    })
-    .then(() => {
-        form.reset();
-        submitBtn.innerHTML = 'Send';
-        queryResult.style.color = '#008B8B';
-        queryResult.innerHTML = 'Thanks for your Inquery!';
-    })
-    .catch(() => {
-        queryResult.innerHTML = 'Something went wrong, Please re-try!';
-    })
+    fetch(`${url}/messages`, {
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          name,
+          email,
+          message
+      })
+  })
+  .then(handleResponse)
+  .then((result) => {
+    if (result.error) {
+      queryResult.style.color = '#DF502A';
+      queryResult.innerHTML = result.error;
+    } else {
+      form.reset();
+      submitBtn.innerHTML = 'Send';
+      queryResult.style.color = '#008B8B';
+      queryResult.innerHTML = result.message;
+    }
+  })
+  .catch(() => {
+      queryResult.innerHTML = 'Something went wrong, Please re-try!';
+  })
 }
+
+
+// handle fetch response
+function handleResponse(response){
+  let contentType = response.headers.get('content-type')
+
+  if (contentType.includes('application/json')){
+      return response.json()
+  } else if (contentType.includes('text/html')) {
+      return response.text()
+  } else {
+      throw new Error(`content-type ${contentType} is not supported`)
+  }
+};
+
 
 submitBtn.onclick = (e) => {
     e.preventDefault();
