@@ -25,6 +25,10 @@ async function displayPost(post, id) {
     })
     .catch((err) => console.log(err))
 
+    if (list) {
+        domElement('#loading').style.display = 'none'
+      }
+      
     const result = document.createElement('section');
     result.innerHTML = `
     <div class="card-content" data-id="${id}" onclick="pageRedirect('${id}')">
