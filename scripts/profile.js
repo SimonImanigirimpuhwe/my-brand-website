@@ -11,6 +11,17 @@ auth.onAuthStateChanged(user => {
     updateBio(user)
     savePost()
     uploadBlogImage()
+
+    db.collection('users').doc(user.uid).onSnapshot((info) => {
+      const userInfo = info.data();
+      if (userInfo.role === 'admin') {
+        domNodeList('.admin').forEach((ui) => ui.style.display = 'flex')
+
+      } else {
+        domElement('.fa-comment-dots').style.display = 'none';
+      }         
+    })
+
   } else {
     location.href = '../login/';
   }
@@ -23,6 +34,7 @@ function getUser(data) {
       displayName.innerHTML = profile.displayName;
       adminName.innerHTML = profile.displayName;
       displayEmail.innerHTML =  profile.email;
+      console.log(profile)
 
       firebase
       .storage()
@@ -66,7 +78,7 @@ function uploadImage(user) {
           photoURL: image.ref.location.path
         }, { merge: true })
         user.updateProfile({
-          photoURL: image.ref.location.path
+          photoURL: image.ref.location.path,
         })
       })
       .catch(err => console.log(err.message))

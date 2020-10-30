@@ -70,6 +70,25 @@ async function loginFnc(email, password, form) {
 //check success
 function checkSuccess(form) {
   if (isLogged) {
+    
+    // auth.onAuthStateChanged(user => {
+    //   if (user){
+    //      db.collection('users').doc(user.uid).onSnapshot((info) => {
+    //        const userInfo = info.data();
+    //       //  console.log(userInfo.role)
+    //        if (userInfo.role === 'admin') {
+    //          console.log('allowed to dashboard')
+    //          domNodeList('.admin').forEach((ui) => ui.style.display = 'flex')
+    //          window.location.href = '../admin/';
+
+    //        } else {
+    //          console.log('not allowed')
+    //          domNodeList('.admin').forEach((ui) => ui.style.display = 'flex')
+    //          window.location.href = '../admin/';
+    //        }         
+    //     })
+    //   }
+    // })
     window.location.href = '../admin/';
     form.reset();
     loginBtn.innerHTML = 'Login';

@@ -403,6 +403,30 @@ function userSetting() {
   editArticleForm.style.display = 'none';  
 }
 
+domElement('.setting-card').onsubmit = (e) => {
+  e.preventDefault()
+  const user = auth.currentUser;
+  const emailAddress = user.email;
+
+      auth.sendPasswordResetEmail(emailAddress).then(() => {
+        domElement('#reset-erros').style.color = '#008B8B';
+        domElement('#reset-erros').innerHTML = 'Email sent!';
+        if (domElement('#reset-erros').innerHTML === 'Email sent!') {
+          domElement('.setting-card').reset()
+          domElement('#reset-erros').innerHTML = 'send'
+        } else {
+          domElement('#reset-erros').innerHTML = 'Loading .....';
+        }
+      }).catch((error) => {
+        if (error.code === "auth/user-not-found") {
+          domElement('#reset-erros').style.color = '#DF502A';
+          domElement('#reset-erros').innerHTML = "Email not found!";
+        } else {
+          domElement('#reset-erros').style.color = '#DF502A';
+          domElement('#reset-erros') = "Something went wrong!";
+        }
+      });
+}
 
 //customise dashboard reponsiveness
 const dashBoardHamburgIcon = domElement(".fa-bars");
@@ -427,19 +451,38 @@ function showNav() {
     }
 }
 
-
+function manageQueriesFnc(id){
+  console.log(id)
+  db.collection('queries').doc(id).delete().then(() => {
+    deleteMessage.style.display ='flex';
+    deleteMessage.style.color ='#008B8B';
+    deleteMessage.innerHTML ='Message deleted successfully';
+    setTimeout(() => {
+      deleteMessage.innerHTML = '';
+      location.reload()
+    }, 5000);
+  })
+  .catch((err) => {
+    console.log(err)
+    deleteMessage.style.color = '#DF502A'
+    deleteMessage.innerHTML = 'Failed to delete the user';
+    setTimeout(() => {
+      deleteMessage.style.display = 'none'
+    }, 3000);
+  })
+}
 //function do handle queries data
-function handleData(doc) {
+function handleData(doc, id) {
   const list = doc.data();
   const queriesPage = document.createElement('div');
   const name = document.createElement('h2');
   const email = document.createElement('h5');
   const content = document.createElement('p');
   const action = document.createElement('section')
-
+// console.log(id)
   action.innerHTML = `
   <i class="fas fa-reply"></i>
-  <i class="far fa-trash-alt"></i>
+  <i class="far fa-trash-alt" onclick="manageQueriesFnc('${id}')" ></i>
   `
   name.textContent = list.FullName;
   email.textContent = list.Email;
@@ -457,7 +500,7 @@ function handleData(doc) {
 function firebaseQueries() {
   db.collection("queries")
     .get()
-    .then((queries) => queries.docs.forEach(query => handleData(query)))
+    .then((queries) => queries.forEach(query => handleData(query, query.id)))
     .catch(error => console.log(error))
 }
 

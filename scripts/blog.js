@@ -1,11 +1,9 @@
 const selectedPost = document.querySelector('main');
 
-selectedPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    localStorage.setItem("id", e.target.getAttribute('data-id'));
-    if (!e.target.classList.contains('card-content')) return ;
+function pageRedirect(id){
+    localStorage.setItem("id", id);
     window.location.href = '../blog/article.html';
-});
+}
 
 //display data from DB
 function getData() {
@@ -29,7 +27,7 @@ async function displayPost(post, id) {
 
     const result = document.createElement('section');
     result.innerHTML = `
-    <div class="card-content" data-id="${id}">
+    <div class="card-content" data-id="${id}" onclick="pageRedirect('${id}')">
             <div class="article-image">
                 <img src="${img}">
             </div>

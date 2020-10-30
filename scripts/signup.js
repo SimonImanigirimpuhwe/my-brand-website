@@ -84,7 +84,8 @@ const submitForm = async(name, email, password, form) => {
        return db.collection('users').doc(cred.user.uid).set({
             FullName: name,
             Email: email,
-            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date())
+            createdAt: new Intl.DateTimeFormat('en-US', { dateStyle:'long'}).format( new Date()),
+            role: 'regular user'
         })
     })
     .then(() => {  
@@ -92,7 +93,7 @@ const submitForm = async(name, email, password, form) => {
         signupBtn.innerHTML = 'Signup';
         signupResult.style.color = '#008B8B';
         signupResult.innerHTML = 'Account created successsfully';
-        window.location.href = '../admin/';
+        window.location.href = '../login/';
     })
     .catch(() => {
         signupResult.style.color = '#DF502A';

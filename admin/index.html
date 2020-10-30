@@ -22,7 +22,7 @@
         </div>
         <div class="profile-status-wrapper">
             <div id="queries-notification">
-                <i class="fas fa-comment-dots"></i><span id="message-notification">9</span>
+                <i class="fas fa-comment-dots"></i><span id="message-notification" class="admin">9</span>
                 <i class="fas fa-bell"></i><span id="notifications">7</span>
                 <i class="fas fa-envelope"></i><span id="email-notification">5</span>
             </div>
@@ -52,17 +52,17 @@
                         data-icon="carbon:add-filled"></span></div>
                 <p>New article</p>
             </div>
-            <div class="menu manage-users-menu">
+            <div class="menu manage-users-menu admin">
                 <div class="manage-users"><span class="iconify" data-inline="false" data-icon="fa-solid:users"></span>
                 </div>
                 <p>Users</p>
             </div>
-            <div class="menu settings-menu">
+            <div class="menu settings-menu admin">
                 <div class="settings"><span class="iconify" data-inline="false"
                         data-icon="ant-design:setting-filled"></span></div>
                 <p>Settings</p>
             </div>
-            <div class="menu queries-menu">
+            <div class="menu queries-menu admin">
                 <i class="fas fa-envelope-open-text"></i>
                 <p>Queries</p>
             </div>
@@ -151,7 +151,7 @@
             <div class="articles-list"></div>
             <div class="warn-container"></div>
             <div class="delete-message"></div>
-            <div class="queries-container-page"></div>
+            <div class="queries-container-page admin"></div>
             <table class="users-wrapper">
                 <thead>
                     <tr>
@@ -165,17 +165,15 @@
                 <tbody></tbody>
             </table>
             <div class="users-settings">
-                <div class="setting-card">
+                <form class="setting-card">
                     <h3>Reset your account</h3>
-                    <label for="password">Password
-                        <input type="password" name="password" id="new-password">
-                    </label>
-                    <button type="submit" id="submit-new-pass">Save</button>
-                </div>
+                    <p id="reset-erros"></p>
+                    <button type="submit" id="submit-new-pass">Send</button>
+                </form>
             </div>
             <div class="dashboard-content">
-                <h2>Analysis</h2>
-                <div class="cards-container">
+                <h2 class="title">Analysis</h2>
+                <div class="cards-container ">
                     <div class="card">
                         <h3 id="blog-visitor">Blog visitors</h3>
                         <p id="visitor-number">Over 4K</p>
@@ -202,7 +200,7 @@
                         <h3 id="blog-article">Articles</h3>
                         <p id="article-number">5K</p>
                     </div>
-                    <div class="card blog-inquiry">
+                    <div class="card blog-inquiry admin">
                         <h3 id="blog-inquiry">Inquiries</h3>
                         <p id="inquiry-number">Over 9K</p>
                     </div>
