@@ -89,6 +89,17 @@ body{
     flex-direction: column;
     -ms-flex-direction: column;
 }
+.projects-wrapper{
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+.projects{
+    margin-top: 20px;
+}
+.project-title{
+    font-weight: bold;
+}
 .content-span{
     display: flex;
     flex-direction: row;
@@ -99,7 +110,10 @@ body{
     padding-left: 10px;
 }
 .skills-level p{
-    width: 200px;
+    width: 250px;
+}
+.projects-wrapper .skills-level p{
+    width: 250px;
 }
 .bullet{
     background:transparent;

@@ -1,6 +1,6 @@
 const commentForm = document.querySelector('.comment-form');
 const commentIcon = document.querySelector('#comment-display-btn');
-
+const userToken = sessionStorage.getItem('s-techToken')
 
 const showForm = () => {
     commentForm.style.display = 'flex';
@@ -30,96 +30,108 @@ function userLocation() {
     }
 }
 
-//function to enable comments
 
-const email = document.getElementById("email-field");
 const comment = document.getElementById("comment-area");
 const commentResult = document.getElementById("comment-result");
 const submitBtn = document.getElementById("submit-comment-form");
 
 
-const commentsInput = (mail, msg, form) => {
-    const emailPattern = /^[a-z]+([a-z0-9_\-\.]){1,}\@([a-z0-9_\-\.]){1,}\.([a-z]{2,4})$/;
-    
-    if (mail.length === 0) {
-        email.style.border = '1px solid red';
-        commentResult.style.color = '#DF502A';
-        commentResult.innerHTML = 'Email is required';
-        return false;
-      } else if (!emailPattern.test(mail)) {
-        email.style.border = '1px solid red';
-        commentResult.style.color = '#DF502A';
-        commentResult.innerHTML = 'Invalid Email Format'
-        return false;
-      } else if (msg.length === 0) {
+const commentsInput = (msg, form) => {
+      if (msg.length === 0) {
         comment.style.border = '1px solid red';
         commentResult.style.color = '#DF502A';
         commentResult.innerHTML = 'comment is required!'
         return false;
       } else {
-        submitComment(email.value, comment.value, form)
+        submitComment(comment.value, form)
       }
 }
 
-
-async function submitComment(email, comment, form) {
-    const docId = localStorage.getItem('id')
+//function to enable comment submission
+async function submitComment(comment, form) {
+    const docId = localStorage.getItem('articleId')
     submitBtn.innerHTML = 'Loading ....';
-    const docRef = db.collection("blogs");
-    await docRef.doc(docId).collection("comments").doc().set({
-        Email: email,
-        Comment: comment
+
+    fetch(`${url}/comments/${docId}`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'auth-token': userToken
+        },
+        body: JSON.stringify({
+            commentContent: comment
+        })
     })
-    .then(() => {
-        form.reset();
-        submitBtn.innerHTML = 'Submit';
-        commentResult.style.color = '#008B8B';
-        commentResult.innerHTML = 'Comment added!';
-        commentForm.style.display = 'none';
-        setTimeout(() => {
-            commentResult.innerHTML = '';  
-        }, 2000);
+    .then(handleResponse)
+    .then((result) => {
+        if (result.error) {
+            commentResult.style.color = '#DF502A';
+            commentResult.innerHTML = result.error;
+        } else {
+            form.reset();
+            submitBtn.innerHTML = 'Submit';
+            commentResult.style.color = '#008B8B';
+            commentResult.innerHTML = result.message;
+            commentForm.style.display = 'none';
+            setTimeout(() => {
+                commentResult.innerHTML = '';  
+            }, 4000);
+        }
     })
     .catch((err) => {
-        console.log(err)
         submitBtn.innerHTML = 'Submit';
-        commentResult.innerHTML = 'Create account to comment!';
+        commentResult.innerHTML = 'Something went wrong!';
     })
 }
 
 submitBtn.onclick = (e) => {
     e.preventDefault();
-    commentsInput( email.value, comment.value, commentForm)
+    commentsInput(comment.value, commentForm)
 }
 
 //clear the error on keydown
-
 function clearFeedBack() {
     submitBtn.innerHTML = 'Submit';
     commentResult.innerHTML = '';
 }
-email.addEventListener('keydown', clearFeedBack)
 comment.onkeydown = clearFeedBack;
+
 
 //fetch comments
 function getComments() {
-    const docId = localStorage.getItem('id');
-    db
-    .collection('blogs')
-    .doc(docId)
-    .collection('comments')
-    .onSnapshot((comments) => comments
-    .forEach((comment) => handleCommets(comment)))
+    const docId = localStorage.getItem('articleId');
+    fetch(`${url}/comments/${docId}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+        }
+    })
+    .then(handleResponse)
+    .then(result => result.forEach((comment) => handleCommets(comment)))
+    .catch(err => console.log(err))
 }
 
+// handle fetch response
+function handleResponse(response){
+    let contentType = response.headers.get('content-type')
+
+    if (contentType.includes('application/json')){
+        return response.json()
+    } else if (contentType.includes('text/html')) {
+        return response.text()
+    } else {
+        throw new Error(`content-type ${contentType} is not supported`)
+    }
+};
+
+
 function handleCommets(comment) {
-        let blogComment = comment.data();
         let divEl = document.createElement('div');
         
         divEl.innerHTML = 
         `<div id="comments-card">
-            <div id="user-email">${blogComment.Email}</div>
-            <div id="user-comment">${blogComment.Comment}</div>
+            <div id="user-email">${comment.sender.email}</div>
+            <div id="user-comment">${comment.commentContent}</div>
             <div id="user-reaction">
             <div id="user-reaction-icon">
             <i class="fas fa-heart"></i>

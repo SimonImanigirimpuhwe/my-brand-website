@@ -752,8 +752,8 @@ tbody tr {
   padding-left: 150px;
 }
 .users-wrapper th:nth-child(5) {
-  padding-left: 130px;
-  padding-right: 22px;
+  padding-left: 140px;
+  padding-right: 15px;
 }
 .fa-pen:hover,
 .fa-trash:hover {
@@ -930,12 +930,6 @@ footer {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
-/***************
-admin UI
-*/
-.admin {
-  display: none;
-}
 
 /*=========================
 style dark mode
@@ -1070,7 +1064,7 @@ customize responsiveness
     padding-left: 120px;
   }
   .users-wrapper th:nth-child(5) {
-    padding-left: 80px;
+    padding-left: 90px;
     padding-right: 6px;
   }
 }
@@ -1207,6 +1201,10 @@ customize responsiveness
   }
   .card-content {
     height: 300px;
+  }
+  .users-wrapper th:nth-child(5) {
+    padding-left: 50px;
+    padding-right: 8px;
   }
 }
 @media screen and (max-width: 950px) {
@@ -1385,6 +1383,10 @@ customize responsiveness
   }
   .users-wrapper {
     margin: 150px 25% 0 5%;
+  }
+  .users-wrapper th:nth-child(5) {
+    padding-left: 30px;
+    padding-right: 10px;
   }
 }
 @media screen and (max-width: 537px) {
